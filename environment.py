@@ -7,7 +7,7 @@ from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from settings import settings_test as settings
 from os import getcwd
-from api_method import delete_data
+#from api_method import delete_data
 from sys import platform
 import time
 
@@ -26,24 +26,6 @@ PASSWORD = settings['password']
 STAND = settings['stand_number']
 
 
-def delete_saved_document(context):
-    '''
-    Фунцкия готовит список УД из context.list_ud для метода, который дернет api arm-oms,
-    и удалит их. 
-    '''
-    # список для ID
-    list_ud_for_delete = list()
-    # Взять id из окружения с припиской ID, и убрать приписку.
-    # Напримеh, было "UD 1334124", станет "1334124"
-    # Это необходимо, т.к. id  подают в список с припиской 'УД ', необходимо отбросить первые три символа.
-    for item in context.list_ud:
-        list_ud_for_delete.append(item[3:])
-    try:
-        delete_data(list_ud_for_delete)
-    except:
-        print ('cant decode date... UD didnt removed')
-    context.list_ud = list()
-
 def sleep_while_show_text(context, text):
     '''
     Функция ставит выполнение на паузу, пока на экране есть указанный текст.
@@ -60,36 +42,34 @@ def sleep_while_show_text(context, text):
 
 def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     '''
-    Функция для логина в CAS.
-    Ввести логин и пароль, нажать "войти"
+    Функция для логина в аккаунте.
+    Ввести логин и пароль, нажать "Login"
     '''
-    # явные ожидания
+    # неявные ожидания
     # context.browser.implicitly_wait(120)
-    print ('I get access to the arm-oms...')
-    server = 'http://{0}/arm-oms/'.format(server)
-    context.browser.get("http://10.0.33.19:8081/arm-oms/")
+    print ('I try to login into account...')
+    
+    context.browser.get(server)
+    context.browser.find_element_by_link_text("Login").click()
     WebDriverWait(context.browser, 1000).until(
-        EC.presence_of_element_located((By.NAME, 'username'))
+        EC.presence_of_element_located((By.ID, 'RegisterForm_email'))
     )
-    context.browser.find_element_by_name("username").send_keys(login)
-    context.browser.find_element_by_name("password").send_keys(password)
-    context.browser.find_element_by_class_name("btn-submit").click()
-    text = 'ГБУЗ ГП № 46'.decode('utf-8')
+    context.browser.find_element_by_id("RegisterForm_email").clear()
+    context.browser.find_element_by_id("RegisterForm_email").send_keys(login)
+    context.browser.find_element_by_id("RegisterForm_password").clear()
+    context.browser.find_element_by_id("RegisterForm_password").send_keys(password)
+    context.browser.find_element_by_name("yt0").click()
+       
+    text = 'All the Icons You Need. Guaranteed.'.decode('utf-8')
     WebDriverWait(context.browser, 1000).until(
-        EC.presence_of_element_located((By.XPATH, "//*[@id='s2id_autogen1_search']"))
+        EC.presence_of_element_located((By.XPATH, "//*[@id='home-app']/div[2]/div/h2"))
     )
+    
     time.sleep(2)
-    context.browser.find_element_by_xpath("//*[@id='s2id_autogen1_search']").click()
-    context.browser.find_element_by_xpath("//*[@id='s2id_autogen1_search']").send_keys(text)
-    WebDriverWait(context.browser, 1000).until(
-        EC.presence_of_element_located((By.XPATH, '//*/li//*[contains(text(), "%s")]' % text))
-    )
-    context.browser.find_element_by_xpath('//*/li//*[contains(text(), "%s")]' % text).click()
+    
     print ('DONE!')
-    WebDriverWait(context.browser, 1000).until(
-        EC.presence_of_element_located((By.XPATH, '//*/li//*[contains(text(), "Регистрация услуг")]'))
-    )
-
+     
+    
 def make_driver(context):
     '''
     Создать объект-драйвер для взаимодействия с браузером.
@@ -159,7 +139,7 @@ def after_feature(context, feature):
     Подробнее на http://pythonhosted.org/behave/. 
     '''
     # Вызвать функцию для подготовки данных, которая вызовет api-metod для удаление УД.
-    delete_saved_document(context)
+  #  delete_saved_document(context)
     try:
         context.browser.quit()
     except: 
@@ -174,4 +154,5 @@ def after_all(context):
     Подробнее на http://pythonhosted.org/behave/. 
     '''
     pass
+ #   context.browser.quit()
 
