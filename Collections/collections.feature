@@ -2,25 +2,25 @@ Feature: Collections
 Scenario: Create collection
 Scenario: 0: Collections are in the right bar
   Then push link 'Icons'
-  Then push "Got it" into Notification bar
-  Then push tab 'Collections'
+#  Then push button 'Got It'
+  Then push unactive tab
   
 Scenario: 1: Create collection
-  Then push button 'Create'
+  Then push 'Create'
   Then enter name "Auto Collection 100"
   Then push button "Done"
   Then push button 'Create'
   Then push button "Done"
   
-Scenario: 28: Delete collection
-  Then push button 'Edit collection'
-  Then push button 'Delete collection'
-  Then push button 'Cancel'
-  Then push button 'Delete collection'
-  Then push button 'Delete'
-  Then push button 'Delete collection'
-  Then push button 'Delete'
-  Then push button "Finish edit"
+# Scenario: 28: Delete collection
+  # Then push button 'Edit collection'
+  # Then push button 'Delete collection'
+  # Then push button 'Cancel'
+  # Then push button 'Delete collection'
+  # Then push button 'Delete'
+  # Then push button 'Delete collection'
+  # Then push button 'Delete'
+  # Then push button "Finish edit"
   
   
   

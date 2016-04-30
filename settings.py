@@ -4,7 +4,7 @@
 Сервер, логин, пароль.
 '''
 settings_test = {
-'login':'ainomc@gmail.com',
+'login':'ainomc+888@gmail.com',
 'password':'123',
 'login2':'ainomc+1@gmail.com',
 'login3':'ainomc+2@gmail.com',
