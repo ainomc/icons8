@@ -166,9 +166,18 @@ def scroll_down(context):
 def scroll_up(context):
     context.browser.execute_script("window.scrollTo(0,window.screen.availHeight);")            
     
-# Найти видимиый текст
+# # Найти видимиый текст
+# def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
+    # WebDriverWait(context.browser, time_for_search).until(
+        # EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
+    # )
+    # assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)    
+    
+# findElements    
+    
+# Найти видимиый текст новый
 def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
     WebDriverWait(context.browser, time_for_search).until(
-        EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
+        EC.findElement((By.XPATH, '//*[contains(text(), "%s")]' % text))
     )
-    assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)    
+    assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)     
