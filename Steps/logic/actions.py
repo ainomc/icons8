@@ -17,12 +17,12 @@ TIME_FOR_WAIT = 30
 # Кликнуть на линк
 def click_on_link(context, link):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, '//*[1][contains(text(), "%s")]' % link))
+        EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")]' % link)) ### '//*[1][contains(text(), "%s")] - old version
     )
     time.sleep(2)
     while True: 
         try:
-            context.browser.find_element_by_xpath('//*[1][contains(text(), "%s")]' % link).click()
+            context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % link).click()
             break
         except StaleElementReferenceException: 
             continue
