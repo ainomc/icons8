@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from behave import *
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,27 +14,35 @@ import os
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
-
 # Кликнуть на линк
 def click_on_link(context, link):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")]' % link)) ### '//*[1][contains(text(), "%s")] - old version
+        EC.element_to_be_clickable((By.XPATH, '//*[1][contains(text(), "%s")]' % link)) ### '//*[1][contains(text(), "%s")] - old version
     )
     time.sleep(2)
     while True: 
         try:
-            context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % link).click()
+            context.browser.find_element_by_xpath('//*[1][contains(text(), "%s")]' % link).click()
             break
         except StaleElementReferenceException: 
             continue
-            
+
+# скроллинг до элемента
+def scroll_element_into_view(driver, element):
+    """Scroll element into view"""
+    y = element.location['y']
+# От верхненего края на 250 пикселей
+    y = y - 250 
+    driver.execute_script('window.scrollTo(0, {0})'.format(y))            
+ 
+# кликнуть на элемент по xpath
 def click_on_xpath(context, xpath):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
         EC.element_to_be_clickable((By.XPATH, xpath))
     )
     element = context.browser.find_element_by_xpath(xpath)
-  #  scroll_element_into_view(context.browser, element)
-    element.click()            
+    scroll_element_into_view(context.browser, element)
+    element.click()          
 
 # Кликнуть на кнопку
 def click_on_button(context, button):
@@ -157,8 +166,8 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
 # Прокрутить вниз страницы
 # Then scroll to end of the page
 def scroll_down(context):
-    context.browser.execute_script("window.scrollBy(0,1250)", "")
-####context.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);") - old version
+##    context.browser.execute_script("window.scrollTo(0,250)", "")
+  context.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")## - old version
    
     
 # Прокрутить в вверх страницы
@@ -166,18 +175,37 @@ def scroll_down(context):
 def scroll_up(context):
     context.browser.execute_script("window.scrollTo(0,window.screen.availHeight);")            
     
-# # Найти видимиый текст
-# def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
-    # WebDriverWait(context.browser, time_for_search).until(
-        # EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
-    # )
-    # assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)    
-    
-# findElements    
-    
-# Найти видимиый текст новый
+# Найти видимиый текст
 def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
     WebDriverWait(context.browser, time_for_search).until(
-        EC.findElement((By.XPATH, '//*[contains(text(), "%s")]' % text))
+        EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
     )
-    assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)     
+    assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)  
+   
+# Найти видимиый элемент по xpath
+def locate_element(context, xpath, time_for_search = TIME_FOR_WAIT):
+    WebDriverWait(context.browser, time_for_search).until(
+        EC.presence_of_element_located((By.XPATH, xpath))
+    )
+    element = context.browser.find_element_by_xpath(xpath)
+    scroll_element_into_view(context.browser, element)
+    assert context.browser.find_element_by_xpath(xpath)  
+
+# # кликнуть на элемент по xpath
+# def click_on_xpath(context, xpath):
+    # WebDriverWait(context.browser, TIME_FOR_WAIT).until(
+        # EC.element_to_be_clickable((By.XPATH, xpath))
+    # )
+    # element = context.browser.find_element_by_xpath(xpath)
+    # scroll_element_into_view(context.browser, element)
+    # assert context.browser.find_element_by_xpath(xpath)
+
+    # element.click()          
+
+    
+# # Найти видимиый текст новый
+# def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
+    # WebDriverWait(context.browser, time_for_search).until(
+        # EC.findElement((By.XPATH, '//*[contains(text(), "%s")]' % text))
+    # )
+    # assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)     
