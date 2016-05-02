@@ -22,13 +22,24 @@ def step_impl(context):
 def step(context, link):
     click_on_link(context, link)               
 
+# Then go to Main page
+@then("go to Main page")
+def step(context):
+    open_main_page(context)    
+    
 # Then push link in header 'link text'
 @then("push link in header '{text_link}'")
 def step(context, text_link):
     xpath = "//span[contains(text(), '%s')]" % text_link
     click_on_xpath(context, xpath)    
    
-# Then locate image 'adress'
+# Then push 'button' in Request icons
+@then("push '{button}' in Request icons")
+def step(context, button):
+    xpath = "//*[contains(text(), '%s')]" % button
+    click_on_xpath(context, xpath) 
+   
+# Then locate image 'address'
 @then("locate image '{link}'")    
 def step(context, link):
     xpath = "//img[@src='%s']" % link
@@ -40,19 +51,30 @@ def step(context, name):
     xpath = "//a[@ng-href='%s']" % name
     locate_element(context, xpath)     
 
-# Then push link request 'req_text'
-@then("push link request '{req_text}'")
-def step(context, req_text):
-    xpath = "//*[@title='%s')]" % req_text
-    locate_element(context, xpath)  
-  #  click_on_xpath(context, xpath)   
+# Then push link request icons
+@then("push link Request icons")
+def step(context):
+    xpath = "//a[@class='c-pretty-link']"
+    click_on_xpath(context, xpath)  
 
+# Then close popup
+@then("close popup")
+def step(context):
+    xpath = "(//div[@class='ng-modal-close'])[last()]"
+    click_on_xpath(context, xpath)      
+      
 # Then locate image 'text image'
 @then("locate image text '{text_image}'")
 def step(context, text_image):
      xpath = "//img[@alt='%s']" % text_image
      locate_element(context, xpath)      
-   
+
+# Then locate element in popup
+@then("locate element in popup")
+def step(context):
+     xpath = "//span[@class='hljs-doctype']"
+     locate_element(context, xpath)     
+     
 # Then push button 'button text'
 @then("push button '{button}'")
 def step(context, button):
@@ -90,3 +112,8 @@ def step(context):
 def step(context, text):
     locate_text(context, text)
    
+# Then pedro search
+@then("pedro search")
+def step(context):
+     xpath = "//input[@placeholder='Find an icon']"
+     locate_element(context, xpath)       

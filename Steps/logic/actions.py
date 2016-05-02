@@ -10,10 +10,13 @@ from datetime import datetime, timedelta
 import selenium.webdriver.common.action_chains as AC
 import time
 import os
+from settings import settings_test as settings
 
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
+
+SERVER = settings['server']
 # Кликнуть на линк
 def click_on_link(context, link):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
@@ -27,6 +30,13 @@ def click_on_link(context, link):
         except StaleElementReferenceException: 
             continue
 
+# Then scroll to end of the page
+def open_main_page(context, server=SERVER):
+    '''
+    Функция для перехода на Главную, там где нет кнопки в шапке
+    '''
+    context.browser.get(server)              
+            
 # скроллинг до элемента
 def scroll_element_into_view(driver, element):
     """Scroll element into view"""
@@ -83,7 +93,9 @@ def click_on_create(context, create):
         except StaleElementReferenceException:
             continue
 
-"""            
+"""       
+тестовые функции
+     
 //input[@ng-model='collsControl.newCollName']
 
 
@@ -117,9 +129,7 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     print ('DONE!')
 """    
 
-
-
-
+# тестовая фунция
 
 # def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     # '''
@@ -168,7 +178,6 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
 def scroll_down(context):
 ##    context.browser.execute_script("window.scrollTo(0,250)", "")
   context.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")## - old version
-   
     
 # Прокрутить в вверх страницы
 # Then scroll to begin of the page
@@ -191,21 +200,20 @@ def locate_element(context, xpath, time_for_search = TIME_FOR_WAIT):
     scroll_element_into_view(context.browser, element)
     assert context.browser.find_element_by_xpath(xpath)  
 
-# # кликнуть на элемент по xpath
-# def click_on_xpath(context, xpath):
+# пока не пашет    
+# def pedro_search(context, xpath):
     # WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        # EC.element_to_be_clickable((By.XPATH, xpath))
+        # #EC.element_to_be_clickable((By.XPATH, xpath)).click()
+        # EC.find_element_by_xpath((By.XPATH, xpath)).send_keys("Minecraft")
+        
     # )
-    # element = context.browser.find_element_by_xpath(xpath)
-    # scroll_element_into_view(context.browser, element)
-    # assert context.browser.find_element_by_xpath(xpath)
-
-    # element.click()          
-
-    
-# # Найти видимиый текст новый
-# def locate_text(context, text, time_for_search = TIME_FOR_WAIT):
-    # WebDriverWait(context.browser, time_for_search).until(
-        # EC.findElement((By.XPATH, '//*[contains(text(), "%s")]' % text))
-    # )
-    # assert context.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)     
+    # time.sleep(2)
+    # context.browser.find_element_by_xpath(xpath).clear()
+    # context.browser.find_element_by_xpath(xpath).send_keys("Minecraft")
+    # time.sleep(2)
+    # while True: 
+        # try:
+            # context.browser.find_element_by_xpath(xpath)
+            # break
+        # except StaleElementReferenceException: 
+            # continue    
