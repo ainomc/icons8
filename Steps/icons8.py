@@ -39,6 +39,12 @@ def step(context, button):
     xpath = "//*[contains(text(), '%s')]" % button
     click_on_xpath(context, xpath) 
    
+# Then push link Logout
+@then("push link Logout")
+def step(context):
+    xpath = "//*[@href='/logout/']"
+    click_on_xpath(context, xpath) 
+   
 # Then locate image 'address'
 @then("locate image '{link}'")    
 def step(context, link):
