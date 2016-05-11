@@ -33,8 +33,8 @@ def step(context, text_link):
     xpath = "//span[contains(text(), '%s')]" % text_link
     click_on_xpath(context, xpath)    
    
-# Then push 'button' in Request icons
-@then("push '{button}' in Request icons")
+# Then push 'button' from tabs
+@then("push '{button}' from tabs")
 def step(context, button):
     xpath = "//*[contains(text(), '%s')]" % button
     click_on_xpath(context, xpath) 
