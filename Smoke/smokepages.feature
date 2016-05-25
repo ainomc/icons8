@@ -93,12 +93,13 @@ Scenario: 9: Open Request icons page and assertion
   Then scroll to end of the page
   Then locate text 'Recently Created Icons'
   Then push 'Fast Track' from tabs
-  Then locate text 'How Does It Work?'
-  Then locate text 'What’s the Catch?'
+  Then locate text 'How fast is it?'
+  Then locate text 'Good For Fast Track'
   Then push 'Custom' from tabs
-  Then locate text 'How to Start'
-  Then push 'Free for Share' in Request icons
-  Then locate text 'Request Icons'
+  Then locate text 'Where do I start?'
+  Then push 'Free for Share' from tabs
+ # Then push 'Free for Share' in Request icons
+  Then locate text 'Request Icon'
   Then push link in header 'Icons8'
   Then go to Main page
 
