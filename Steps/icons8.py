@@ -79,7 +79,7 @@ def step(context, text_image):
 @then("locate element in popup")
 def step(context):
      xpath = "//span[@class='hljs-doctype']"
-     locate_element(context, xpath)     
+     locate_element(context, xpath)    
      
 # Then push button 'button text'
 @then("push button '{button}'")
@@ -122,4 +122,6 @@ def step(context, text):
 @then("pedro search")
 def step(context):
      xpath = "//input[@placeholder='Find an icon']"
-     locate_element(context, xpath)       
+     locate_element(context, xpath)
+
+ 
