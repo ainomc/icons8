@@ -61,7 +61,7 @@ Scenario: 6: Open Contact us page and assertion
   Then push link 'Contact us'
   Then scroll to end of the page
   Then locate text 'Check'
-  Then locate text ' a message'
+  Then locate text 'Other Questions'
   Then push link in header 'Icons8'
 
 # # Пока ссылки на Free-icons нет, кейс заблокирован  
@@ -79,11 +79,11 @@ Scenario: 8: Open Application page and assertion
   Then push link in header 'Icons8'
   Then push link 'Download'
   Then scroll to end of the page
-  Then locate text 'Pick your color, size, and format. Drag it to Photoshop. Done.'
-  Then locate text 'How it Works'
-  Then locate text 'Download Icons8 App for Windows'
-  Then push link 'Mac OS'
-  Then locate text 'Download Icons8 App for Mac'
+  Then locate text 'Download All Our Icons in a Windows App'
+  Then locate text 'Other download options:'
+  Then locate text 'Categories'
+  Then push link 'Mac'
+  Then locate text 'Drag icon to Sketch, Photoshop, Xcode'
   Then push link in header 'Icons8'
 
 Scenario: Request icons
@@ -92,13 +92,13 @@ Scenario: 9: Open Request icons page and assertion
   Then push link Request icons
   Then scroll to end of the page
   Then locate text 'Recently Created Icons'
-  Then push 'Fast Track' from tabs
-  Then locate text 'How fast is it?'
-  Then locate text 'Good For Fast Track'
-  Then push 'Custom' from tabs
-  Then locate text 'Where do I start?'
-  Then push 'Free for Share' from tabs
- # Then push 'Free for Share' in Request icons
+  Then push 'Fast for $99/year' from tabs
+  Then locate text 'How Fast Is It?'
+  Then locate text 'Limitations'
+  Then push 'Fastest for $99/icon' from tabs
+  Then locate text 'Any icon, no limitations. Up to 20 icons a day. $99 per icon.'
+  Then push 'Slow for Free' from tabs
+ Then push 'Free for Share' in Request icons
   Then locate text 'Request Icon'
   Then push link in header 'Icons8'
   Then go to Main page
