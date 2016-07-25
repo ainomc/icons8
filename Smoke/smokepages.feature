@@ -79,11 +79,11 @@ Scenario: 8: Open Application page and assertion
   Then push link in header 'Icons8'
   Then push link 'Download'
   Then scroll to end of the page
-  Then locate text 'Download All Our Icons in a Windows App'
+  Then locate text 'Download All Our Icons in a'
   Then locate text 'Other download options:'
   Then locate text 'Categories'
-  Then push link 'Mac'
-  Then locate text 'Drag icon to Sketch, Photoshop, Xcode'
+  Then push second link 'Mac'
+  Then locate text 'Drag icon to Sketch'
   Then push link in header 'Icons8'
 
 Scenario: Request icons
@@ -98,7 +98,7 @@ Scenario: 9: Open Request icons page and assertion
   Then push 'Fastest for $99/icon' from tabs
   Then locate text 'Any icon, no limitations. Up to 20 icons a day. $99 per icon.'
   Then push 'Slow for Free' from tabs
- Then push 'Free for Share' in Request icons
+# Then push 'Free for Share' in Request icons
   Then locate text 'Request Icon'
   Then push link in header 'Icons8'
   Then go to Main page

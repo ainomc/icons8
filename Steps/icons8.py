@@ -22,6 +22,12 @@ def step_impl(context):
 def step(context, link):
     click_on_link(context, link)               
 
+# Then push second link 'link text'
+@then("push second link '{link}'")
+def step(context, link):
+    xpath = "(//*[1][contains(text(), '%s')])[2]" % link
+    click_on_xpath(context, xpath) 
+    
 # Then go to Main page
 @then("go to Main page")
 def step(context):
