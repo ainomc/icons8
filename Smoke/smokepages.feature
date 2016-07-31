@@ -96,7 +96,7 @@ Scenario: 9: Open Request icons page and assertion
   Then locate text 'How Fast Is It?'
   Then locate text 'Limitations'
   Then push 'Fastest for $50/icon' from tabs
-  Then locate text 'Any icon, no limitations. Up to 20 icons a day. $99 per icon.'
+  Then locate text 'Any icon, no limitations. Up to 20 icons a day. $50 per icon.'
   Then push 'Slow for Free' from tabs
 # Then push 'Free for Share' in Request icons
   Then locate text 'Request Icon'
