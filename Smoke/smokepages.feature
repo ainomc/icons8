@@ -80,7 +80,7 @@ Scenario: 8: Open Application page and assertion
   Then push link 'Download'
   Then scroll to end of the page
   Then locate text 'Download All Our Icons in a'
-  Then locate text 'Other download options:'
+  Then locate text 'Download for'
   Then locate text 'Categories'
   Then push second link 'Mac'
   Then locate text 'Drag icon to Sketch'
