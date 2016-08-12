@@ -11,6 +11,7 @@ import selenium.webdriver.common.action_chains as AC
 import time
 import os
 from settings import settings_test as settings
+from generators import *
 
 now = datetime.today()
 
@@ -67,6 +68,19 @@ def click_on_button(context, button):
         except StaleElementReferenceException:
             continue
 
+# Кликнуть на кнопку, найденой с помощью названия кнопки
+def click_on_button_findByName(context, name):
+    WebDriverWait(context.browser, TIME_FOR_WAIT).until(
+        EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name))
+    )
+    time.sleep(2)
+    while True:
+        try:
+            context.browser.find_element_by_xpath('//button[contains(., "%s")]' % name).click()
+            break
+        except StaleElementReferenceException:
+            continue		
+			
 # Кликнуть на вкладку
 def click_on_unactive_tab(context, tab):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
@@ -200,6 +214,11 @@ def locate_element(context, xpath, time_for_search = TIME_FOR_WAIT):
     scroll_element_into_view(context.browser, element)
     assert context.browser.find_element_by_xpath(xpath)  
 
+# Найти поле и ввести в него текст
+def input_text(context, text, field):
+	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).click()
+	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).send_keys(text)
+	
 # пока не пашет    
 # def pedro_search(context, xpath):
     # WebDriverWait(context.browser, TIME_FOR_WAIT).until(

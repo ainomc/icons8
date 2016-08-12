@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 from behave import *
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -10,6 +10,7 @@ import selenium.webdriver.common.action_chains as AC
 import time
 import os
 from logic.actions import *
+from logic.generators import *
 
 TIME_FOR_WAIT = 30
 
@@ -129,5 +130,14 @@ def step(context, text):
 def step(context):
      xpath = "//input[@placeholder='Find an icon']"
      locate_element(context, xpath)
+	 
+# Then push button what named 'Name buton text'
+@then("push button what named '{name}'")
+def step(context, name):
+    click_on_button_findByName(context, name)
 
- 
+# Add text to field
+@then("add text to '{field}'")
+def step(context, field):
+	text = random_name()
+	input_text(context, text, field)
