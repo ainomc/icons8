@@ -139,5 +139,11 @@ def step(context, name):
 # Add text to field
 @then("add text to '{field}'")
 def step(context, field):
-	text = random_name()
+	text = random_idea_name()
 	input_text(context, text, field)
+
+# Choose random style of request icon
+@then("choose style of request icon")
+def step(context):
+    xpath = '//*[@class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope"][%s]' % random_betweenValue(1,5)
+    click_on_xpath(context, xpath)
