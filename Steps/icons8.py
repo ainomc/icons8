@@ -147,3 +147,9 @@ def step(context, field):
 def step(context):
     xpath = '//*[@class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope"][%s]' % random_betweenValue(1,5)
     click_on_xpath(context, xpath)
+
+# Clear similar ideas in Request icon pop-up
+@then("clear similar ideas")
+def step(context):
+    xpath = '//div[@class="modal__content ng-scope"]'
+    click_on_xpath(context, xpath)
