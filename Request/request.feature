@@ -1,5 +1,5 @@
 Feature: Request
-Scenario: Request Icons
+Scenario: Add request
 Scenario: 1: Add new request
   Then push link in header 'Icons8'
   Then push link 'Request'
@@ -16,6 +16,19 @@ Scenario: 1: Add new request
   Then locate text 'Skip'
   Then push link in header 'Icons8'
 
+Scenario: Check created icons ideas
+Scenario: 2: Check created icons ideas
+  Then push link in header 'Icons8'
+  Then push link 'Request'
+  Then click 'Hot ideas' filter of already created ideas
+  Then check ideas list in filter
+  Then click 'Latest ideas' filter of already created ideas
+  Then check ideas list in filter
+  Then click 'Popular ideas' filter of already created ideas
+  Then check ideas list in filter
+  Then locate text 'Recently Created Icons'
+  Then check recently created icons
+  Then push link in header 'Icons8'
 
   
   

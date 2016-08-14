@@ -38,6 +38,11 @@ def random_idea_name():
 	write_in_file("Steps\logic\ideas.txt", idea)
 	return idea
 
+# Генерирует значения промежуточные значения между first_value и second_value
+def values_in_range(first_value, second_value):
+	for values in range(first_value, second_value):
+		return values
+
 
 
 

@@ -218,6 +218,8 @@ def locate_element(context, xpath, time_for_search = TIME_FOR_WAIT):
 def input_text(context, text, field):
 	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).click()
 	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).send_keys(text)
+
+
 	
 # пока не пашет    
 # def pedro_search(context, xpath):

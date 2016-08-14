@@ -136,7 +136,7 @@ def step(context):
 def step(context, name):
     click_on_button_findByName(context, name)
 
-# Add text to field
+# Then add text to field
 @then("add text to '{field}'")
 def step(context, field):
 	text = random_idea_name()
@@ -153,3 +153,26 @@ def step(context):
 def step(context):
     xpath = '//div[@class="modal__content ng-scope"]'
     click_on_xpath(context, xpath)
+
+# Choose one type of ideas what alreade created by filter
+@then("click '{filter}' filter of already created ideas")
+def step(context, filter):
+    if filter == 'Hot ideas':
+        xpath = '//*[@ng-repeat="filter in reqIcon.iconFilters"][1]'
+    elif filter == 'Latest ideas':
+        xpath = '//*[@ng-repeat="filter in reqIcon.iconFilters"][2]'
+    elif filter == 'Popular ideas':
+        xpath = '//*[@ng-repeat="filter in reqIcon.iconFilters"][3]'
+    click_on_xpath(context, xpath)
+
+# Then check ideas list in filter
+@then("check ideas list in filter")
+def step(context):
+    xpath = '//*[@ng-model="idea"][%s]' % values_in_range(1, 5)
+    locate_element(context, xpath)
+
+# Then check recently created icons
+@then("check recently created icons")
+def step(context):
+    xpath = '//a[@class="c-recently-icon ng-binding ng-scope"][%s]' % values_in_range(1, 5)
+    locate_element(context, xpath)
