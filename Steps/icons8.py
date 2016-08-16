@@ -145,13 +145,13 @@ def step(context, field):
 # Choose random style of request icon
 @then("choose style of request icon")
 def step(context):
-    xpath = '//*[@class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope"][%s]' % random_betweenValue(1,5)
+    xpath = '//*[@ng-repeat="platform in icCtrl.platforms"][%s]' % random_betweenValue(1,5)
     click_on_xpath(context, xpath)
 
 # Clear similar ideas in Request icon pop-up
 @then("clear similar ideas")
 def step(context):
-    xpath = '//div[@class="modal__content ng-scope"]'
+    xpath = '//div[@ng-show="modal.template"]'
     click_on_xpath(context, xpath)
 
 # Choose one type of ideas what alreade created by filter
@@ -174,5 +174,28 @@ def step(context):
 # Then check recently created icons
 @then("check recently created icons")
 def step(context):
-    xpath = '//a[@class="c-recently-icon ng-binding ng-scope"][%s]' % values_in_range(1, 5)
+    xpath = '//a[@class="c-recently-icon"][%s]' % values_in_range(1, 5)
     locate_element(context, xpath)
+
+# Then check ideas list
+@then("check ideas list")
+def step(context):
+    xpath = '//div[@class="b-idea-table-row"][%s]' % values_in_range(1, 5)
+    locate_element(context, xpath)
+
+# Then locate search field
+@then("locate search field")
+def step(context):
+     xpath = '//div[@class="b-col-1"]'
+     locate_element(context, xpath)
+
+# Choose click '{menu}' on request icon menu page
+@then("click '{menu}' request icon menu")
+def step(context, menu):
+    if menu == 'Slow for Free':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][1]'
+    elif menu == 'Fast for $199/year':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][2]'
+    elif menu == 'Fastest for $50/icon':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][3]'
+    click_on_xpath(context, xpath)
