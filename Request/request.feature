@@ -46,8 +46,8 @@ Scenario: 3: Check list of All Icon Request
   Then check ideas list
   Then push link in header 'Icons8'
 
-  Scenario: Buy fast track page
-  Scenario: 4: Buy fast track page
+Scenario: Buy fast track page
+Scenario: 4: Buy fast track page
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Fast for $199/year' request icon menu
@@ -66,4 +66,22 @@ Scenario: 3: Check list of All Icon Request
   Then locate text 'Fast Track'
   Then locate text 'Unit Price'
   Then go to Main page
+
+Scenario: Fastest for $50 page
+Scenario: 5: Fastest for $50 page
+  Then push link in header 'Icons8'
+  Then push link 'Request'
+  Then click 'Fastest for $50/icon' request icon menu
+  Then locate text 'Any icon, no limitations.'
+  Then locate text 'How Fast Is It?'
+  Then locate text 'Usually, we can make 5-20 icons a day'
+  Then locate text 'How Much Is It?'
+  Then locate text 'To create a single icon, it will cost $50'
+  Then locate text 'Where Do I Start?'
+  Then push link 'sizes and formats'
+  Then locate text 'Choosing the Right Size and Format for Icons'
+  Then back to previous page
+  Then push link 'Contact Us'
+  Then locate text 'Contact Icons8'
+  Then push link in header 'Icons8'
 

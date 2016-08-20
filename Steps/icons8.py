@@ -12,6 +12,7 @@ import os
 from logic.actions import *
 from logic.generators import *
 
+
 TIME_FOR_WAIT = 30
 
 @given('we have behave installed')
@@ -131,7 +132,7 @@ def step(context):
      xpath = "//input[@placeholder='Find an icon']"
      locate_element(context, xpath)
 	 
-# Then push button what named 'Name buton text'
+# Then push button what named 'Name button text'
 @then("push button what named '{name}'")
 def step(context, name):
     click_on_button_findByName(context, name)
@@ -199,3 +200,31 @@ def step(context, menu):
     elif menu == 'Fastest for $50/icon':
         xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][3]'
     click_on_xpath(context, xpath)
+
+# Then back to previous page
+@then("back to previous page")
+def step(context):
+    back_to_previous_page()
+
+# Then locate '{placeholder}' field
+@then("locate '{placeholder}' field")
+def step(context, placeholder):
+    xpath = '//*[@placeholder="%s"]' % placeholder
+    locate_element(context, xpath)
+
+# Then locate '{value}' element
+@then("locate '{value}' element")
+def step(context, value):
+    xpath = '//*[@value="%s"]' % value
+    locate_element(context, xpath)
+
+# Then click login button in register pop-up
+@then("click login button in register pop-up")
+def step(context):
+    xpath = '//a[@class="c-pretty-link m-blue m-margin-top"]'
+    click_on_xpath(context, xpath)
+
+# Then login
+@then("login")
+def step(context):
+    login(context)
