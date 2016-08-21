@@ -11,13 +11,25 @@ Scenario: 1: Add new request
   Then locate text 'How do you see this icon?'
   Then locate text 'Style'
   Then choose style of request icon
-  Then push button what named 'Submit'
-  Then locate text 'Need it Fast? Promote it'
-  Then locate text 'Skip'
+  #Then push button what named 'Submit'
+  #Then locate text 'Need it Fast? Promote it'
+  #Then locate text 'Skip'
   Then push link in header 'Icons8'
 
+# Нужно еще провериь работоспособность, как только заработает создание идей, сейчас не работает
+#Scenario: Check created idea
+#Scenario: 2: Check created idea
+  #Then push link in header 'Icons8'
+  #Then push link 'Request'
+  #Then click 'Hot ideas' filter of already created ideas
+  #Then check ideas list in filter
+  #Then click 'Latest ideas' filter of already created ideas
+  #Then check ideas list in filter
+  #Then check last created idea
+  #Then push link in header 'Icons8'
+
 Scenario: Check list of created icons ideas (short lst)
-Scenario: 2: Check list of created icons ideas (short lst)
+Scenario: 3: Check list of created icons ideas (short lst)
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Hot ideas' filter of already created ideas
@@ -31,7 +43,7 @@ Scenario: 2: Check list of created icons ideas (short lst)
   Then push link in header 'Icons8'
 
 Scenario: Check list of All Icon Request
-Scenario: 3: Check list of All Icon Request
+Scenario: 4: Check list of All Icon Request
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then push link 'View all icon ideas'
@@ -47,7 +59,7 @@ Scenario: 3: Check list of All Icon Request
   Then push link in header 'Icons8'
 
 Scenario: Buy fast track page
-Scenario: 4: Buy fast track page
+Scenario: 5: Buy fast track page
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Fast for $199/year' request icon menu
@@ -68,7 +80,7 @@ Scenario: 4: Buy fast track page
   Then go to Main page
 
 Scenario: Fastest for $50 page
-Scenario: 5: Fastest for $50 page
+Scenario: 6: Fastest for $50 page
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Fastest for $50/icon' request icon menu
@@ -78,9 +90,9 @@ Scenario: 5: Fastest for $50 page
   Then locate text 'How Much Is It?'
   Then locate text 'To create a single icon, it will cost $50'
   Then locate text 'Where Do I Start?'
-  Then push link 'sizes and formats'
-  Then locate text 'Choosing the Right Size and Format for Icons'
-  Then back to previous page
+  #Then push link 'sizes and formats'
+  #Then locate text 'Choosing the right icon size'
+  #Then back to previous page
   Then push link 'Contact Us'
   Then locate text 'Contact Icons8'
   Then push link in header 'Icons8'

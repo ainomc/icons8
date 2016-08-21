@@ -221,10 +221,38 @@ def step(context, value):
 # Then click login button in register pop-up
 @then("click login button in register pop-up")
 def step(context):
-    xpath = '//a[@class="c-pretty-link m-blue m-margin-top"]'
+    xpath = '//a[contains(., "Login")][@class]'
     click_on_xpath(context, xpath)
 
 # Then login
 @then("login")
 def step(context):
     login(context)
+
+# Then wait '{time}' seconds
+@then("wait '{time}' seconds")
+def step(context, time):
+    wait(context, time)
+
+# Then check last created idea
+@then("check last created idea")
+def step(context):
+	xpath = '//idea[1]/div/a[contains(., "%s")]' % read_file("Steps\logic\ideas.txt")
+	locate_element(context, xpath)
+
+"""
+# Then click '{button}' on '{block}' block
+@then("click '{button}' on '{block}' block")
+def step(context, button, block):
+    if block == 'Free' and button == 'Get':
+        xpath = '''//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]'''
+        moveTo = '//*[@callback="goToWebApp()"]'
+    elif block == 'All 32,200 Icons' and button == 'Buy':
+        xpath = '//div[@ng-class="licenses.companies.updates.id"]'
+        moveTo = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
+    elif block == 'Pay per Icon Buy' and button == 'Buy':
+        xpath = '''//div[3]/div[%s]/div[4][@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"]''' % 2 #values_in_range(1, 4)
+        moveTo = '''//*[@ng-bind-html="'PAGE.BUY.PLANS.PER_ICON.SAVE' | translate:{percent:'17%'}"]'''
+    clickAndMove_on_xpath(context, xpath, moveTo)
+"""
+

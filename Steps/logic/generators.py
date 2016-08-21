@@ -19,8 +19,17 @@ TIME_FOR_WAIT = 30
 SERVER = settings['server']
 # открывает файл, записывает данные. Значение file должно быть в скобках  "some.txt"
 def write_in_file(file, save_text):
-	my_file = open(file, "a")
+	my_file = open(file, "r+")
 	my_file.write(save_text + "\n")
+
+# Открывает файл и возвращает первую строку
+def read_file(file):
+	# with open(file, "r+") as my_file:
+	my_file = open(file, "r+")
+	fileText = my_file.readline()
+	print ("%s" + " idea created!!!") % fileText
+	my_file.close()
+	return fileText
 
 # Возвращает случайное значение в диапазоне first_value, last_value
 def random_betweenValue(first_value, last_value):
