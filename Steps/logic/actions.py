@@ -12,6 +12,7 @@ import time
 import os
 from settings import settings_test as settings
 from generators import *
+from behave import *
 
 now = datetime.today()
 

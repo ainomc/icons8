@@ -11,6 +11,8 @@ import time
 import os
 from logic.actions import *
 from logic.generators import *
+from behave import *
+
 
 TIME_FOR_WAIT = 30
 
@@ -53,13 +55,13 @@ def step(context):
     click_on_xpath(context, xpath) 
    
 # Then locate image 'address'
-@then("locate image '{link}'")    
+@then("locate image '{link}'")
 def step(context, link):
     xpath = "//img[@src='%s']" % link
     locate_element(context, xpath)      
   
 # Then locate category 'name'
-@then("locate category '{name}'")    
+@then("locate category '{name}'")
 def step(context, name):
     xpath = "//a[@ng-href='%s']" % name
     locate_element(context, xpath)     
