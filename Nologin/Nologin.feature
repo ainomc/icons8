@@ -21,11 +21,8 @@ Scenario: 1: Request new icon without login
   Then click login button in register pop-up
   Then locate text 'Login to Continue Downloading'
   Then login
-
-  #Then locate text 'Need it Fast? Promote it'
-  #Then locate text 'Skip'
-  # На демо версии сайта после логине, при создании идеи, вечная загрузка
-
+  Then locate text 'Need it Fast? Promote it'
+  Then locate text 'Skip'
   Then push link in header 'Icons8'
 
 #Scenario: Buy

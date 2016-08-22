@@ -229,11 +229,6 @@ def step(context):
 def step(context):
     login(context)
 
-# Then wait '{time}' seconds
-@then("wait '{time}' seconds")
-def step(context, time):
-    wait(context, time)
-
 # Then check last created idea
 @then("check last created idea")
 def step(context):

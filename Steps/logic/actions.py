@@ -61,6 +61,7 @@ def click_on_xpath(context, xpath):
     scroll_element_into_view(context.browser, element)
     element.click()
 
+"""
 def clickAndMove_on_xpath(context, xpath, moveTo):
     action = webdriver.ActionChains(context.browser)
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
@@ -70,7 +71,7 @@ def clickAndMove_on_xpath(context, xpath, moveTo):
     scroll_element_into_view(context.browser, element)
     action.moveToElement(moveTo)
     element.click(element)
-
+"""
 # Кликнуть на кнопку
 def click_on_button(context, button):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
