@@ -143,6 +143,17 @@ def step(context, field):
 	text = random_idea_name()
 	input_text(context, text, field)
 
+# Then add email to register field
+@then("add '{input_type}' to register field")
+def step(context, input_type):
+    if input_type == 'email':
+        field = '//input[@id="RegisterForm_email"]'
+        text = random_email()
+    elif input_type == 'password':
+        field = '//input[@id="RegisterForm_password"]'
+        text = random_idea_name()
+    inputText(context, text, field)
+
 # Choose random style of request icon
 @then("choose style of request icon")
 def step(context):
@@ -204,7 +215,7 @@ def step(context, menu):
 # Then back to previous page
 @then("back to previous page")
 def step(context):
-    back_to_previous_page()
+    back_to_previous_page(context)
 
 # Then locate '{placeholder}' field
 @then("locate '{placeholder}' field")
@@ -217,6 +228,12 @@ def step(context, placeholder):
 def step(context, value):
     xpath = '//*[@value="%s"]' % value
     locate_element(context, xpath)
+
+# Then click '{value}' element
+@then("click '{value}' element")
+def step(context, value):
+    xpath = '//*[@value="%s"]' % value
+    click_on_xpath(context, xpath)
 
 # Then click login button in register pop-up
 @then("click login button in register pop-up")
@@ -237,8 +254,10 @@ def step(context):
 
 """
 # Then click '{button}' on '{block}' block
-@then("click '{button}' on '{block}' block")
-def step(context, button, block):
+@then("click")
+def step(context):
+    clickAndMove_on_xpath(context)
+
     if block == 'Free' and button == 'Get':
         xpath = '''//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]'''
         moveTo = '//*[@callback="goToWebApp()"]'
@@ -248,6 +267,6 @@ def step(context, button, block):
     elif block == 'Pay per Icon Buy' and button == 'Buy':
         xpath = '''//div[3]/div[%s]/div[4][@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"]''' % 2 #values_in_range(1, 4)
         moveTo = '''//*[@ng-bind-html="'PAGE.BUY.PLANS.PER_ICON.SAVE' | translate:{percent:'17%'}"]'''
-    clickAndMove_on_xpath(context, xpath, moveTo)
 """
+
 

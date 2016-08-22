@@ -62,16 +62,22 @@ def click_on_xpath(context, xpath):
     element.click()
 
 """
-def clickAndMove_on_xpath(context, xpath, moveTo):
-    action = webdriver.ActionChains(context.browser)
-    WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, xpath))
-    )
-    element = context.browser.find_element_by_xpath(xpath)
-    scroll_element_into_view(context.browser, element)
-    action.moveToElement(moveTo)
-    element.click(element)
+def clickAndMove_on_xpath(context):
+    #webdriver.ActionChains(context.browser).moveToElement.find_element_by_xpath(moveTo).perform()
+    #move_to = context.browser.find_element_by_xpath('html/body/main/div[1]/div[1]/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div[3]/div[1]/div[2]')
+    element = context.browser.find_element_by_xpath('''html/body/main/div[1]/div[1]/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div''')
+    time.sleep(6)
+    element.click()
+    #actions = ActionChains(context.browser)
+    #actions.move_to_element(move_to)
+    #time.sleep(4)
+    #element.click()
+    #actions.click(element).perform()
+    #element = context.browser.find_element_by_xpath(xpath)
+    #scroll_element_into_view(context.browser, element)
+    #element.click(element)
 """
+
 # Кликнуть на кнопку
 def click_on_button(context, button):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
@@ -236,9 +242,16 @@ def input_text(context, text, field):
 	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).click()
 	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).send_keys(text)
 
+# Найти поле по xpath и ввести в него текст
+def inputText(context, text, field):
+	context.browser.find_element_by_xpath(field).click()
+	context.browser.find_element_by_xpath(field).send_keys(text)
+
+# Возвращаеться на превидущую страницу
 def back_to_previous_page(context):
     context.browser.back()
 
+# происходит логин
 def login(context, login=LOGIN, password=PASSWORD):
     context.browser.find_element_by_id("RegisterForm_email").clear()
     context.browser.find_element_by_id("RegisterForm_email").send_keys(login)

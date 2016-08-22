@@ -25,12 +25,12 @@ Scenario: 1: Request new icon without login
   Then locate text 'Skip'
   Then push link in header 'Icons8'
 
-#Scenario: Buy
+#SScenario: Buy
 #Scenario: 2: Free Buy
   #Then push link Logout
   #Then push link in header 'Icons8'
   #Then push link 'Buy'
-  #Then click 'Get' on 'Free' block
+  #Then click
   #Then locate text 'Register to Continue Downloading'
   #Then locate 'Full name' field
   #Then locate 'Email' field
@@ -76,3 +76,13 @@ Scenario: 1: Request new icon without login
   #Then locate text 'Credit cards'
   #Then locate text 'Paypal'
   #Then push link in header 'Icons8'
+
+Scenario: Register
+Scenario: 5: Register
+  Then push link Logout
+  Then push link 'Register'
+  Then locate text 'Register at Icons8'
+  Then add 'email' to register field
+  Then add 'password' to register field
+  Then click 'Register' element
+  Then locate text 'My Account'
