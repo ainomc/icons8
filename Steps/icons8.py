@@ -14,6 +14,7 @@ from logic.generators import *
 from behave import *
 
 
+
 TIME_FOR_WAIT = 30
 
 @given('we have behave installed')
@@ -133,7 +134,7 @@ def step(context):
      xpath = "//input[@placeholder='Find an icon']"
      locate_element(context, xpath)
 	 
-# Then push button what named 'Name buton text'
+# Then push button what named 'Name button text'
 @then("push button what named '{name}'")
 def step(context, name):
     click_on_button_findByName(context, name)
@@ -147,13 +148,13 @@ def step(context, field):
 # Choose random style of request icon
 @then("choose style of request icon")
 def step(context):
-    xpath = '//*[@class="ng-pristine ng-untouched ng-valid ng-scope ng-isolate-scope"][%s]' % random_betweenValue(1,5)
+    xpath = '//*[@ng-repeat="platform in icCtrl.platforms"][%s]' % random_betweenValue(1,5)
     click_on_xpath(context, xpath)
 
 # Clear similar ideas in Request icon pop-up
 @then("clear similar ideas")
 def step(context):
-    xpath = '//div[@class="modal__content ng-scope"]'
+    xpath = '//div[@ng-show="modal.template"]'
     click_on_xpath(context, xpath)
 
 # Choose one type of ideas what alreade created by filter
@@ -176,5 +177,84 @@ def step(context):
 # Then check recently created icons
 @then("check recently created icons")
 def step(context):
-    xpath = '//a[@class="c-recently-icon ng-binding ng-scope"][%s]' % values_in_range(1, 5)
+    xpath = '//a[@class="c-recently-icon"][%s]' % values_in_range(1, 5)
     locate_element(context, xpath)
+
+# Then check ideas list
+@then("check ideas list")
+def step(context):
+    xpath = '//div[@class="b-idea-table-row"][%s]' % values_in_range(1, 5)
+    locate_element(context, xpath)
+
+# Then locate search field
+@then("locate search field")
+def step(context):
+     xpath = '//div[@class="b-col-1"]'
+     locate_element(context, xpath)
+
+# Choose click '{menu}' on request icon menu page
+@then("click '{menu}' request icon menu")
+def step(context, menu):
+    if menu == 'Slow for Free':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][1]'
+    elif menu == 'Fast for $199/year':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][2]'
+    elif menu == 'Fastest for $50/icon':
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][3]'
+    click_on_xpath(context, xpath)
+
+# Then back to previous page
+@then("back to previous page")
+def step(context):
+    back_to_previous_page()
+
+# Then locate '{placeholder}' field
+@then("locate '{placeholder}' field")
+def step(context, placeholder):
+    xpath = '//*[@placeholder="%s"]' % placeholder
+    locate_element(context, xpath)
+
+# Then locate '{value}' element
+@then("locate '{value}' element")
+def step(context, value):
+    xpath = '//*[@value="%s"]' % value
+    locate_element(context, xpath)
+
+# Then click login button in register pop-up
+@then("click login button in register pop-up")
+def step(context):
+    xpath = '//a[contains(., "Login")][@class]'
+    click_on_xpath(context, xpath)
+
+# Then login
+@then("login")
+def step(context):
+    login(context)
+
+# Then wait '{time}' seconds
+@then("wait '{time}' seconds")
+def step(context, time):
+    wait(context, time)
+
+# Then check last created idea
+@then("check last created idea")
+def step(context):
+	xpath = '//idea[1]/div/a[contains(., "%s")]' % read_file("Steps\logic\ideas.txt")
+	locate_element(context, xpath)
+
+"""
+# Then click '{button}' on '{block}' block
+@then("click '{button}' on '{block}' block")
+def step(context, button, block):
+    if block == 'Free' and button == 'Get':
+        xpath = '''//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]'''
+        moveTo = '//*[@callback="goToWebApp()"]'
+    elif block == 'All 32,200 Icons' and button == 'Buy':
+        xpath = '//div[@ng-class="licenses.companies.updates.id"]'
+        moveTo = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
+    elif block == 'Pay per Icon Buy' and button == 'Buy':
+        xpath = '''//div[3]/div[%s]/div[4][@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"]''' % 2 #values_in_range(1, 4)
+        moveTo = '''//*[@ng-bind-html="'PAGE.BUY.PLANS.PER_ICON.SAVE' | translate:{percent:'17%'}"]'''
+    clickAndMove_on_xpath(context, xpath, moveTo)
+"""
+
