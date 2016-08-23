@@ -47,6 +47,13 @@ def random_idea_name():
 	write_in_file("Steps\logic\ideas.txt", idea)
 	return idea
 
+# Генерирует рандомное имейл из 6 значений из списка и + '@gmail.com'
+def random_email():
+	email = ''
+	for x in range(6):
+		email = email + random.choice(list('qwertyuiopasdfghjklzxcvbnm'))
+	return email + '@gmail.com'
+
 # Генерирует значения промежуточные значения между first_value и second_value
 def values_in_range(first_value, second_value):
 	for values in range(first_value, second_value):

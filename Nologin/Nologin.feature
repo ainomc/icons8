@@ -21,19 +21,16 @@ Scenario: 1: Request new icon without login
   Then click login button in register pop-up
   Then locate text 'Login to Continue Downloading'
   Then login
-
-  #Then locate text 'Need it Fast? Promote it'
-  #Then locate text 'Skip'
-  # На демо версии сайта после логине, при создании идеи, вечная загрузка
-
+  Then locate text 'Need it Fast? Promote it'
+  Then locate text 'Skip'
   Then push link in header 'Icons8'
 
-#Scenario: Buy
+#SScenario: Buy
 #Scenario: 2: Free Buy
   #Then push link Logout
   #Then push link in header 'Icons8'
   #Then push link 'Buy'
-  #Then click 'Get' on 'Free' block
+  #Then click
   #Then locate text 'Register to Continue Downloading'
   #Then locate 'Full name' field
   #Then locate 'Email' field
@@ -79,3 +76,13 @@ Scenario: 1: Request new icon without login
   #Then locate text 'Credit cards'
   #Then locate text 'Paypal'
   #Then push link in header 'Icons8'
+
+Scenario: Register
+Scenario: 5: Register
+  Then push link Logout
+  Then push link 'Register'
+  Then locate text 'Register at Icons8'
+  Then add 'email' to register field
+  Then add 'password' to register field
+  Then click 'Register' element
+  Then locate text 'My Account'

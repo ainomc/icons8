@@ -11,22 +11,21 @@ Scenario: 1: Add new request
   Then locate text 'How do you see this icon?'
   Then locate text 'Style'
   Then choose style of request icon
-  #Then push button what named 'Submit'
-  #Then locate text 'Need it Fast? Promote it'
-  #Then locate text 'Skip'
+  Then push button what named 'Submit'
+  Then locate text 'Need it Fast? Promote it'
+  Then locate text 'Skip'
   Then push link in header 'Icons8'
 
-# Нужно еще провериь работоспособность, как только заработает создание идей, сейчас не работает
-#Scenario: Check created idea
-#Scenario: 2: Check created idea
-  #Then push link in header 'Icons8'
-  #Then push link 'Request'
-  #Then click 'Hot ideas' filter of already created ideas
-  #Then check ideas list in filter
-  #Then click 'Latest ideas' filter of already created ideas
-  #Then check ideas list in filter
-  #Then check last created idea
-  #Then push link in header 'Icons8'
+Scenario: Check created idea
+Scenario: 2: Check created idea
+  Then push link in header 'Icons8'
+  Then push link 'Request'
+  Then click 'Hot ideas' filter of already created ideas
+  Then check ideas list in filter
+  Then click 'Latest ideas' filter of already created ideas
+  Then check ideas list in filter
+  Then check last created idea
+  Then push link in header 'Icons8'
 
 Scenario: Check list of created icons ideas (short lst)
 Scenario: 3: Check list of created icons ideas (short lst)
