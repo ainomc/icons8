@@ -80,6 +80,10 @@ def clickAndMove_on_xpath(context):
 
 # Кликнуть на кнопку
 def click_on_button(context, button):
+    """
+
+    :rtype: object
+    """
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
         EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button))
     )
@@ -243,9 +247,9 @@ def input_text(context, text, field):
 	context.browser.find_element_by_xpath('//*[@id="%s"]' % field).send_keys(text)
 
 # Найти поле по xpath и ввести в него текст
-def inputText(context, text, field):
-	context.browser.find_element_by_xpath(field).click()
-	context.browser.find_element_by_xpath(field).send_keys(text)
+def inputText(context, text, xpath):
+	context.browser.find_element_by_xpath(xpath).click()
+	context.browser.find_element_by_xpath(xpath).send_keys(text)
 
 # Возвращаеться на превидущую страницу
 def back_to_previous_page(context):

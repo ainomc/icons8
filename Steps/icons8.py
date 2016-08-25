@@ -143,30 +143,36 @@ def step(context, field):
 	text = random_idea_name()
 	input_text(context, text, field)
 
-# Then add email to register field
-@then("add '{input_type}' to register field")
-def step(context, input_type):
-    if input_type == 'email':
-        field = '//input[@id="RegisterForm_email"]'
+# Then add '{input_text}' text to '{id_field}' field
+@then("add '{input_text}' text to '{id_field}' field")
+def step(context, input_text, id_field):
+    if input_text == 'email':
+        xpath = '//input[@id="%s"]' % id_field
         text = random_email()
-    elif input_type == 'password':
-        field = '//input[@id="RegisterForm_password"]'
+    elif input_text == 'password':
+        xpath = '//input[@id="%s"]' % id_field
         text = random_idea_name()
-    inputText(context, text, field)
+    else:
+        xpath = '//input[@id="%s"]' % id_field
+        text = input_text
+    inputText(context, text, xpath)
 
 # Choose random style of request icon
+# Then choose style of request icon
 @then("choose style of request icon")
 def step(context):
     xpath = '//*[@ng-repeat="platform in icCtrl.platforms"][%s]' % random_betweenValue(1,5)
     click_on_xpath(context, xpath)
 
 # Clear similar ideas in Request icon pop-up
+# Thaen clear similar ideas
 @then("clear similar ideas")
 def step(context):
     xpath = '//div[@ng-show="modal.template"]'
     click_on_xpath(context, xpath)
 
 # Choose one type of ideas what alreade created by filter
+# Then click '{filter}' filter of already created ideas
 @then("click '{filter}' filter of already created ideas")
 def step(context, filter):
     if filter == 'Hot ideas':
@@ -249,8 +255,9 @@ def step(context):
 # Then check last created idea
 @then("check last created idea")
 def step(context):
-	xpath = '//idea[1]/div/a[contains(., "%s")]' % read_file("Steps\logic\ideas.txt")
-	locate_element(context, xpath)
+    file_read_text = read_file("Steps\logic\ideas.txt")
+    xpath = '//idea[1]/div/a[contains(., "%s")]' % file_read_text
+    assert locate_element(context, xpath)
 
 """
 # Then click '{button}' on '{block}' block

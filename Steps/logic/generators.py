@@ -24,7 +24,6 @@ def write_in_file(file, save_text):
 
 # Открывает файл и возвращает первую строку
 def read_file(file):
-	# with open(file, "r+") as my_file:
 	my_file = open(file, "r+")
 	fileText = my_file.readline()
 	print ("%s" + " idea created!!!") % fileText
