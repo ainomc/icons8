@@ -34,7 +34,7 @@ def click_on_link(context, link):
         try:
             context.browser.find_element_by_xpath('//*[1][contains(text(), "%s")]' % link).click()
             break
-        except StaleElementReferenceException: 
+        except StaleElementReferenceException:
             continue
 
 # Then scroll to end of the page
@@ -111,7 +111,7 @@ def click_on_button_findByName(context, name):
 # Кликнуть на вкладку
 def click_on_unactive_tab(context, tab):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab))                
+        EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab))
     )
     time.sleep(2)
     while True:
@@ -124,7 +124,7 @@ def click_on_unactive_tab(context, tab):
 # Кликнуть на кнопку Создать коллекцию            
 def click_on_create(context, create):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create))                
+        EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create))
     )
     time.sleep(2)
     while True:
@@ -264,6 +264,24 @@ def login(context, login=LOGIN, password=PASSWORD):
     context.browser.find_element_by_name("yt0").click()
 
     time.sleep(2)
+
+# проверяет, что элемент отсутствует.
+def absent_element(context, xpath):
+    time.sleep(4)
+    try:
+        context.browser.find_element_by_xpath(xpath)
+    except NoSuchElementException:
+        return True
+    return False
+
+
+
+    #absent = context.browser.find_element_by_xpath(xpath)
+    #if absent == False:
+        #print ("no any search result - test done")
+    #else:
+        #raise AssertionError
+
 # пока не пашет    
 # def pedro_search(context, xpath):
     # WebDriverWait(context.browser, TIME_FOR_WAIT).until(

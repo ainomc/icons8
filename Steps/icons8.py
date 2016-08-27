@@ -144,17 +144,20 @@ def step(context, field):
 	input_text(context, text, field)
 
 # Then add '{input_text}' text to '{id_field}' field
-@then("add '{input_text}' text to '{id_field}' field")
-def step(context, input_text, id_field):
+@then("add '{input_text}' text to '{locator_field}' field")
+def step(context, input_text, locator_field):
     if input_text == 'email':
-        xpath = '//input[@id="%s"]' % id_field
+        xpath = '//input[@id="%s"]' % locator_field
         text = random_email()
     elif input_text == 'password':
-        xpath = '//input[@id="%s"]' % id_field
+        xpath = '//input[@id="%s"]' % locator_field
         text = random_idea_name()
-    else:
-        xpath = '//input[@id="%s"]' % id_field
-        text = input_text
+    elif input_text == 'positive text':
+        xpath = '//*[@placeholder="%s"]' % locator_field
+        text = random_listValue(['google', 'facebook', 'space', 'ball', 'car', 'word'])
+    elif input_text == 'negative text':
+        xpath = '//*[@placeholder="%s"]' % locator_field
+        text = 'kjhgfdsalkjjhggfd'
     inputText(context, text, xpath)
 
 # Choose random style of request icon
@@ -207,6 +210,15 @@ def step(context):
      xpath = '//div[@class="b-col-1"]'
      locate_element(context, xpath)
 
+# Then check locate '{element}' element
+@then("check locate '{element}' element")
+def step(context, element):
+    if element == 'Search result':
+        xpath = '//*[@single-icon="icon"][%s]' % values_in_range(1, 5)
+    else:
+        xpath = '//*[@single-icon="icon"][1]'
+    locate_element(context, xpath)
+
 # Choose click '{menu}' on request icon menu page
 @then("click '{menu}' request icon menu")
 def step(context, menu):
@@ -228,6 +240,12 @@ def step(context):
 def step(context, placeholder):
     xpath = '//*[@placeholder="%s"]' % placeholder
     locate_element(context, xpath)
+
+# Then click '{placeholder}' field
+@then("click '{placeholder}' field")
+def step(context, placeholder):
+    xpath = '//*[@placeholder="%s"]' % placeholder
+    click_on_xpath(context, xpath)
 
 # Then locate '{value}' element
 @then("locate '{value}' element")
@@ -255,9 +273,25 @@ def step(context):
 # Then check last created idea
 @then("check last created idea")
 def step(context):
-    file_read_text = read_file("Steps\logic\ideas.txt")
+    file_read_text = read_file("steps\logic\ideas.txt")
     xpath = '//idea[1]/div/a[contains(., "%s")]' % file_read_text
     assert locate_element(context, xpath)
+
+# Then click on '{button}' button
+@then("click on '{button}' button")
+def step(context, button):
+    if button == 'search':
+        xpath = '//*[@class="b-search-btn"]'
+    click_on_xpath(context, xpath)
+
+
+
+# Then absent '{element}' element
+@then("absent '{element}' element")
+def step(context, element):
+    if element == 'search result':
+        xpath = '//*[@single-icon="icon"]'
+    assert absent_element(context, xpath)
 
 """
 # Then click '{button}' on '{block}' block
