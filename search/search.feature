@@ -188,3 +188,16 @@ Scenario: 16: Negative search test on Office Icon Pack
   Then locate text 'Nothing found'
   Then locate text 'Request icons'
   Then push link in header 'Icons8'
+
+Scenario: Search categories
+Scenario: 17: Search categories
+  Then push link in header 'Icons8'
+  Then click 'search' field
+  Then add 'positive text' text to 'search' field
+  Then click 'search' button
+  Then check locate 'search result' element
+  Then click 'search category' button
+  Then check locate 'categories result' element
+  Then click 'new icons search category' button
+  Then check locate 'new icons categories result' element
+  Then push link in header 'Icons8'

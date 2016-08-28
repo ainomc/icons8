@@ -215,6 +215,10 @@ def step(context):
 def step(context, element):
     if element == 'Search result':
         xpath = '//*[@class="icons-set"]/*[%s]' % values_in_range(1, 5)
+    elif element == 'categories result':
+        xpath = '//*[@ng-repeat="iconBlock in subCategory.blocksList track by $index"][1]/div/*[%s]' % values_in_range(1, 3)
+    elif element == 'new icons categories result':
+        xpath = '//*[@ng-repeat="icon in subCategory.icons"][%s]' % values_in_range(1, 3)
     else:
         xpath = '//*[@class="icons-set"]/*[1]'
     locate_element(context, xpath)
@@ -290,6 +294,10 @@ def step(context, button):
         xpath = '//*[@class="b-search-btn"]'
     elif button == 'search platform filter':
         xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' % values_in_range(2, 8)
+    elif button == 'search category':
+        xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[%s]' % values_in_range(2, 50)
+    elif button == 'new icons search category':
+        xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[1]'
     click_on_xpath(context, xpath)
 
 
