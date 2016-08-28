@@ -214,9 +214,9 @@ def step(context):
 @then("check locate '{element}' element")
 def step(context, element):
     if element == 'Search result':
-        xpath = '//*[@single-icon="icon"][%s]' % values_in_range(1, 5)
+        xpath = '//*[@class="icons-set"]/*[%s]' % values_in_range(1, 5)
     else:
-        xpath = '//*[@single-icon="icon"][1]'
+        xpath = '//*[@class="icons-set"]/*[1]'
     locate_element(context, xpath)
 
 # Choose click '{menu}' on request icon menu page
@@ -259,6 +259,12 @@ def step(context, value):
     xpath = '//*[@value="%s"]' % value
     click_on_xpath(context, xpath)
 
+# Then choose '{title}' element
+@then("choose '{title}' element")
+def step(context, title):
+    xpath = '//*[@title="%s"]' % title
+    click_on_xpath(context, xpath)
+
 # Then click login button in register pop-up
 @then("click login button in register pop-up")
 def step(context):
@@ -277,11 +283,13 @@ def step(context):
     xpath = '//idea[1]/div/a[contains(., "%s")]' % file_read_text
     assert locate_element(context, xpath)
 
-# Then click on '{button}' button
-@then("click on '{button}' button")
+# Then click '{button}' button
+@then("click '{button}' button")
 def step(context, button):
     if button == 'search':
         xpath = '//*[@class="b-search-btn"]'
+    elif button == 'search platform filter':
+        xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' % values_in_range(2, 8)
     click_on_xpath(context, xpath)
 
 
