@@ -82,7 +82,7 @@ Scenario: 5: Register
   Then push link Logout
   Then push link 'Register'
   Then locate text 'Register at Icons8'
-  Then add 'email' to register field
-  Then add 'password' to register field
+  Then add 'email' text to 'RegisterForm_email' field
+  Then add 'password' text to 'RegisterForm_password' field
   Then click 'Register' element
   Then locate text 'My Account'

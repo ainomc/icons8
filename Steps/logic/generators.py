@@ -24,7 +24,6 @@ def write_in_file(file, save_text):
 
 # Открывает файл и возвращает первую строку
 def read_file(file):
-	# with open(file, "r+") as my_file:
 	my_file = open(file, "r+")
 	fileText = my_file.readline()
 	print ("%s" + " idea created!!!") % fileText
@@ -44,7 +43,7 @@ def random_idea_name():
 	idea = ''
 	for x in range(6):
 		idea = idea + random.choice(list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-	write_in_file("Steps\logic\ideas.txt", idea)
+	write_in_file("steps\logic\ideas.txt", idea)
 	return idea
 
 # Генерирует рандомное имейл из 6 значений из списка и + '@gmail.com'
