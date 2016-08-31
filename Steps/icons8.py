@@ -283,7 +283,9 @@ def step(context):
 # Then check last created idea
 @then("check last created idea")
 def step(context):
-    file_read_text = read_file("steps\logic\ideas.txt")
+    pathToFile = os.path.join('steps', 'logic', 'ideas.txt')
+    print (pathToFile + "path to idea file")
+    file_read_text = read_file(pathToFile) #"steps\logic\ideas.txt"
     xpath = '//idea[1]/div/a[contains(., "%s")]' % file_read_text
     assert locate_element(context, xpath)
 
