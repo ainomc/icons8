@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException, TimeoutException, StaleElementReferenceException
 from datetime import datetime, timedelta
 import selenium.webdriver.common.action_chains as AC
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 import os
 from logic.actions import *
@@ -300,6 +301,10 @@ def step(context, button):
         xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[%s]' % values_in_range(2, 50)
     elif button == 'new icons search category':
         xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[1]'
+    elif button == 'Paypal':
+        xpath = '//modals[2]/div/div/div[3]/div/div[2]'
+    elif button == 'Credit cards':
+        xpath = '//modals[2]/div/div/div[3]/div/div[1]'
     click_on_xpath(context, xpath)
 
 
@@ -311,21 +316,18 @@ def step(context, element):
         xpath = '//*[@single-icon="icon"]'
     assert absent_element(context, xpath)
 
-"""
-# Then click '{button}' on '{block}' block
-@then("click")
-def step(context):
-    clickAndMove_on_xpath(context)
-
-    if block == 'Free' and button == 'Get':
-        xpath = '''//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]'''
-        moveTo = '//*[@callback="goToWebApp()"]'
-    elif block == 'All 32,200 Icons' and button == 'Buy':
-        xpath = '//div[@ng-class="licenses.companies.updates.id"]'
-        moveTo = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
-    elif block == 'Pay per Icon Buy' and button == 'Buy':
-        xpath = '''//div[3]/div[%s]/div[4][@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"]''' % 2 #values_in_range(1, 4)
-        moveTo = '''//*[@ng-bind-html="'PAGE.BUY.PLANS.PER_ICON.SAVE' | translate:{percent:'17%'}"]'''
-"""
-
-
+# Then click buy '{type_of_buy}' button
+@then("click buy '{type_of_buy}' button")
+def step(context, type_of_buy):
+    if type_of_buy == 'Free':
+        move_to = '//div[@callback="goToWebApp()"]'
+        button = """//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]"""
+    elif type_of_buy == 'All 33,200 Icons':
+        move_to = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
+        button = """//*[@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"][@ng-class="licenses.companies.updates.id"]"""
+    elif type_of_buy == 'Pay per Icon':
+        Type_og_buy = values_in_range(2, 4)
+        print (Type_og_buy)
+        move_to = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]' % 2 #% Type_og_buy
+        button = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]/*[4]' % 2 #% Type_og_buy
+    moveAndClick(context, move_to, button)

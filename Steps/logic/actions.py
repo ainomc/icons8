@@ -61,22 +61,16 @@ def click_on_xpath(context, xpath):
     scroll_element_into_view(context.browser, element)
     element.click()
 
-"""
-def clickAndMove_on_xpath(context):
-    #webdriver.ActionChains(context.browser).moveToElement.find_element_by_xpath(moveTo).perform()
-    #move_to = context.browser.find_element_by_xpath('html/body/main/div[1]/div[1]/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div[3]/div[1]/div[2]')
-    element = context.browser.find_element_by_xpath('''html/body/main/div[1]/div[1]/div[1]/div/div/div/div[2]/div[2]/div[2]/div/div[3]/div[1]/div[2]/div''')
-    time.sleep(6)
-    element.click()
-    #actions = ActionChains(context.browser)
-    #actions.move_to_element(move_to)
-    #time.sleep(4)
-    #element.click()
-    #actions.click(element).perform()
-    #element = context.browser.find_element_by_xpath(xpath)
-    #scroll_element_into_view(context.browser, element)
-    #element.click(element)
-"""
+def moveAndClick(context, move_to, button):
+    time.sleep(4)
+    moveTo = context.browser.find_element_by_xpath(move_to)
+    click_button = context.browser.find_element_by_xpath(button)
+    action = webdriver.ActionChains(context.browser)
+    action.move_to_element(moveTo)
+    action.perform()
+    time.sleep(4)
+    click_button.click()
+
 
 # Кликнуть на кнопку
 def click_on_button(context, button):
