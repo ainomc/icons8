@@ -26,7 +26,7 @@ Scenario: 1: Request new icon without login
   Then push link in header 'Icons8'
 
 Scenario: Register
-Scenario: 2: Register
+Scenario: 2: login during Register
   Then push link Logout
   Then push link 'Register'
   Then locate text 'Register at Icons8'
@@ -34,9 +34,10 @@ Scenario: 2: Register
   Then add 'password' text to 'RegisterForm_password' field
   Then click 'Register' element
   Then locate text 'My Account'
+  Then go to Main page
 
 Scenario: Buy
-Scenario: 3: Free Buy
+Scenario: 3: login during  free Buy
   Then push link Logout
   Then push link in header 'Icons8'
   Then push link 'Buy'
@@ -52,7 +53,7 @@ Scenario: 3: Free Buy
   Then locate 'search icons here' field
   Then push link in header 'Icons8'
 
-Scenario: 4: All 32,200 Icons Buy
+Scenario: 4: login during  All 32,200 Icons Buy
   Then push link Logout
   Then push link in header 'Icons8'
   Then push link 'Buy'
@@ -77,7 +78,7 @@ Scenario: 4: All 32,200 Icons Buy
   Then locate text 'CSC'
   Then go to Main page
 
-Scenario: 5: Pay per Icon Buy
+Scenario: 5: login during Pay per Icon Buy
   Then push link Logout
   Then push link in header 'Icons8'
   Then push link 'Buy'
@@ -93,3 +94,20 @@ Scenario: 5: Pay per Icon Buy
   Then locate text 'Credit cards'
   Then locate text 'Paypal'
   Then go to Main page
+
+Scenario: 6: Login during downloading
+  Then push link Logout
+  Then push link in header 'Icons8'
+  Then push link 'Download'
+  Then click 'Download for Windows' button
+  Then locate text 'Register to Continue Downloading'
+  Then locate 'Full name' field
+  Then locate 'Email' field
+  Then locate 'Password' field
+  Then locate 'Create Account' element
+  Then click login button in register pop-up
+  Then locate text 'Login to Continue Downloading'
+  Then login
+  Then locate text 'Download is Starting Now'
+  Then locate text 'click here'
+  Then push link in header 'Icons8'

@@ -305,6 +305,8 @@ def step(context, button):
         xpath = '//modals[2]/div/div/div[3]/div/div[2]'
     elif button == 'Credit cards':
         xpath = '//modals[2]/div/div/div[3]/div/div[1]'
+    elif button == 'Download for Windows':
+        xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
     click_on_xpath(context, xpath)
 
 
