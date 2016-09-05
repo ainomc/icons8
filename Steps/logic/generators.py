@@ -43,9 +43,10 @@ def random_idea_name():
 	idea = ''
 	for x in range(6):
 		idea = idea + random.choice(list('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM'))
-	write_in_file("steps\logic\ideas.txt", idea)
+	pathToFile = os.path.join('steps', 'logic', 'ideas.txt')
+	print (pathToFile + "path to idea file")
+	write_in_file(pathToFile, idea)  #"steps\logic\ideas.txt"
 	return idea
-
 # Генерирует рандомное имейл из 6 значений из списка и + '@gmail.com'
 def random_email():
 	email = ''
