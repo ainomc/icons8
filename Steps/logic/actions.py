@@ -13,12 +13,7 @@ import os
 from settings import settings_test as settings
 from selenium.webdriver.common.action_chains import ActionChains
 from generators import *
-<<<<<<< HEAD
-from behave import *
 
-=======
-from environment import *
->>>>>>> 197adf01c208ec2ef1c57d2d6b3ac5bef29de032
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
