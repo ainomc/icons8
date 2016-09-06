@@ -1,0 +1,4 @@
+{
+  "pytest_test.py::Test::()::test_termsAndConditionsPage": true, 
+  "pytest_test.py::test_termsAndConditionsPage": true
+}
