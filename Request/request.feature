@@ -13,7 +13,8 @@ Scenario: 1: Add new request
   Then choose style of request icon
   Then push button what named 'Submit'
   Then locate text 'Need it Fast? Promote it'
-  Then locate text 'Skip'
+  Then push link 'Skip'
+  Then locate text 'Upvote'
   Then push link in header 'Icons8'
 
 Scenario: Check created idea
