@@ -27,7 +27,7 @@ STAND = settings['stand_number']
 # Кликнуть на линк
 def click_on_link(context, link):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
-        EC.element_to_be_clickable((By.XPATH, '//*[1][contains(text(), "%s")]' % link)) ### '//*[1][contains(text(), "%s")] - old version
+        EC.element_to_be_clickable((By.XPATH, '//*[1][contains(text(), "%s")]' % link))
     )
     time.sleep(2)
     while True: 
@@ -70,7 +70,6 @@ def moveAndClick(context, move_to, button):
     action.perform()
     time.sleep(4)
     click_button.click()
-
 
 # Кликнуть на кнопку
 def click_on_button(context, button):
@@ -206,8 +205,7 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
             # break
         # except StaleElementReferenceException:
             # continue
-            
-            
+
 # Прокрутить вниз страницы
 # Then scroll to end of the page
 def scroll_down(context):
@@ -242,8 +240,9 @@ def input_text(context, text, field):
 
 # Найти поле по xpath и ввести в него текст
 def inputText(context, text, xpath):
-	context.browser.find_element_by_xpath(xpath).click()
-	context.browser.find_element_by_xpath(xpath).send_keys(text)
+    context.browser.find_element_by_xpath(xpath).click()
+    context.browser.find_element_by_xpath(xpath).clear()
+    context.browser.find_element_by_xpath(xpath).send_keys(text)
 
 # Возвращаеться на превидущую страницу
 def back_to_previous_page(context):
@@ -268,14 +267,48 @@ def absent_element(context, xpath):
         return True
     return False
 
+# проверяет, что элемент отсутствует.
+def dragAndDrop(context, element, moveto):
+    source = context.browser.find_element_by_xpath(element)
+    target = context.browser.find_element_by_xpath(moveto)
+    action = webdriver.ActionChains(context.browser)
+    action.drag_and_drop(source, target)
+    action.perform()
 
+# Возвращае колличество єлементов
+def countOfElements(context, xpath):
+    count = 0
+    elementNumber = 1
+    while True:
+        try:
+            print (str(count))
+            context.browser.find_element_by_xpath(xpath % elementNumber)
+            count += 1
+            elementNumber += 1
+        except NoSuchElementException:
+            print (str(count) + ' - number of elements')
+            break
+    return count
 
-    #absent = context.browser.find_element_by_xpath(xpath)
-    #if absent == False:
-        #print ("no any search result - test done")
-    #else:
-        #raise AssertionError
+# Кликает на все найденные элементы
+def clickAll(context, xpath):
+    count = countOfElements(context, xpath)
+    while count > 0:
+        print (str(count))
+        context.browser.find_element_by_xpath(xpath % count).click()
+        count -= 1
 
+# Кликает на все найденные элементы и потом еще кликает на кнопку
+def clickAllAndButtons(context, xpathFirst, xpathSecond):
+    count = countOfElements(context, xpathFirst)
+    while count > 0:
+        print (str(count))
+        context.browser.find_element_by_xpath(xpathFirst % count).click()
+        time.sleep(3)
+        context.browser.find_element_by_xpath(xpathSecond).click()
+        count -= 1
+
+#context.browser.find_element_by_xpath(xpath % count).click()
 # пока не пашет    
 # def pedro_search(context, xpath):
     # WebDriverWait(context.browser, TIME_FOR_WAIT).until(

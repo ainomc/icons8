@@ -144,7 +144,7 @@ def step(context, field):
     text = random_idea_name()
     input_text(context, text, field)
 
-# Then add '{input_text}' text to '{id_field}' field
+# Then add '{input_text}' text to '{locator_field}' field
 @then("add '{input_text}' text to '{locator_field}' field")
 def step(context, input_text, locator_field):
     if input_text == 'email':
@@ -159,6 +159,9 @@ def step(context, input_text, locator_field):
     elif input_text == 'negative text':
         xpath = '//*[@placeholder="%s"]' % locator_field
         text = 'kjhgfdsalkjjhggfd'
+    elif input_text == 'collection name':
+        xpath = '//input[@ng-model="collsControl.%s"]' % locator_field
+        text = 'Collection 1'
     inputText(context, text, xpath)
 
 # Choose random style of request icon
@@ -220,10 +223,14 @@ def step(context, element):
         xpath = '//*[@ng-repeat="iconBlock in subCategory.blocksList track by $index"][1]/div/*[%s]' % values_in_range(1, 3)
     elif element == 'new icons categories result':
         xpath = '//*[@ng-repeat="icon in subCategory.icons"][%s]' % values_in_range(1, 3)
-    else:
-        xpath = '//*[@class="icons-set"]/*[1]'
+    elif element == 'created first collection':
+        xpath = '//*[@class="b-collections-container"]/div[1]'
+    elif element == 'first icon in collection':
+        xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
     locate_element(context, xpath)
 
+#//div[@class="b-collections-container"]/div[1][@ng-click="coll.setCurrent();"]
+#html/body/main/div[1]/div[3]/div/div[1]/div[1]/div[1]
 # Choose click '{menu}' on request icon menu page
 @then("click '{menu}' request icon menu")
 def step(context, menu):
@@ -307,8 +314,17 @@ def step(context, button):
         xpath = '//modals[2]/div/div/div[3]/div/div[1]'
     elif button == 'Download for Windows':
         xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
+    elif button == 'Collections':
+        xpath = '//span[contains(., "Collections")]'
+    elif button == 'Create collections':
+        xpath = '//*[@ng-click="collsControl.createCollection();"]'
+    elif button == 'confirm name':
+        xpath = '//form/*[@ng-click="collsControl.renameCollection()"]'
+    elif button == 'delete collection menu':
+        xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
+    elif button == 'first icon to collection':
+        xpath = '//div[@class="b-subcategory-wrapper"][1]/span[1]/a/*[7]'
     click_on_xpath(context, xpath)
-
 
 
 # Then absent '{element}' element
@@ -328,8 +344,16 @@ def step(context, type_of_buy):
         move_to = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
         button = """//*[@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"][@ng-class="licenses.companies.updates.id"]"""
     elif type_of_buy == 'Pay per Icon':
-        Type_og_buy = values_in_range(2, 4)
-        print (Type_og_buy)
-        move_to = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]' % 2 #% Type_og_buy
-        button = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]/*[4]' % 2 #% Type_og_buy
+        Type_of_buy = values_in_range(2, 4)
+        print (Type_of_buy)
+        move_to = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]' % Type_of_buy
+        button = '//div[@register-modal-params="{registerTitle:registerTitle, loginTitle:loginTitle}"][%s]/*[4]' % Type_of_buy
     moveAndClick(context, move_to, button)
+
+# Then delete all '{elements}' elements
+@then("delete all '{elements}' elements")
+def step(context, elements):
+    if elements == 'collections':
+        xpathFirst = '//*[@ ng-repeat="coll in colls.colls"][%s]/*[@ ng-show="collectionsEdit" ]'
+        xpathSecond = '//*[@class="c-btn modal__action-confirm modal__action"]'
+    clickAllAndButtons(context, xpathFirst, xpathSecond)

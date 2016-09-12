@@ -1,5 +1,39 @@
 Feature: Collections
-Scenario: Create collection
+Scenario: Presents collections screen
+Scenario: 1: Presents collections screen
+  Then push link in header 'Icons8'
+  Then push link 'Icons'
+  Then click 'Collections' button
+  Then locate text 'What can you do with collections?'
+  Then locate text 'Edit and download'
+  Then locate text 'Store collections'
+  Then locate text 'Drag’n drop icons'
+  Then locate text 'Upload SVG'
+  Then push link in header 'Icons8'
+
+Scenario: Create first collections and add collection
+Scenario: 2: Create first collections and add collection
+  Then push link in header 'Icons8'
+  Then push link 'Icons'
+  Then click 'Collections' button
+  Then click 'Create collections' button
+  Then add 'collection name' text to 'newCollName' field
+  Then click 'confirm name' button
+  Then check locate 'created first collection' element
+  Then click 'first icon to collection' button
+  Then check locate 'first icon in collection' element
+
+Scenario: Delete collections
+Scenario: 12: Delete collections
+  Then push link in header 'Icons8'
+  Then push link 'Icons'
+  Then click 'Collections' button
+  Then click 'delete collection menu' button
+  Then delete all 'collections' elements
+  Then push link in header 'Icons8'
+
+
+"""
 Scenario: 0: Collections are in the right bar
   Then push link 'Icons'
 #  Then push button 'Got It'
@@ -11,6 +45,7 @@ Scenario: 1: Create collection
   Then push button "Done"
   Then push button 'Create'
   Then push button "Done"
+"""
   
 # Scenario: 28: Delete collection
   # Then push button 'Edit collection'
