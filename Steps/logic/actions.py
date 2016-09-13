@@ -23,7 +23,6 @@ LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
 
-
 # Кликнуть на линк
 def click_on_link(context, link):
     WebDriverWait(context.browser, TIME_FOR_WAIT).until(
@@ -308,7 +307,16 @@ def clickAllAndButtons(context, xpathFirst, xpathSecond):
         context.browser.find_element_by_xpath(xpathSecond).click()
         count -= 1
 
-#context.browser.find_element_by_xpath(xpath % count).click()
+# Try click xpath > then click xpath > then find another xpath
+def tryFindClickFind(context, try_find, click, findSecond):
+    try:
+        context.browser.find_element_by_xpath(try_find)
+        click_on_xpath(context, click)
+        locate_element(context, findSecond)
+    except NoSuchElementException:
+        pass
+
+
 # пока не пашет    
 # def pedro_search(context, xpath):
     # WebDriverWait(context.browser, TIME_FOR_WAIT).until(

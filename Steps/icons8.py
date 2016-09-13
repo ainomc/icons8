@@ -227,10 +227,10 @@ def step(context, element):
         xpath = '//*[@class="b-collections-container"]/div[1]'
     elif element == 'first icon in collection':
         xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+    elif element == 'Get Font pop-up':
+        xpath = '//*[@stop-events="click"]'
     locate_element(context, xpath)
 
-#//div[@class="b-collections-container"]/div[1][@ng-click="coll.setCurrent();"]
-#html/body/main/div[1]/div[3]/div/div[1]/div[1]/div[1]
 # Choose click '{menu}' on request icon menu page
 @then("click '{menu}' request icon menu")
 def step(context, menu):
@@ -324,8 +324,15 @@ def step(context, button):
         xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
     elif button == 'first icon to collection':
         xpath = '//div[@class="b-subcategory-wrapper"][1]/span[1]/a/*[7]'
+    elif button == 'first icon in collection':
+        xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+    elif button == 'delete icon in collection':
+        xpath = '//span[@class="c-btn m-transparent"]'
+    elif button == 'Get Font':
+        xpath = '''//*[@popup-target="'generate-font'"]'''
+    elif button == 'Get SVG Set':
+        xpath = '''//*[@ng-class="{'m-load': isDownloadSVGSet}"]'''
     click_on_xpath(context, xpath)
-
 
 # Then absent '{element}' element
 @then("absent '{element}' element")
@@ -357,3 +364,26 @@ def step(context, elements):
         xpathFirst = '//*[@ ng-repeat="coll in colls.colls"][%s]/*[@ ng-show="collectionsEdit" ]'
         xpathSecond = '//*[@class="c-btn modal__action-confirm modal__action"]'
     clickAllAndButtons(context, xpathFirst, xpathSecond)
+"""
+# Then check '{popup}' pop-up
+@then("check '{popup}' pop-up")
+def step(context, popup):
+    if popup == 'Get Font':
+        tryFindFirst = '//*[1][contains(text(), "Color Icons Are Excluded")]'
+        clickFirst = '//a[1][contains(text(), "ok")]'
+        tryFindSecond = '//*[1][contains(text(), "Unlock Font")]'
+        clickSecond = '//*[1][contains(text(), "see pricing")]'
+    TryFindAndClickTwice(context, tryFindFirst, clickFirst, tryFindSecond, clickSecond)
+"""
+# Then try find and check'{elements}'
+@then("try find and check '{elements}'")
+def step(context, elements):
+    if elements == 'Unlock Font':
+        try_find = '//*[1][contains(text(), "Unlock Font")]'
+        click = '//*[1][contains(text(), "see pricing")]'
+        findSecond = '//*[1][contains(text(), "Paid or Free, You Are Our Hero!")]'
+    elif elements == 'Color Icons Are Excluded':
+        try_find = '//*[1][contains(text(), "Color Icons Are Excluded")]'
+        click = '//a[1][contains(text(), "ok")]'
+        findSecond = '''//*[@popup-target="'generate-font'"]'''
+    tryFindClickFind(context, try_find, click, findSecond)

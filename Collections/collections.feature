@@ -22,6 +22,34 @@ Scenario: 2: Create first collections and add collection
   Then check locate 'created first collection' element
   Then click 'first icon to collection' button
   Then check locate 'first icon in collection' element
+  Then click 'first icon in collection' button
+  Then click 'delete icon in collection' button
+  Then push link 'Delete'
+  Then locate text 'Edit and download'
+  Then click 'first icon to collection' button
+  Then check locate 'first icon in collection' element
+
+Scenario: Get Font
+Scenario: 3: Get Font
+  Then push link in header 'Icons8'
+  Then push link 'Icons'
+  Then click 'Collections' button
+  Then click 'Get Font' button
+  Then check locate 'Get Font pop-up' element
+  Then try find and check 'Unlock Font'
+  Then try find and check 'Color Icons Are Excluded'
+  Then push link in header 'Icons8'
+
+Scenario: Get SVG set
+Scenario: 4: Get SVG set
+  Then push link in header 'Icons8'
+  Then push link 'Icons'
+  Then click 'Collections' button
+  Then click 'Get SVG Set' button
+  Then locate text 'Unlock SVG'
+  Then push link 'see pricing'
+  Then locate text 'Paid or Free, You Are Our Hero!'
+  Then push link in header 'Icons8'
 
 Scenario: Delete collections
 Scenario: 12: Delete collections
@@ -31,7 +59,6 @@ Scenario: 12: Delete collections
   Then click 'delete collection menu' button
   Then delete all 'collections' elements
   Then push link in header 'Icons8'
-
 
 """
 Scenario: 0: Collections are in the right bar
