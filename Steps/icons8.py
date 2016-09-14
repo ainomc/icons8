@@ -161,7 +161,7 @@ def step(context, input_text, locator_field):
         text = 'kjhgfdsalkjjhggfd'
     elif input_text == 'collection name':
         xpath = '//input[@ng-model="collsControl.%s"]' % locator_field
-        text = 'Collection 1'
+        text = 'Collection %s' % random_text(6)
     inputText(context, text, xpath)
 
 # Choose random style of request icon
@@ -225,11 +225,17 @@ def step(context, element):
         xpath = '//*[@ng-repeat="icon in subCategory.icons"][%s]' % values_in_range(1, 3)
     elif element == 'created first collection':
         xpath = '//*[@class="b-collections-container"]/div[1]'
+    elif element == 'created second collection':
+        xpath = '//*[@class="b-collections-container"]/div[2]'
     elif element == 'first icon in collection':
         xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
     elif element == 'Get Font pop-up':
         xpath = '//*[@stop-events="click"]'
+    elif element == 'Public Link':
+        xpath = '//*[@ng-model="colSharing.url"]'
     locate_element(context, xpath)
+
+
 
 # Choose click '{menu}' on request icon menu page
 @then("click '{menu}' request icon menu")
@@ -332,6 +338,12 @@ def step(context, button):
         xpath = '''//*[@popup-target="'generate-font'"]'''
     elif button == 'Get SVG Set':
         xpath = '''//*[@ng-class="{'m-load': isDownloadSVGSet}"]'''
+    elif button == 'open public link pop-up':
+        xpath = '//*[@class="c-tooltip m-no-border m-share-link-tooltip"]'
+    elif button == 'color palette':
+        xpath = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
+    elif button == 'open color pop-up':
+        xpath = '//*[@hide-color-picker="hideColorPicker"]/*[@ng-if="!hideColorPicker"]'
     click_on_xpath(context, xpath)
 
 # Then absent '{element}' element
@@ -387,3 +399,18 @@ def step(context, elements):
         click = '//a[1][contains(text(), "ok")]'
         findSecond = '''//*[@popup-target="'generate-font'"]'''
     tryFindClickFind(context, try_find, click, findSecond)
+
+# Then locate '{element}' element in color pop-up
+@then("locate '{element}' element in color pop-up")
+def step(context, element):
+    if element == 'grayscale' or element == 'color' or element == 'color' or element == 'color_palette' or element == 'custom':
+        xpath = '''//*[@class="colors"]/*/*[@ng-bind-html="'WEB_APP.RECOLOR.%s' | translate"]''' % element.upper()
+    elif element == 'gray colors':
+        xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % values_in_range(1, 5)
+    elif element == 'not gray colors':
+        xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colors"][%s]' % values_in_range(1, 10)
+    elif element == 'input color':
+        xpath = '//input[@class="colors-panel__input ng-pristine ng-untouched ng-valid ng-valid-maxlength"]'
+    elif element == 'canvas':
+        xpath = '//*[@class="colors"]/descendant::*/canvas'
+    locate_element(context, xpath)
