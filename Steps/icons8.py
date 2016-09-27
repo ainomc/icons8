@@ -106,9 +106,6 @@ def step(context):
 def step(context):
     create = 'b-collection-preview-create'
     click_on_create(context, create)
-    
-## xpath for new name of collection 
-##//input[@ng-model='collsControl.newCollName']
 
 # Прокрутить вниз страницы
 # Then scroll to end of the page
@@ -217,12 +214,10 @@ def step(context):
 # Then check locate '{element}' element
 @then("check locate '{element}' element")
 def step(context, element):
-    if element == 'Search result':
+    if element == 'search result':
         xpath = '//*[@class="icons-set"]/*[%s]' % values_in_range(1, 5)
-    elif element == 'categories result':
-        xpath = '//*[@ng-repeat="iconBlock in subCategory.blocksList track by $index"][1]/div/*[%s]' % values_in_range(1, 3)
-    elif element == 'new icons categories result':
-        xpath = '//*[@ng-repeat="icon in subCategory.icons"][%s]' % values_in_range(1, 3)
+    elif element == 'icons in search result':
+        xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % values_in_range(1, 3)
     elif element == 'created first collection':
         xpath = '//*[@class="b-collections-container"]/div[1]'
     elif element == 'created second collection':
@@ -234,8 +229,6 @@ def step(context, element):
     elif element == 'Public Link':
         xpath = '//*[@ng-model="colSharing.url"]'
     locate_element(context, xpath)
-
-
 
 # Choose click '{menu}' on request icon menu page
 @then("click '{menu}' request icon menu")
@@ -298,7 +291,7 @@ def step(context):
 @then("check last created idea")
 def step(context):
     pathToFile = os.path.join('steps', 'logic', 'ideas.txt')
-    print (pathToFile + "path to idea file")
+    print (pathToFile + " - path to idea file")
     file_read_text = read_file(pathToFile) #"steps\logic\ideas.txt"
     xpath = '//idea[1]/div/a[contains(., "%s")]' % file_read_text
     assert locate_element(context, xpath)
@@ -329,7 +322,7 @@ def step(context, button):
     elif button == 'delete collection menu':
         xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
     elif button == 'first icon to collection':
-        xpath = '//div[@class="b-subcategory-wrapper"][1]/span[1]/a/*[7]'
+        xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
     elif button == 'first icon in collection':
         xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
     elif button == 'delete icon in collection':
@@ -344,6 +337,8 @@ def step(context, button):
         xpath = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
     elif button == 'open color pop-up':
         xpath = '//*[@hide-color-picker="hideColorPicker"]/*[@ng-if="!hideColorPicker"]'
+    elif button == 'recommend':
+        xpath = '//*[@class="infinario-block__poll"]/*[%s]' % values_in_range(1, 11)
     click_on_xpath(context, xpath)
 
 # Then absent '{element}' element
@@ -408,9 +403,17 @@ def step(context, element):
     elif element == 'gray colors':
         xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % values_in_range(1, 5)
     elif element == 'not gray colors':
-        xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colors"][%s]' % values_in_range(1, 10)
-    elif element == 'input color':
         xpath = '//input[@class="colors-panel__input ng-pristine ng-untouched ng-valid ng-valid-maxlength"]'
     elif element == 'canvas':
         xpath = '//*[@class="colors"]/descendant::*/canvas'
     locate_element(context, xpath)
+
+"""
+# Then upload '{file}' file
+@then("upload '{file}' file")
+def step(context, file):
+    if file == 'icon':
+        pathToFile = os.path.join('icons8', 'collections', 'test_svg_1.svg')
+        uploadTo = 'html/body/main/div[1]/div[3]/div/div[2]/div[2]/div[1]/div[1]/div[2]'
+    upload(context, uploadTo, pathToFile)
+"""

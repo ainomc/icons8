@@ -63,7 +63,7 @@ Scenario: 5: Buy fast track page
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Fast for $199/year' request icon menu
-  Then locate text 'How Fast Is It'
+  Then locate text 'How Fast'
   Then locate image '/static/images/request/fast-track.jpg'
   Then locate text 'Limitations'
   Then locate text 'You can only order one icon every two days'
@@ -84,15 +84,12 @@ Scenario: 6: Fastest for $50 page
   Then push link in header 'Icons8'
   Then push link 'Request'
   Then click 'Fastest for $50/icon' request icon menu
-  Then locate text 'Any icon, no limitations.'
+  Then locate text 'Any icon'
   Then locate text 'How Fast Is It?'
   Then locate text 'Usually, we can make 5-20 icons a day'
   Then locate text 'How Much Is It?'
   Then locate text 'To create a single icon, it will cost $50'
   Then locate text 'Where Do I Start?'
-  #Then push link 'sizes and formats'
-  #Then locate text 'Choosing the right icon size'
-  #Then back to previous page
   Then push link 'Contact Us'
   Then locate text 'Contact Icons8'
   Then push link in header 'Icons8'

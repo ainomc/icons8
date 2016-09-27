@@ -195,9 +195,9 @@ Scenario: 17: Search categories
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons in search result' element
   Then click 'search category' button
-  Then check locate 'categories result' element
+  Then check locate 'icons in search result' element
   Then click 'new icons search category' button
-  Then check locate 'new icons categories result' element
+  Then check locate 'icons in search result' element
   Then push link in header 'Icons8'
