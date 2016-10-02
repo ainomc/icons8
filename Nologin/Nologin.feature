@@ -75,7 +75,7 @@ Scenario: 4: login during  All 32,200 Icons Buy
   Then push link 'Buy'
   Then click buy 'All 33,200 Icons' button
   Then click 'Paypal' button
-  Then locate text 'CSC'
+  Then locate text 'Pay with PayPal'
   Then go to Main page
 
 Scenario: 5: login during Pay per Icon Buy
