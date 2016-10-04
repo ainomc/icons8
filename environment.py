@@ -10,7 +10,6 @@ from os import getcwd
 #from api_method import delete_data
 from sys import platform
 import time
-
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
 Тут можно объявить переменные, которые можно будет использовать на всех уровнях,
@@ -24,7 +23,6 @@ SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
-
 
 def sleep_while_show_text(context, text):
     '''

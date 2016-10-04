@@ -14,6 +14,7 @@ from settings import settings_test as settings
 from selenium.webdriver.common.action_chains import ActionChains
 from generators import *
 
+
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
@@ -22,8 +23,6 @@ SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
-
-
 
 
 class Page(object):
