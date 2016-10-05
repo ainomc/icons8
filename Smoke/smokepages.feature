@@ -1,7 +1,7 @@
 Feature: Open pages, login and assertions
 Scenario: Open main page
 Scenario: 1: Open Main page and scroll down
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then scroll to end of the page
   Then locate text 'Free Apps for the Web, Mac, and Windows'
   Then locate text 'The Community Loves Icons8'
@@ -9,7 +9,7 @@ Scenario: 1: Open Main page and scroll down
 
 Scenario: Terms and Conditions  
 Scenario: 2: Open Terms and Conditions page and assert text
-  Then push link in header 'Icons8'  
+  Then go to Main page
   Then push link 'Terms and Conditions'
   Then scroll to end of the page
   Then locate text 'Disclaimer'
@@ -18,8 +18,8 @@ Scenario: 2: Open Terms and Conditions page and assert text
   Then push link in header 'Icons8'  
 
 Scenario: Privacy Policy
-Scenario: 3: Open Privacy Policy page and assertion 
-  Then push link in header 'Icons8'  
+Scenario: 3: Open Privacy Policy page and assertion
+  Then go to Main page
   Then push link 'Privacy Policy'
   Then scroll to end of the page
   Then locate text 'Information We Collect'
@@ -29,7 +29,7 @@ Scenario: 3: Open Privacy Policy page and assertion
   
 Scenario: Free license
 Scenario: 4: Open Free license page and assertion
-  Then push link in header 'Icons8'  
+  Then go to Main page
   Then push link 'Free Icons'
   Then scroll to end of the page
   Then locate text 'Where to Put the Link?'
@@ -38,10 +38,10 @@ Scenario: 4: Open Free license page and assertion
 
 Scenario: Paid license
 Scenario: 5: Open Paid license page and assertion
-  Then push link in header 'Icons8'  
+  Then go to Main page
   Then push link 'Paid Icons'
   Then scroll to end of the page
-  Then locate text 'Paid or Free, You Are Our Hero!'
+  Then locate text 'Paid or Free, You Are Our Hero'
   Then locate text 'Icons8 App for Mac and Windows'
   Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
   Then push 'Extended With API' from tabs
@@ -57,7 +57,7 @@ Scenario: 5: Open Paid license page and assertion
 
 Scenario: Contact us
 Scenario: 6: Open Contact us page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link 'Contact us'
   Then scroll to end of the page
   Then locate text 'Check'
@@ -76,7 +76,7 @@ Scenario: 6: Open Contact us page and assertion
 
 Scenario: Apps Win / Mac
 Scenario: 8: Open Application page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link 'Download'
   Then scroll to end of the page
   Then locate text 'Download All Our Icons in a'
@@ -88,10 +88,10 @@ Scenario: 8: Open Application page and assertion
 
 Scenario: Request icons
 Scenario: 9: Open Request icons page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link Request icons
   Then scroll to end of the page
-  Then locate text 'Recently Created Icons'
+  Then locate text 'Recently'
   Then push 'Fast for $199/year' from tabs
   Then locate text 'How Fast'
   Then locate text 'Limitations'
@@ -105,7 +105,7 @@ Scenario: 9: Open Request icons page and assertion
 
 Scenario: Cosmic Pedro
 Scenario: 10: Open Cosmic Pedro page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link 'Resources'
   Then push link in header 'Free'
   Then locate text 'Cosmic Pedro'
@@ -115,20 +115,20 @@ Scenario: 10: Open Cosmic Pedro page and assertion
 
 Scenario: We love SVG
 Scenario: 11: Open We love SVG page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link 'Resources'
   Then push link in header 'Open Source'
   Then scroll to end of the page
   Then locate text 'Flat Color'
   Then push link 'Hello World!'
   Then locate text 'Simple jQuery Example'
-  Then locate element in popup
+  Then locate text '!DOCTYPE html'
   Then close popup
   Then go to Main page
 
 Scenario: Web app
 Scenario: 12: Open Web app page and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link 'Icons'
   Then scroll to end of the page
   Then locate text 'New Icons'
@@ -137,7 +137,7 @@ Scenario: 12: Open Web app page and assertion
   
 Scenario: Logout feature
 Scenario: 13: Logout and assertion
-  Then push link in header 'Icons8'
+  Then go to Main page
   Then push link Logout
   Then locate text 'Login'
   Then locate text 'Register' 

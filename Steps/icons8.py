@@ -279,13 +279,6 @@ def step(context, text_image):
      context.locateActions = LocateActions(context)
      context.locateActions.locate_element(xpath)
 
-# Then locate element in popup
-@then("locate element in popup")
-def step(context):
-     xpath = "//span[@class='hljs-doctype']"
-     context.locateActions = LocateActions(context)
-     context.locateActions.locate_element(xpath)
-
 # Then locate text 'text'
 @then("locate text '{text}'")
 def step(context, text):
@@ -351,6 +344,13 @@ def step(context):
 @then("locate '{placeholder}' field")
 def step(context, placeholder):
     xpath = '//*[@placeholder="%s"]' % placeholder
+    context.locateActions = LocateActions(context)
+    context.locateActions.locate_element(xpath)
+
+# Then check locate '{id}' element
+@then("find '{id}' element")
+def step(context, id):
+    xpath = "//*[@id='%s']" % id
     context.locateActions = LocateActions(context)
     context.locateActions.locate_element(xpath)
 

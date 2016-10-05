@@ -281,9 +281,6 @@ class TextActions(Page):
 class PageActions(Page):
     # Then scroll to end of the page
     def open_main_page(self, server=SERVER):
-        '''
-        Функция для перехода на Главную, там где нет кнопки в шапке
-        '''
         self.browser.get(server)
 
     # Возвращаеться на превидущую страницу
