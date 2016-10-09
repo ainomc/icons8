@@ -10,7 +10,50 @@ from pytest_settings import *
 
 # Main Test class
 class Tests(MainTestClassSettings):
+
     def test_ofTests(self):
-        self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath('html/body/nav/div/div/ul/li[2]/a/span')
         print ("First Test Done")
+
+    # landing page icon
+    def test_landingPageIcon(self):
+        self.textActions.addTextToField('positive text', 'search')
+        self.clickActions.clickButton('search')
+        self.clickActions.clickButton('first icon in result')
+        self.clickActions.clickButton('icon name')
+        self.locateActions.locateElement('icon category')
+        self.locateActions.locateElement('icon text')
+        self.locateActions.locateElement('Icon')
+        self.locateActions.locateElement('Download button')
+        self.locateActions.locate_text('Generate HTML')
+        self.clickActions.clickButton('choose size of PNG')
+        self.locateActions.locateElement('icon download sizes')
+        self.locateActions.locateElement('icon download format')
+        self.locateActions.locate_text('Download multiple sizes')
+        self.locateActions.locate_text('Browse by tags')
+
+    # landing page tag
+    def test_landingPageTag(self):
+        self.textActions.addTextToField('positive text', 'search')
+        self.clickActions.clickButton('search')
+        self.clickActions.clickButton('first icon in result')
+        self.clickActions.clickButton('icon name')
+        self.locateActions.locate_text('Browse by tags')
+        self.clickActions.clickButton('tag')
+        self.locateActions.locate_text('This page contains')
+        self.clickActions.clickButton('icon in tag page')
+        self.locateActions.locate_text('Browse by tags')
+    # landing page category
+    def test_landingPageCategory(self):
+        self.textActions.addTextToField('positive text', 'search')
+        self.clickActions.clickButton('search')
+        self.clickActions.clickButton('first icon in result')
+        self.clickActions.clickButton('icon name')
+        self.locateActions.locate_text('Browse by tags')
+        self.clickActions.clickButton('icon category')
+        self.locateActions.locateElement('icons result')
+        self.locateActions.locateElement('icons in result')
+        self.locateActions.locateElement('Category Title')
+
+
+

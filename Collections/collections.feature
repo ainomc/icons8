@@ -20,13 +20,13 @@ Scenario: 2: Create first collections and add collection
   Then add 'collection name' text to 'newCollName' field
   Then click 'confirm name' button
   Then check locate 'created first collection' element
-  Then click 'first icon to collection' button
+  Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
   Then click 'first icon in collection' button
   Then click 'delete icon in collection' button
   Then push link 'Delete'
   Then locate text 'Edit and download'
-  Then click 'first icon to collection' button
+  Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
 
 Scenario: Get Font
@@ -94,13 +94,13 @@ Scenario: 7: Add second collections
   Then add 'collection name' text to 'newCollName' field
   Then click 'confirm name' button
   Then check locate 'created second collection' element
-  Then click 'first icon to collection' button
+  Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
   Then click 'first icon in collection' button
   Then click 'delete icon in collection' button
   Then push link 'Delete'
   Then locate text 'Edit and download'
-  Then click 'first icon to collection' button
+  Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
 
 Scenario: Delete collections

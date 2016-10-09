@@ -32,6 +32,7 @@ class Page(object):
 
 
 class ClickActions(Page):
+
     # Кликнуть на линк
     def click_on_link(self, link):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
@@ -139,8 +140,67 @@ class ClickActions(Page):
             time.sleep(3)
             self.browser.find_element_by_xpath(xpathSecond).click()
             count -= 1
+    # Наимает на кнопку в хедере. Типы вводных 'Icons', 'Download', 'Request', 'Buy', 'Resources'
+    def clickHeaderButton(self, buttonName):
+        Xpath = "//span[contains(text(), '%s')]" % buttonName
+        self.clickActions = ClickActions(self)
+        self.clickActions.click_on_xpath(Xpath)
 
-
+    def clickButton(self, buttonName):
+        Value_generate = ValueGenerate()
+        if buttonName == 'search':
+            xpath = '//*[@class="b-search-btn"]'
+        elif buttonName == 'search platform filter':
+            xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' \
+                    % Value_generate.values_in_range(2, 8)
+        elif buttonName == 'search category':
+            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[%s]' % Value_generate.values_in_range(2, 50)
+        elif buttonName == 'new icons search category':
+            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[1]'
+        elif buttonName == 'Paypal':
+            xpath = '//modals[2]/div/div/div[3]/div/div[2]'
+        elif buttonName == 'Credit cards':
+            xpath = '//modals[2]/div/div/div[3]/div/div[1]'
+        elif buttonName == 'Download for Windows':
+            xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
+        elif buttonName == 'Collections':
+            xpath = '//span[contains(., "Collections")]'
+        elif buttonName == 'Create collections':
+            xpath = '//*[@ng-click="collsControl.createCollection();"]'
+        elif buttonName == 'confirm name':
+            xpath = '//form/*[@ng-click="collsControl.renameCollection()"]'
+        elif buttonName == 'delete collection menu':
+            xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
+        elif buttonName == 'first icon in result':
+            xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
+        elif buttonName == 'first icon in collection':
+            xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+        elif buttonName == 'delete icon in collection':
+            xpath = '//span[@class="c-btn m-transparent"]'
+        elif buttonName == 'Get Font':
+            xpath = '''//*[@popup-target="'generate-font'"]'''
+        elif buttonName == 'Get SVG Set':
+            xpath = '''//*[@ng-class="{'m-load': isDownloadSVGSet}"]'''
+        elif buttonName == 'open public link pop-up':
+            xpath = '//*[@class="c-tooltip m-no-border m-share-link-tooltip"]'
+        elif buttonName == 'color palette':
+            xpath = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
+        elif buttonName == 'open color pop-up':
+            xpath = '//*[@hide-color-picker="hideColorPicker"]/*[@ng-if="!hideColorPicker"]'
+        elif buttonName == 'recommend':
+            xpath = '//*[@class="infinario-block__poll"]/*[%s]' % Value_generate.values_in_range(1, 11)
+        elif buttonName == 'icon name':
+            xpath = '//*[@class="c-pretty-link m-inline"]'
+        elif buttonName == 'tag':
+            xpath = '//*[@class="b-tags-list"]/a[1]'
+        elif buttonName == 'icon in tag page':
+            xpath = '//span[@class="icons-set_element"][1]'
+        elif buttonName == 'choose size of PNG':
+            xpath = '//*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]'
+        elif buttonName == 'icon category':
+            xpath = '//*[@class="c-breadcrumbs"]/*[3]'
+        self.clickActions = ClickActions(self)
+        self.clickActions.click_on_xpath(xpath)
 
 
 
@@ -205,9 +265,38 @@ class LocateActions(Page):
         except NoSuchElementException:
             pass
 
-
-
-
+    def locateElement(self, elementName):
+        Value_generate = ValueGenerate()
+        if elementName == 'icons result':
+            xpath = '//*[@class="icons-set"]/*[%s]' % Value_generate.values_in_range(1, 5)
+        elif elementName == 'icons in result':
+            xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 3)
+        elif elementName == 'created first collection':
+            xpath = '//*[@class="b-collections-container"]/div[1]'
+        elif elementName == 'created second collection':
+            xpath = '//*[@class="b-collections-container"]/div[2]'
+        elif elementName == 'first icon in collection':
+            xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+        elif elementName == 'Get Font pop-up':
+            xpath = '//*[@stop-events="click"]'
+        elif elementName == 'Public Link':
+            xpath = '//*[@ng-model="colSharing.url"]'
+        elif elementName == 'icon category':
+            xpath = '//*[@class="c-breadcrumbs"]/*[%s]' % Value_generate.values_in_range(1, 3)
+        elif elementName == 'icon text':
+            xpath = '//*[@ng-bind-html="mainSubtitleText"]'
+        elif elementName == 'Icon':
+            xpath = '//*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]/*'
+        elif elementName == 'Download button':
+            xpath = '//button[contains(text(), "Download")]'
+        elif elementName == 'icon download sizes':
+            xpath = '//ul[@class="c-list m-nooverflow"]/*[%s]' % Value_generate.values_in_range(1, 4)
+        elif elementName == 'icon download format':
+            xpath = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' % Value_generate.values_in_range(1, 6)
+        elif elementName == 'Category Title':
+            xpath = '//*[@ng-bind-html="category.title"]'
+        self.locateActions = LocateActions(self)
+        self.locateActions.locate_element(xpath)
 
 
 
@@ -267,6 +356,26 @@ class TextActions(Page):
         self.browser.find_element_by_xpath(xpath).clear()
         self.browser.find_element_by_xpath(xpath).send_keys(text)
 
+    # Добавляет текст в поле.
+    def addTextToField(self, TextType, FieldName):
+        Random_generate = RandomGenerate()
+        if TextType == 'email':
+            xpath = '//input[@id="%s"]' % FieldName
+            text = Random_generate.random_email()
+        elif TextType == 'password':
+            xpath = '//input[@id="%s"]' % FieldName
+            text = Random_generate.random_idea_name()
+        elif TextType == 'positive text':
+            xpath = '//*[@placeholder="%s"]' % FieldName
+            text = Random_generate.random_listValue(['google', 'facebook', 'space', 'ball', 'car', 'word'])
+        elif TextType == 'negative text':
+            xpath = '//*[@placeholder="%s"]' % FieldName
+            text = 'kjhgfdsalkjjhggfd'
+        elif TextType == 'collection name':
+            xpath = '//input[@ng-model="collsControl.%s"]' % FieldName
+            text = 'Collection %s' % Random_generate.random_text(6)
+        self.textActions = TextActions(self)
+        self.textActions.inputText(text, xpath)
 
 
 

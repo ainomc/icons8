@@ -5,7 +5,7 @@ Scenario: 1: Positive search test on main page
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then click 'search platform filter' button
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
@@ -29,7 +29,7 @@ Scenario: 3: Positive search test on iOS9 Icon Pack page
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -53,7 +53,7 @@ Scenario: 5: Positive search test on Android 4 Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -77,7 +77,7 @@ Scenario: 7: Positive search test on Material Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -101,7 +101,7 @@ Scenario: 9: Positive search test on Windows 8 Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -125,7 +125,7 @@ Scenario: 11: Positive search test on Windows 10 Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -149,7 +149,7 @@ Scenario: 13: Positive search test on Flat Color Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -173,7 +173,7 @@ Scenario: 15: Positive search test on Office Icon Pack
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'search result' element
+  Then check locate 'icons result' element
   Then locate text 'Generate HTML'
   Then push link in header 'Icons8'
 
@@ -195,9 +195,9 @@ Scenario: 17: Search categories
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
-  Then check locate 'icons in search result' element
+  Then check locate 'icons in result' element
   Then click 'search category' button
-  Then check locate 'icons in search result' element
+  Then check locate 'icons in result' element
   Then click 'new icons search category' button
-  Then check locate 'icons in search result' element
+  Then check locate 'icons in result' element
   Then push link in header 'Icons8'

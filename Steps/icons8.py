@@ -44,9 +44,8 @@ def step(context, link):
 # Then push link in header 'link text'
 @then("push link in header '{text_link}'")
 def step(context, text_link):
-    xpath = "//span[contains(text(), '%s')]" % text_link
     context.clickActions = ClickActions(context)
-    context.clickActions.click_on_xpath(xpath)
+    context.clickActions.clickHeaderButton(text_link)
    
 # Then push 'button' from tabs
 @then("push '{button}' from tabs")
@@ -175,48 +174,8 @@ def step(context):
 # Then click '{button}' button
 @then("click '{button}' button")
 def step(context, button):
-    if button == 'search':
-        xpath = '//*[@class="b-search-btn"]'
-    elif button == 'search platform filter':
-        xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' % Value_generate.values_in_range(2, 8)
-    elif button == 'search category':
-        xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[%s]' % Value_generate.values_in_range(2, 50)
-    elif button == 'new icons search category':
-        xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[1]'
-    elif button == 'Paypal':
-        xpath = '//modals[2]/div/div/div[3]/div/div[2]'
-    elif button == 'Credit cards':
-        xpath = '//modals[2]/div/div/div[3]/div/div[1]'
-    elif button == 'Download for Windows':
-        xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
-    elif button == 'Collections':
-        xpath = '//span[contains(., "Collections")]'
-    elif button == 'Create collections':
-        xpath = '//*[@ng-click="collsControl.createCollection();"]'
-    elif button == 'confirm name':
-        xpath = '//form/*[@ng-click="collsControl.renameCollection()"]'
-    elif button == 'delete collection menu':
-        xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
-    elif button == 'first icon to collection':
-        xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
-    elif button == 'first icon in collection':
-        xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
-    elif button == 'delete icon in collection':
-        xpath = '//span[@class="c-btn m-transparent"]'
-    elif button == 'Get Font':
-        xpath = '''//*[@popup-target="'generate-font'"]'''
-    elif button == 'Get SVG Set':
-        xpath = '''//*[@ng-class="{'m-load': isDownloadSVGSet}"]'''
-    elif button == 'open public link pop-up':
-        xpath = '//*[@class="c-tooltip m-no-border m-share-link-tooltip"]'
-    elif button == 'color palette':
-        xpath = '//*[@class="colors"]/descendant::*[@ng-class="{active: showPicker}"]'
-    elif button == 'open color pop-up':
-        xpath = '//*[@hide-color-picker="hideColorPicker"]/*[@ng-if="!hideColorPicker"]'
-    elif button == 'recommend':
-        xpath = '//*[@class="infinario-block__poll"]/*[%s]' % Value_generate.values_in_range(1, 11)
     context.clickActions = ClickActions(context)
-    context.clickActions.click_on_xpath(xpath)
+    context.clickActions.clickButton(button)
 
 # Then click buy '{type_of_buy}' button
 @then("click buy '{type_of_buy}' button")
@@ -295,22 +254,8 @@ def step(context):
 # Then check locate '{element}' element
 @then("check locate '{element}' element")
 def step(context, element):
-    if element == 'search result':
-        xpath = '//*[@class="icons-set"]/*[%s]' % Value_generate.values_in_range(1, 5)
-    elif element == 'icons in search result':
-        xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 3)
-    elif element == 'created first collection':
-        xpath = '//*[@class="b-collections-container"]/div[1]'
-    elif element == 'created second collection':
-        xpath = '//*[@class="b-collections-container"]/div[2]'
-    elif element == 'first icon in collection':
-        xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
-    elif element == 'Get Font pop-up':
-        xpath = '//*[@stop-events="click"]'
-    elif element == 'Public Link':
-        xpath = '//*[@ng-model="colSharing.url"]'
     context.locateActions = LocateActions(context)
-    context.locateActions.locate_element(xpath)
+    context.locateActions.locateElement(element)
 
 # Then check ideas list in filter
 @then("check ideas list in filter")
@@ -401,7 +346,7 @@ def step(context, element):
     elif element == 'gray colors':
         xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % Value_generate.values_in_range(1, 5)
     elif element == 'not gray colors':
-        xpath = '//input[@class="colors-panel__input ng-pristine ng-untouched ng-valid ng-valid-maxlength"]'
+        xpath = '//*[@ng-repeat="color_ in colors"][%s]/*[1]' % Value_generate.values_in_range(1, 10)
     elif element == 'canvas':
         xpath = '//*[@class="colors"]/descendant::*/canvas'
     context.locateActions = LocateActions(context)
@@ -459,23 +404,8 @@ def step(context, field):
 # Then add '{input_text}' text to '{locator_field}' field
 @then("add '{input_text}' text to '{locator_field}' field")
 def step(context, input_text, locator_field):
-    if input_text == 'email':
-        xpath = '//input[@id="%s"]' % locator_field
-        text = Random_generate.random_email()
-    elif input_text == 'password':
-        xpath = '//input[@id="%s"]' % locator_field
-        text = Random_generate.random_idea_name()
-    elif input_text == 'positive text':
-        xpath = '//*[@placeholder="%s"]' % locator_field
-        text = Random_generate.random_listValue(['google', 'facebook', 'space', 'ball', 'car', 'word'])
-    elif input_text == 'negative text':
-        xpath = '//*[@placeholder="%s"]' % locator_field
-        text = 'kjhgfdsalkjjhggfd'
-    elif input_text == 'collection name':
-        xpath = '//input[@ng-model="collsControl.%s"]' % locator_field
-        text = 'Collection %s' % Random_generate.random_text(6)
     context.textActions = TextActions(context)
-    context.textActions.inputText(text, xpath)
+    context.textActions.addTextToField(input_text, locator_field)
 
 
 
