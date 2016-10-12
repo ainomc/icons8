@@ -10,6 +10,7 @@ from os import getcwd
 #from api_method import delete_data
 from sys import platform
 import time
+import os
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
 Тут можно объявить переменные, которые можно будет использовать на всех уровнях,
@@ -80,7 +81,12 @@ def make_driver(context):
     path_to_binary = getcwd() + '/steps/data/firefox/firefox'
     binary = FirefoxBinary(path_to_binary)
     profile = FirefoxProfile()
-    profile.native_events_enabled = False
+    #profile.native_events_enabled = True
+    profile.set_preference("browser.download.folderList", 2)
+    profile.set_preference("browser.download.manager.showWhenStarting", False)
+    profile.set_preference("browser.download.dir", os.getcwd())
+    print (os.getcwd())
+    profile.set_preference("browser.helperApps.neverAsk.saveToDisk", "application/x-msdos-program, application/octet-stream")
     context.list_ud = list()
     context.stand = STAND
     # выбор профиля

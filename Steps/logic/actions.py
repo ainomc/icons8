@@ -199,9 +199,11 @@ class ClickActions(Page):
             xpath = '//*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]'
         elif buttonName == 'icon category':
             xpath = '//*[@class="c-breadcrumbs"]/*[3]'
+        elif buttonName == 'Download for Windows':
+            xpath = "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a"
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
-
+        time.sleep(30)
 
 
 
@@ -406,6 +408,12 @@ class PageActions(Page):
 
         time.sleep(2)
 
+
+
+class Helpers(Page):
+    def sleepTime(self, seconds):
+        x = float(seconds)
+        time.sleep(x)
 
 """
 def upload(context, uploadTo, pathToFile):

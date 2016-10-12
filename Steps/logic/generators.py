@@ -30,6 +30,16 @@ class FileActions(object):
 		print ("%s" + " idea created!!!") % fileText
 		my_file.close()
 		return fileText
+
+	def deleteFile(self, file):
+		if file == 'icon8 app':
+			pathToFile = os.path.join('icon8', 'icons8', 'Icons8Setup.exe.part')
+			os.remove(pathToFile)
+
+
+
+
+
 class RandomGenerate(object):
 	def random_betweenValue(self, first_value, last_value):
 		return random.randint(first_value, last_value)

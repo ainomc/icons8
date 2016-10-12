@@ -9,3 +9,5 @@ settings_test = {
 'server':'https://demo.icons8.com/',
 'stand_number':'demo'
 }
+# https://icons8.com/
+# https://demo.icons8.com/

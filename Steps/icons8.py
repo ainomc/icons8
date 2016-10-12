@@ -438,6 +438,32 @@ def step(context):
     context.pageActions = PageActions(context)
     context.pageActions.login()
 
+
+
+
+
+
+
+
+
+"""   ___Helpers class___   """
+
+# Then sleep '{time}' seconds
+@then("sleep '{time}' seconds")
+def step(context, time):
+    context.helpers = Helpers(context)
+    context.helpers.sleepTime(time)
+
+# Then check and delete '{file}' file
+@then("check and delete '{file}' file")
+def step(context, file):
+    context.File_actions.deleteFile(file)
+
+
+
+
+
+
 """
 # Then upload '{file}' file
 @then("upload '{file}' file")
