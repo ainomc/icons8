@@ -11,6 +11,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 import os
 from logic.actions import *
+from logic.clickactions import *
+from logic.locateactions import *
 from logic.generators import *
 
 
@@ -24,6 +26,7 @@ Random_generate = RandomGenerate()
 
 """   ClickActions class___   """
 
+# Then we have behave installed
 @given('we have behave installed')
 def step_impl(context):
     pass
@@ -34,6 +37,24 @@ def step(context, link):
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_link(link)
 
+# Then button with text 'link text'
+@then("button with text '{link}'")
+def step(context, link):
+    context.clickActions = ClickActions(context)
+    context.clickActions.clickButtonText(link)
+
+# Then click logo icon8
+@then("click logo icon8")
+def step(context):
+    context.clickActions = ClickActions(context)
+    context.clickActions.clickLogo()
+
+# Then push link in navigation menu 'button'
+@then("push link in navigation menu '{button}'")
+def step(context, button):
+    context.clickActions = ClickActions(context)
+    context.clickActions.clickHeaderNavMenu(button)
+
 # Then push second link 'link text'
 @then("push second link '{link}'")
 def step(context, link):
@@ -43,10 +64,10 @@ def step(context, link):
     
 # Then push link in header 'link text'
 @then("push link in header '{text_link}'")
-def step(context, text_link):
+def step(context):
     context.clickActions = ClickActions(context)
-    context.clickActions.clickHeaderButton(text_link)
-   
+    context.clickActions.clickLogo()
+
 # Then push 'button' from tabs
 @then("push '{button}' from tabs")
 def step(context, button):
@@ -203,7 +224,11 @@ def step(context, elements):
     context.clickActions = ClickActions(context)
     context.clickActions.clickAllAndButtons(xpathFirst, xpathSecond)
 
-
+# Then click '{ng_if_locator}' button element
+@then("click '{ng_if_locator}' button element")
+def step(context, ng_if_locator):
+    context.clickActions = ClickActions(context)
+    context.clickActions.clickFindByNg_if(ng_if_locator)
 
 
 
@@ -459,17 +484,3 @@ def step(context, time):
 def step(context, file):
     context.File_actions.deleteFile(file)
 
-
-
-
-
-
-"""
-# Then upload '{file}' file
-@then("upload '{file}' file")
-def step(context, file):
-    if file == 'icon':
-        pathToFile = os.path.join('icons8', 'collections', 'test_svg_1.svg')
-        uploadTo = 'html/body/main/div[1]/div[3]/div/div[2]/div[2]/div[1]/div[1]/div[2]'
-    upload(context, uploadTo, pathToFile)
-"""

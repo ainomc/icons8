@@ -3,17 +3,18 @@ from selenium import webdriver
 import pytest
 import os
 from environment import *
-from steps.logic.actions import *
 from pytest_settings import *
-
+from steps.logic.actions import *
+from steps.logic.locateactions import *
+from steps.logic.generators import *
 # python -m pytest -v pytest_tests.py -s     --   runner
+
+
+
+
 
 # Main Test class
 class Tests(MainTestClassSettings):
-
-    def test_ofTests(self):
-        self.clickActions.click_on_xpath('html/body/nav/div/div/ul/li[2]/a/span')
-        print ("First Test Done")
 
     # landing page icon
     def test_landingPageIcon(self):
@@ -43,6 +44,7 @@ class Tests(MainTestClassSettings):
         self.locateActions.locate_text('This page contains')
         self.clickActions.clickButton('icon in tag page')
         self.locateActions.locate_text('Browse by tags')
+
     # landing page category
     def test_landingPageCategory(self):
         self.textActions.addTextToField('positive text', 'search')

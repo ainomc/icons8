@@ -1,7 +1,7 @@
 Feature: Request
 Scenario: Add request
 Scenario: 1: Add new request
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then push button what named 'Request Icon'
   Then locate text 'Merchant account'
@@ -15,22 +15,22 @@ Scenario: 1: Add new request
   Then locate text 'Need it Fast? Promote it'
   Then push link 'Skip'
   Then locate text 'Upvote'
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: Check created idea
 Scenario: 2: Check created idea
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then click 'Hot ideas' filter of already created ideas
   Then check ideas list in filter
   Then click 'Latest ideas' filter of already created ideas
   Then check ideas list in filter
   Then check last created idea
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: Check list of created icons ideas (short lst)
 Scenario: 3: Check list of created icons ideas (short lst)
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then click 'Hot ideas' filter of already created ideas
   Then check ideas list in filter
@@ -40,11 +40,11 @@ Scenario: 3: Check list of created icons ideas (short lst)
   Then check ideas list in filter
   Then locate text 'Recently Created Icons'
   Then check recently created icons
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: Check list of All Icon Request
 Scenario: 4: Check list of All Icon Request
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then push link 'View all icon ideas'
   Then locate text 'All Icon Request'
@@ -56,11 +56,11 @@ Scenario: 4: Check list of All Icon Request
   Then check ideas list
   Then click 'Popular ideas' filter of already created ideas
   Then check ideas list
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: Buy fast track page
 Scenario: 5: Buy fast track page
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then click 'Fast for $199/year' request icon menu
   Then locate text 'How Fast'
@@ -81,7 +81,7 @@ Scenario: 5: Buy fast track page
 
 Scenario: Fastest for $50 page
 Scenario: 6: Fastest for $50 page
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then click 'Fastest for $50/icon' request icon menu
   Then locate text 'Any icon'
@@ -92,5 +92,5 @@ Scenario: 6: Fastest for $50 page
   Then locate text 'Where Do I Start?'
   Then push link 'Contact Us'
   Then locate text 'Contact Icons8'
-  Then push link in header 'Icons8'
+  Then click logo icon8
 

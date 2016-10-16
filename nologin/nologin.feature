@@ -1,8 +1,9 @@
 Feature: User without login
 Scenario: Request new icon without login
 Scenario: 1: Request new icon without login
+  Then click logo icon8
   Then push link Logout
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Request'
   Then push button what named 'Request Icon'
   Then locate text 'Merchant account'
@@ -23,10 +24,11 @@ Scenario: 1: Request new icon without login
   Then login
   Then locate text 'Need it Fast? Promote it'
   Then locate text 'Skip'
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: Register
 Scenario: 2: login during Register
+  Then go to Main page
   Then push link Logout
   Then push link 'Register'
   Then locate text 'Register at Icons8'
@@ -38,8 +40,9 @@ Scenario: 2: login during Register
 
 Scenario: Buy
 Scenario: 3: login during  free Buy
+  Then go to Main page
   Then push link Logout
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Buy'
   Then click buy 'Free' button
   Then locate text 'Register to Continue Downloading'
@@ -51,11 +54,12 @@ Scenario: 3: login during  free Buy
   Then locate text 'Login to Continue Downloading'
   Then login
   Then locate 'Search icons' field
-  Then push link in header 'Icons8'
+  Then click logo icon8
 
 Scenario: 4: login during  All 32,200 Icons Buy
+  Then go to Main page
   Then push link Logout
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Buy'
   Then click buy 'All 33,200 Icons' button
   Then locate text 'Register to Continue Downloading'
@@ -71,16 +75,17 @@ Scenario: 4: login during  All 32,200 Icons Buy
   Then click 'Credit cards' button
   Then locate text 'Pay'
   Then go to Main page
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Buy'
   Then click buy 'All 33,200 Icons' button
   Then click 'Paypal' button
-  Then locate text 'Pay with PayPal'
+  Then locate text 'test facilitator's Test Store'
   Then go to Main page
 
 Scenario: 5: login during Pay per Icon Buy
+  Then go to Main page
   Then push link Logout
-  Then push link in header 'Icons8'
+  Then click logo icon8
   Then push link 'Buy'
   Then click buy 'Pay per Icon' button
   Then locate text 'Register to Continue Downloading'
@@ -97,7 +102,7 @@ Scenario: 5: login during Pay per Icon Buy
 
 #Scenario: 6: Login during downloading
   #Then push link Logout
-  #Then push link in header 'Icons8'
+  #Then click logo icon8
   #Then push link 'Download'
   #Then click 'Download for Windows' button
   #Then locate text 'Register to Continue Downloading'
@@ -112,4 +117,4 @@ Scenario: 5: login during Pay per Icon Buy
   #Then click 'recommend' button
   #Then locate text 'Download is Starting Now'
   #Then locate text 'click here'
-  #Then push link in header 'Icons8'
+  #Then click logo icon8

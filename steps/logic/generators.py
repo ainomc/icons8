@@ -16,6 +16,10 @@ now = datetime.today()
 TIME_FOR_WAIT = 30
 
 SERVER = settings['server']
+
+
+
+
 # открывает файл, записывает данные. Значение file должно быть в скобках  "some.txt"
 class FileActions(object):
 	# открывает файл, записывает данные. Значение file должно быть в скобках  "some.txt"
@@ -72,6 +76,12 @@ class RandomGenerate(object):
 		for x in range(6):
 			email = email + random.choice(list('qwertyuiopasdfghjklzxcvbnm'))
 		return email + '@gmail.com'
+
+
+
+
+
+
 
 class ValueGenerate(object):
 	# Генерирует значения промежуточные значения между first_value и second_value
