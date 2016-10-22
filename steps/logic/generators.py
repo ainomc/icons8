@@ -37,8 +37,13 @@ class FileActions(object):
 
 	def deleteFile(self, file):
 		if file == 'icon8 app':
-			pathToFile = os.path.join('icon8', 'icons8', 'Icons8Setup.exe.part')
-			os.remove(pathToFile)
+			pathToSetup = os.path.join(' ', 'icon8', 'icons8', 'Icons8Setup.exe')
+			os.remove(pathToSetup[1:])
+			try:
+				pathToPart = os.path.join(' ', 'icon8', 'icons8', 'Icons8Setup.exe.part')
+				os.remove(pathToPart[1:])
+			except WindowsError:
+				pass
 
 
 

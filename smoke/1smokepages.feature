@@ -7,8 +7,17 @@ Scenario: 1: Open Main page and scroll down
   Then locate text 'The Community Loves Icons8'
   Then click logo icon8
 
+Scenario: Download icon8 app
+Scenario: 2: Download icon8 app
+  Then click logo icon8
+  Then push link 'Download'
+  Then push link 'Download for Windows'
+  Then click logo icon8
+  Then check and delete 'icon8 app' file
+  Then click logo icon8
+
 Scenario: Terms and Conditions  
-Scenario: 2: Open Terms and Conditions page and assert text
+Scenario: 3: Open Terms and Conditions page and assert text
   Then click logo icon8
   Then push link 'Terms and Conditions'
   Then scroll to end of the page
@@ -21,7 +30,7 @@ Scenario: 2: Open Terms and Conditions page and assert text
   Then click logo icon8
 
 Scenario: Privacy Policy
-Scenario: 3: Open Privacy Policy page and assertion
+Scenario: 4: Open Privacy Policy page and assertion
   Then click logo icon8
   Then push link 'Privacy Policy'
   Then scroll to end of the page
@@ -34,7 +43,7 @@ Scenario: 3: Open Privacy Policy page and assertion
   Then click logo icon8
   
 Scenario: Free license
-Scenario: 4: Open Free license page and assertion
+Scenario: 5: Open Free license page and assertion
   Then click logo icon8
   Then button with text 'Free Icons'
   Then scroll to end of the page
@@ -49,7 +58,7 @@ Scenario: 4: Open Free license page and assertion
 
 
 Scenario: Paid license
-Scenario: 5: Open Paid license page and assertion
+Scenario: 6: Open Paid license page and assertion
   Then click logo icon8
   Then push link 'Paid Icons'
   Then scroll to end of the page
@@ -74,7 +83,7 @@ Scenario: 5: Open Paid license page and assertion
   Then click logo icon8
 
 Scenario: Contact us
-Scenario: 6: Open Contact us page and assertion
+Scenario: 7: Open Contact us page and assertion
   Then click logo icon8
   Then push link 'Contact us'
   Then scroll to end of the page
@@ -89,7 +98,7 @@ Scenario: 6: Open Contact us page and assertion
   Then click logo icon8
 
 Scenario: Apps Win / Mac
-Scenario: 7: Open Application page and assertion
+Scenario: 8: Open Application page and assertion
   Then click logo icon8
   Then push link 'Download'
   Then scroll to end of the page
@@ -111,7 +120,7 @@ Scenario: 7: Open Application page and assertion
   Then click logo icon8
 
 Scenario: Request icons
-Scenario: 8: Open Request icons page and assertion
+Scenario: 9: Open Request icons page and assertion
   Then click logo icon8
   Then push link Request icons
   Then scroll to end of the page

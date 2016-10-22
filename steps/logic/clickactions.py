@@ -175,13 +175,13 @@ class ClickActions(Page):
             xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' \
                     % Value_generate.values_in_range(2, 8)
         elif buttonName == 'search category':
-            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[%s]' % Value_generate.values_in_range(2, 50)
+            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(2, 50)
         elif buttonName == 'new icons search category':
-            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/div[2]/a[1]'
+            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/descendant::a[1]'
         elif buttonName == 'Paypal':
-            xpath = '//modals[2]/div/div/div[3]/div/div[2]'
+            xpath = '//modals[2]/descendant::*[contains(text(), "Paypal")][1]'
         elif buttonName == 'Credit cards':
-            xpath = '//modals[2]/div/div/div[3]/div/div[1]'
+            xpath = '//modals[2]/descendant::*[contains(text(), "Credit cards")][1]'
         elif buttonName == 'Download for Windows':
             xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
         elif buttonName == 'Collections':
@@ -195,7 +195,7 @@ class ClickActions(Page):
         elif buttonName == 'first icon in result':
             xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
         elif buttonName == 'first icon in collection':
-            xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+            xpath = '//*[@class="icons-set__icon"][1]'
         elif buttonName == 'delete icon in collection':
             xpath = '//span[@class="c-btn m-transparent"]'
         elif buttonName == 'Get Font':
@@ -221,7 +221,7 @@ class ClickActions(Page):
         elif buttonName == 'icon category':
             xpath = '//*[@class="c-breadcrumbs"]/*[3]'
         elif buttonName == 'Download for Windows':
-            xpath = "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a"
+            xpath = "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a"  # test xpath
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
@@ -230,5 +230,4 @@ class ClickActions(Page):
         xpath = '//*[@ng-if="%s"]' % ng_if_locator
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
-
 

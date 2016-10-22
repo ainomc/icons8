@@ -371,7 +371,7 @@ def step(context, element):
     elif element == 'gray colors':
         xpath = '//*[@class="colors"]/descendant::*[@ng-repeat="color_ in colorsGray"][%s]' % Value_generate.values_in_range(1, 5)
     elif element == 'not gray colors':
-        xpath = '//*[@ng-repeat="color_ in colors"][%s]/*[1]' % Value_generate.values_in_range(1, 10)
+        xpath = '//*[@class="colors-block"][2]/*[%s]' % Value_generate.values_in_range(1, 10)
     elif element == 'canvas':
         xpath = '//*[@class="colors"]/descendant::*/canvas'
     context.locateActions = LocateActions(context)
@@ -482,5 +482,6 @@ def step(context, time):
 # Then check and delete '{file}' file
 @then("check and delete '{file}' file")
 def step(context, file):
-    context.File_actions.deleteFile(file)
+    x = context
+    File_actions.deleteFile(file)
 
