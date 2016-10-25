@@ -64,7 +64,7 @@ def step(context, link):
     
 # Then push link in header 'link text'
 @then("push link in header '{text_link}'")
-def step(context):
+def step(context, text_link):
     context.clickActions = ClickActions(context)
     context.clickActions.clickLogo()
 
