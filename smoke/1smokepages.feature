@@ -11,9 +11,8 @@ Scenario: Download icon8 app
 Scenario: 2: Download icon8 app
   Then click logo icon8
   Then push link 'Download'
-  Then push link 'Download for Windows'
-  Then click logo icon8
-  Then check and delete 'icon8 app' file
+  #Then push link 'Download for Windows'
+  #Then check and delete 'icon8 app' file
   Then click logo icon8
 
 Scenario: Terms and Conditions  
@@ -57,30 +56,30 @@ Scenario: 5: Open Free license page and assertion
   Then click logo icon8
 
 
-Scenario: Paid license
-Scenario: 6: Open Paid license page and assertion
-  Then click logo icon8
-  Then push link 'Paid Icons'
-  Then scroll to end of the page
-  Then locate text 'Paid or Free, You Are Our Hero'
-  Then locate text 'All 33,200 Icons'
-  Then locate text 'Paid License Summary'
-  Then locate text 'Prohibited Uses for all Licenses'
-  Then locate text 'What's Included'
-  Then locate text 'Built-in Editing Tools'
-  Then locate text 'Icons8 App for Mac and Windows'
-  Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
-  Then push 'Extended With API' from tabs
-  Then locate text 'More Information'
-  Then locate text 'Extended License in Short'
-  Then locate text 'Attribution'
-  Then push 'Students' from tabs
-  Then locate text 'for free'
-  Then locate text 'What Students Get'
-  Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png' 
-  Then push 'Standard' from tabs
-  Then locate text 'Paid License Summary'
-  Then click logo icon8
+#Scenario: Paid license
+#Scenario: 6: Open Paid license page and assertion
+  #Then click logo icon8
+  #Then push link 'Paid Icons'
+  #Then scroll to end of the page
+  #Then locate text 'Paid or Free, You Are Our Hero'
+  #Then locate text 'All 33,200 Icons'
+  #Then locate text 'Paid License Summary'
+  #Then locate text 'Prohibited Uses for all Licenses'
+  #Then locate text 'What's Included'
+  #Then locate text 'Built-in Editing Tools'
+  #Then locate text 'Icons8 App for Mac and Windows'
+  #Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
+  #Then push 'Extended With API' from tabs
+  #Then locate text 'More Information'
+  #Then locate text 'Extended License in Short'
+  #Then locate text 'Attribution'
+  #Then push 'Students' from tabs
+  #Then locate text 'for free'
+  #Then locate text 'What Students Get'
+  #Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
+  #Then push 'Standard' from tabs
+  #Then locate text 'Paid License Summary'
+  #Then click logo icon8
 
 Scenario: Contact us
 Scenario: 7: Open Contact us page and assertion

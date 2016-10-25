@@ -24,7 +24,7 @@ Feature: Open pages and assertions
 
 Scenario: Request icons
 Scenario: 9: Open Request icons page and assertion
-  	Then push link in header 'Icons8'
+  	Then click logo icon8
   	Then push link Request icons
   	#Then push button 'Request Icon'
   	#Then input 'Test' in textarea 'Icon Title' - поле обязательно для заполнения
@@ -40,7 +40,7 @@ Scenario: 9: Open Request icons page and assertion
 
 #Scenario: Request icons
 #Scenario: 9: Open Request icons page and assertion
-  	#Then push link in header 'Icons8'
+  	#Then click logo icon8
   	#Then push link Request icons
   	#Then scroll to end of the page
   	#Then locate text 'Recently Created Icons'
@@ -52,5 +52,5 @@ Scenario: 9: Open Request icons page and assertion
   	#Then push 'Free for Share' from tabs
  	# Then push 'Free for Share' in Request icons
   	#Then locate text 'Request Icon'
-  	#Then push link in header 'Icons8'
+  	#Then click logo icon8
   	#Then go to Main page
