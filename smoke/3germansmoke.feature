@@ -98,7 +98,7 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'für Mac'
   Then locate text 'Einfache ZIP Datei'
   Then locate text 'Features'
-  #Then locate text 'So funktioniert'
+  Then locate text 'So funktioniert'
   Then locate text 'Alle Icons, die du brauchst'
   Then locate text 'Am beliebtesten'
   Then locate text 'Alle anzeigen'
