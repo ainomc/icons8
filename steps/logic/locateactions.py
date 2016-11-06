@@ -31,12 +31,19 @@ STAND = settings['stand_number']
 # Проверки на присутствия
 class LocateActions(Page):
 
-    # Найти видимиый текст
+    # Найти видимиый текст что содержит в себе
     def locate_text(self, text, time_for_search=TIME_FOR_WAIT):
         WebDriverWait(self.browser, time_for_search).until(
             EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
         )
         assert self.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
+
+    # Найти видимиый текст
+    def locate_concrete_text(self, text, time_for_search=TIME_FOR_WAIT):
+        WebDriverWait(self.browser, time_for_search).until(
+            EC.presence_of_element_located((By.XPATH, '//*[text()="%s"]' % text))
+        )
+        assert self.browser.find_element_by_xpath('//*[text()="%s"]' % text)
 
 
     # Найти видимиый элемент по xpath

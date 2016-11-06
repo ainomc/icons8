@@ -95,7 +95,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Download All Our Icons in a'
   Then locate text 'Download for'
-  Then locate text 'for Mac'
+  Then locate text 'For Mac'
   Then locate text 'Plain ZIP file'
   Then locate text 'Features'
   Then locate text 'How it Works'
@@ -113,9 +113,8 @@ Scenario: 7: Open Application page and assertion
 Scenario: Request icons
 Scenario: 8: Open Request icons page and assertion
   Then click logo icon8
-  Then push link Request icons
-  Then scroll to end of the page
-  Then locate text 'Request Icons'
+  Then push link in navigation menu 'Request'
+  Then locate concrete text 'Request Icons'
   Then locate text 'Hot Ideas'
   Then locate text 'Latest Ideas'
   Then locate text 'Popular Ideas'
@@ -143,11 +142,11 @@ Scenario: 9: Open Cosmic Pedro page and assertion
   Then button with text 'Free'
   Then locate text 'Cosmic Pedro'
   Then locate text 'Search for icon. Add text. Share!'
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: We love SVG
 Scenario: 10: Open We love SVG page and assertion
-  Then click logo icon8
+  Then go to Main page
   Then push link 'Resources'
   Then button with text 'Open Source'
   Then scroll to end of the page

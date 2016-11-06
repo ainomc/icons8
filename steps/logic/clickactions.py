@@ -175,7 +175,7 @@ class ClickActions(Page):
             xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' \
                     % Value_generate.values_in_range(2, 8)
         elif buttonName == 'search category':
-            xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(2, 50)
+            xpath = '//*[@class="c-list m-padding b-bar-menus-menu"][2]/*[%s]' % Value_generate.values_in_range(2, 50)
         elif buttonName == 'new icons search category':
             xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/descendant::a[1]'
         elif buttonName == 'Paypal':
@@ -259,3 +259,13 @@ class ClickActions(Page):
         xpath = '''//*[@ng-include="'/template-icon.html'"]/descendant::*[contains(text(), "%s")][1]''' % icon_size_button
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
+
+    def try_gotit(self):
+        try:
+            self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]')
+            self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]').click()
+        except NoSuchElementException:
+            pass
+
+
+

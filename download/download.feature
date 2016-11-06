@@ -1,26 +1,26 @@
 Feature: Download tests
 Scenario: Download windows app
 Scenario: 1: Download windows app
-  Then click logo icon8
+  Then go to Main page
   Then push link 'Download'
   Then push link 'Download for Windows'
   Then sleep '15' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Simple download icon
 Scenario: 2: Simple download icon
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.png' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download PNG 50 px
 Scenario: 3: Download PNG 50 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then move mouse to 'right bar' element
@@ -29,11 +29,11 @@ Scenario: 3: Download PNG 50 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.png' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download PNG 100 px
 Scenario: 4: Download PNG 100 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '100 px' button in download pop-up
@@ -41,11 +41,11 @@ Scenario: 4: Download PNG 100 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.png' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download PNG 500 px
 Scenario: 5: Download PNG 500 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '500 px' button in download pop-up
@@ -53,11 +53,11 @@ Scenario: 5: Download PNG 500 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.png' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download SVG 50 px
 Scenario: 6: Download SVG 50 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then move mouse to 'right bar' element
@@ -66,11 +66,11 @@ Scenario: 6: Download SVG 50 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.svg' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download SVG 100 px
 Scenario: 7: Download SVG 100 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '100 px' button in download pop-up
@@ -82,7 +82,7 @@ Scenario: 7: Download SVG 100 px
 
 Scenario: Download SVG 500 px
 Scenario: 8: Download SVG 500 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '500 px' button in download pop-up
@@ -90,11 +90,11 @@ Scenario: 8: Download SVG 500 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.svg' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download EPS 50 px
 Scenario: 9: Download EPS 50 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then move mouse to 'right bar' element
@@ -103,11 +103,11 @@ Scenario: 9: Download EPS 50 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download EPS 100 px
 Scenario: 10: Download EPS 100 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '100 px' button in download pop-up
@@ -115,11 +115,11 @@ Scenario: 10: Download EPS 100 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Download EPS 500 px
 Scenario: 11: Download EPS 500 px
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Open download icon pop-up' button
   Then choose '500 px' button in download pop-up
@@ -127,7 +127,7 @@ Scenario: 11: Download EPS 500 px
   Then click 'Download in icon bar' button
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
-  Then click logo icon8
+  Then go to Main page
 
 #Scenario: Download PDF 50 px
 #Scenario: 12: Download PDF 50 px

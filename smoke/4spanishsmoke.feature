@@ -80,6 +80,7 @@ Scenario: 6: Open Contact us page and assertion
   Then push link 'Contáctanos'
   Then scroll to end of the page
   #Then locate text 'Contact Icons8'
+  #Then locate text 'Contact Icons8'
   #Then locate text 'Talk to a Human'
   #Then locate text 'Our support team responds'
   #Then locate text 'Check'

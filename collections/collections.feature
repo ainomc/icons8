@@ -3,6 +3,7 @@ Scenario: Presents collections screen
 Scenario: 1: Presents collections screen
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then locate text 'What can you do with collections?'
   Then locate text 'Edit and download'
@@ -15,6 +16,7 @@ Scenario: Create first collections and add collection
 Scenario: 2: Create first collections and add collection
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then click 'Create collections' button
   Then add 'collection name' text to 'newCollName' field
@@ -29,32 +31,35 @@ Scenario: 2: Create first collections and add collection
   Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
 
-Scenario: Get Font
-Scenario: 3: Get Font
-  Then click logo icon8
-  Then push link in navigation menu 'Icons'
-  Then click 'Collections' button
-  Then click 'Get Font' button
-  Then check locate 'Get Font pop-up' element
-  Then try find and check 'Unlock Font'
-  Then try find and check 'Color Icons Are Excluded'
-  Then click logo icon8
+#Scenario: Get Font
+#Scenario: 3: Get Font
+  #Then click logo icon8
+  #Then push link in navigation menu 'Icons'
+  #Then click got it pop-up
+  #Then click 'Collections' button
+  #Then click 'Get Font' button
+  #Then check locate 'Get Font pop-up' element
+  #Then try find and check 'Unlock Font'
+  #Then try find and check 'Color Icons Are Excluded'
+  #Then click logo icon8
 
-Scenario: Get SVG set
-Scenario: 4: Get SVG set
-  Then click logo icon8
-  Then push link in navigation menu 'Icons'
-  Then click 'Collections' button
-  Then click 'Get SVG Set' button
-  Then locate text 'Unlock SVG'
-  Then push link 'see pricing'
-  Then locate text 'Paid or Free, You Are Our Hero!'
-  Then click logo icon8
+#Scenario: Get SVG set
+#Scenario: 4: Get SVG set
+  #Then click logo icon8
+  #Then push link in navigation menu 'Icons'
+  #Then click got it pop-up
+  #Then click 'Collections' button
+  #Then click 'Get SVG Set' button
+  #hen locate text 'Unlock SVG'
+  #Then push link 'see pricing'
+  #Then locate text 'Paid or Free, You Are Our Hero!'
+  #Then click logo icon8
 
 Scenario: Create Public Link
 Scenario: 5: Create Public Link
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then click 'open public link pop-up' button
   Then click 'Create Public Link' element
@@ -65,6 +70,7 @@ Scenario: Change color (greyscale, color, custom, color palete)
 Scenario: 6: Change color (greyscale, color, custom, color palete)
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then click 'open color pop-up' button
   Then locate 'grayscale' element in color pop-up
@@ -89,6 +95,7 @@ Scenario: Add second collections
 Scenario: 7: Add second collections
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then click 'Create collections' button
   Then add 'collection name' text to 'newCollName' field
@@ -107,6 +114,7 @@ Scenario: Delete collections
 Scenario: 8: Delete collections
   Then click logo icon8
   Then push link in navigation menu 'Icons'
+  Then click got it pop-up
   Then click 'Collections' button
   Then click 'delete collection menu' button
   Then delete all 'collections' elements

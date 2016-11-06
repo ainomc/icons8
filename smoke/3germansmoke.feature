@@ -95,7 +95,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Lade alle Icons mit unserer '
   Then locate text 'Download für'
-  Then locate text 'für Mac'
+  Then locate text 'Für Mac'
   Then locate text 'Einfache ZIP Datei'
   Then locate text 'Features'
   Then locate text 'So funktioniert'

@@ -242,6 +242,12 @@ def step(context, link):
     context.clickActions = ClickActions(context)
     context.clickActions.click_download_iconsize(link)
 
+# Then click got it pop-up
+@then("click got it pop-up")
+def step(context):
+    context.clickActions = ClickActions(context)
+    context.clickActions.try_gotit()
+
 
 
 
@@ -277,6 +283,12 @@ def step(context, text_image):
 def step(context, text):
     context.locateActions = LocateActions(context)
     context.locateActions.locate_text(text)
+
+# Then locate concrete text 'concrete_text'
+@then("locate concrete text '{concrete_text}'")
+def step(context, concrete_text):
+    context.locateActions = LocateActions(context)
+    context.locateActions.locate_concrete_text(concrete_text)
 
 # Then pedro search
 @then("pedro search")
