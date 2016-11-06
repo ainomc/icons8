@@ -4,7 +4,7 @@ Scenario: 1: Request new icon without login
   Then click logo icon8
   Then push link Logout
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then push button what named 'Request Icon'
   Then locate text 'Merchant account'
   Then add text to 'title'

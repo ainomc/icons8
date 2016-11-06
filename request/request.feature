@@ -20,7 +20,7 @@ Scenario: 1: Add new request
 Scenario: Check created idea
 Scenario: 2: Check created idea
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then click 'Hot ideas' filter of already created ideas
   Then check ideas list in filter
   Then click 'Latest ideas' filter of already created ideas
@@ -31,7 +31,7 @@ Scenario: 2: Check created idea
 Scenario: Check list of created icons ideas (short lst)
 Scenario: 3: Check list of created icons ideas (short lst)
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then click 'Hot ideas' filter of already created ideas
   Then check ideas list in filter
   Then click 'Latest ideas' filter of already created ideas
@@ -45,7 +45,7 @@ Scenario: 3: Check list of created icons ideas (short lst)
 Scenario: Check list of All Icon Request
 Scenario: 4: Check list of All Icon Request
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then push link 'View all icon ideas'
   Then locate text 'All Icon Request'
   Then locate text 'Style'
@@ -61,7 +61,7 @@ Scenario: 4: Check list of All Icon Request
 Scenario: Buy fast track page
 Scenario: 5: Buy fast track page
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then click 'Fast for $199/year' request icon menu
   Then locate text 'How Fast'
   Then locate image '/static/images/request/fast-track.jpg'
@@ -82,7 +82,7 @@ Scenario: 5: Buy fast track page
 Scenario: Fastest for $50 page
 Scenario: 6: Fastest for $50 page
   Then click logo icon8
-  Then push link 'Request'
+  Then push link in navigation menu 'Request'
   Then click 'Fastest for $50/icon' request icon menu
   Then locate text 'Any icon'
   Then locate text 'How Fast Is It?'

@@ -75,7 +75,8 @@ class LocateActions(Page):
 
     # Try click xpath > then click xpath > then find another xpath
     def tryFindClickFind(self, try_find, click, find_second):
-        from clickactions import * # Тут импорт, чтобы не было циклического импорта с clickactions.py
+        # Тут импорт, чтобы не было циклического импорта с clickactions.py
+        from clickactions import ClickActions
         try:
             self.browser.find_element_by_xpath(try_find)
             self.clickActions = ClickActions(self)

@@ -62,6 +62,16 @@ class MovementActions(Page):
         action.drag_and_drop(source, target)
         action.perform()
 
+    # Перемещает мышь та элемент
+    def move_mouse(self, element_to):
+        if element_to == 'right bar':
+            xpath = '''//*[@ng-include="'/template-icon.html'"]/descendant::*[@class="b-collections-container"]'''
+        element = self.browser.find_element_by_xpath(xpath)
+        action = webdriver.ActionChains(self.browser)
+        action.move_to_element(element)
+        action.perform()
+
+
 
 
 

@@ -9,6 +9,9 @@ from datetime import datetime, timedelta
 import selenium.webdriver.common.action_chains as AC
 import time
 import os
+import sys
+from os import listdir
+from os.path import join
 from settings import settings_test as settings
 import random
 now = datetime.today()
@@ -35,9 +38,10 @@ class FileActions(object):
 		my_file.close()
 		return fileText
 
-	def deleteFile(self, file):
+	# удаляет файл по пути
+	def delete_file(self, file):
 		if file == 'icon8 app':
-			pathToSetup = os.path.join(' ', 'icon8', 'icons8', 'Icons8Setup.exe')
+			pathToSetup = os.path.join(' ', 'icon8','icons8', 'Icons8Setup.exe')
 			os.remove(pathToSetup[1:])
 			try:
 				pathToPart = os.path.join(' ', 'icon8', 'icons8', 'Icons8Setup.exe.part')
@@ -45,6 +49,40 @@ class FileActions(object):
 			except WindowsError:
 				pass
 
+	# Удаляет все файлы с окончание или расширением (extension)
+	def del_by_extension(self, extension):
+		dir = os.path.join(' ', 'icon8', 'icons8')
+		test = listdir(dir[1:])
+		elements_count = 0
+		for item in test:
+			if item.endswith(extension):
+				elements_count += 1
+				os.remove(os.path.join(dir[1:], item))
+		assert elements_count > 0
+
+	# Ждёт пока не исщезнит файл .part
+	def downloading_file(self, extension):
+		dir = os.path.join(' ', 'icon8', 'icons8')
+		test = listdir(dir[1:])
+		elements_count = 0
+		for item in test:
+			if item.endswith(extension):
+				time_waited = 0
+				elements_count += 1
+				download_end = False
+				while download_end == False:
+					path = os.path.exists(os.path.join(dir[1:], item))
+					if path == True:
+						time.sleep(5)
+						time_waited += 5
+					elif time_waited == 240:
+						print ('download is to long')
+						break
+					elif path == False:
+						print ('Donwload file with "' + extension + '" extension ended')
+						download_end = True
+				print (str(time_waited) + "sec download")
+		assert elements_count > 0
 
 
 

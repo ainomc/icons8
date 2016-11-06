@@ -222,8 +222,13 @@ class ClickActions(Page):
             xpath = '//*[@class="c-breadcrumbs"]/*[3]'
         elif buttonName == 'Download for Windows':
             xpath = "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a"  # test xpath
+        elif buttonName == 'Download in icon bar':
+            xpath = '//*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
+        elif buttonName == 'Open download icon pop-up':
+            xpath = '//*[@icon="selectedIcon.icon"]/div/*[1]'
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
+
 
     # Кликает на элемент с ng-if
     def clickFindByNg_if(self, ng_if_locator):
@@ -231,3 +236,26 @@ class ClickActions(Page):
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
+    # Выбрать тип/формат скачиваемой иконки
+    def click_download_icontype(self, icon_type):
+        if icon_type == 'PNG':
+            number = 1
+        elif icon_type == 'SVG':
+            number = 2
+        elif icon_type == 'EPS':
+            number = 3
+        elif icon_type == 'PDF':
+            number = 4
+        elif icon_type == 'Font':
+            number = 5
+        elif icon_type == 'SVG set':
+            number = 6
+        xpath = '//div[@icon="selectedIcon.icon"]/descendant::li[%s]' % number
+        self.clickActions = ClickActions(self)
+        self.clickActions.click_on_xpath(xpath)
+
+    # Выбрать размер скачиваемой иконки
+    def click_download_iconsize(self, icon_size_button):
+        xpath = '''//*[@ng-include="'/template-icon.html'"]/descendant::*[contains(text(), "%s")][1]''' % icon_size_button
+        self.clickActions = ClickActions(self)
+        self.clickActions.click_on_xpath(xpath)

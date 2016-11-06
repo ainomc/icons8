@@ -230,8 +230,17 @@ def step(context, ng_if_locator):
     context.clickActions = ClickActions(context)
     context.clickActions.clickFindByNg_if(ng_if_locator)
 
+# Then choose 'link' download icon type in download pop-up
+@then("choose '{link}' download icon type in download pop-up")
+def step(context, link):
+    context.clickActions = ClickActions(context)
+    context.clickActions.click_download_icontype(link)
 
-
+# Then choose 'link' dbutton in download pop-up
+@then("choose '{link}' button in download pop-up")
+def step(context, link):
+    context.clickActions = ClickActions(context)
+    context.clickActions.click_download_iconsize(link)
 
 
 
@@ -404,6 +413,12 @@ def step(context):
     mvementActions = MovementActions(context)
     mvementActions.scroll_up()
 
+# Then move mouse to '{element_to}' element
+@then("move mouse to '{element_to}' element")
+def step(context, element_to):
+    mvementActions = MovementActions(context)
+    mvementActions.move_mouse(element_to)
+
 
 
 
@@ -483,5 +498,18 @@ def step(context, time):
 @then("check and delete '{file}' file")
 def step(context, file):
     x = context
-    File_actions.deleteFile(file)
+    File_actions.delete_file(file)
+
+# Then check and delete '{extension}' file by extension
+@then("check and delete '{extension}' file by extension")
+def step(context, extension):
+    x = context
+    File_actions.del_by_extension(extension)
+
+
+# Then wait downloading end of '{extension}' file
+@then("wait downloading end of '{extension}' file")
+def step(context, extension):
+    x = context
+    File_actions.downloading_file(extension)
 
