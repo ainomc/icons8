@@ -81,11 +81,6 @@ Scenario: 6: Open Contact us page and assertion
   Then locate text 'Contact Icons8'
   Then locate text 'Talk to a Human'
   Then locate text 'Our support team responds'
-  Then locate text 'Check'
-  Then locate text 'Can I use'
-  Then locate text 'Where do I'
-  Then locate text 'Which license'
-  Then locate text 'Other Questions'
   Then click logo icon8
 
 Scenario: Apps Win / Mac
