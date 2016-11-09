@@ -36,7 +36,7 @@ Scenario: 3: Open Privacy Policy page and assertion
 Scenario: Free license
 Scenario: 4: Open Free license page and assertion
   Then click logo icon8
-  Then button with text 'Free Icons'
+  Then button with text 'Free License'
   Then scroll to end of the page
   Then locate text 'Use Icons for Free'
   Then locate text 'Why to Link?'
@@ -51,7 +51,7 @@ Scenario: 4: Open Free license page and assertion
 Scenario: Paid license
 Scenario: 5: Open Paid license page and assertion
   Then click logo icon8
-  Then push link 'Paid Icons'
+  Then push link 'Buy Full License'
   Then scroll to end of the page
   Then locate text 'Paid or Free, You Are Our Hero'
   Then locate text 'All 33,200 Icons'

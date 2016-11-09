@@ -175,7 +175,7 @@ class ClickActions(Page):
             xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' \
                     % Value_generate.values_in_range(2, 8)
         elif buttonName == 'search category':
-            xpath = '//*[@class="c-list m-padding b-bar-menus-menu"][2]/*[%s]' % Value_generate.values_in_range(2, 50)
+            xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(2, 50)
         elif buttonName == 'new icons search category':
             xpath = '//div[@class="b-bar-menus-menu m-scrollable"]/descendant::a[1]'
         elif buttonName == 'Paypal':
