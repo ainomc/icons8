@@ -8,7 +8,7 @@ Scenario: 1: Download windows app
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
   Then go to Main page
-
+  
 Scenario: Simple download icon
 Scenario: 2: Simple download icon
   Then go to Main page
