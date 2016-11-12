@@ -490,6 +490,26 @@ def step(context):
     context.pageActions = PageActions(context)
     context.pageActions.login()
 
+# Then try login
+@then("try login")
+def step(context):
+    try:
+        context.locateActions = LocateActions(context)
+        context.pageActions = PageActions(context)
+        context.clickActions = ClickActions(context)
+        context.locateActions.locate_text('Login')
+        context.locateActions.locate_text('Register')
+        context.clickActions.click_on_link('click here')
+        login_button = '//a[contains(., "Login")][@class]'
+        context.clickActions.click_on_xpath(login_button)
+        context.pageActions.login()
+    except TimeoutException:
+        pass
+
+
+
+
+
 
 
 

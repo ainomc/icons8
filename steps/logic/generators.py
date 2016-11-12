@@ -4,6 +4,7 @@ import time
 import os
 from os import listdir
 from settings import settings_test as settings
+from settings import download_folder_path
 import random
 now = datetime.today()
 
@@ -33,45 +34,40 @@ class FileActions(object):
     def delete_file(self, file):
         if file == 'icon8 app':
             pathToSetup = os.path.join(
-                ' ', 'icon8', 'icons8', 'Icons8Setup.exe')
-            os.remove(pathToSetup[1:])
-            try:
-                pathToPart = os.path.join(
-                    ' ', 'icon8', 'icons8', 'Icons8Setup.exe.part')
-                os.remove(pathToPart[1:])
-            except WindowsError:
-                pass
+                ' ', 'Icons8Setup.exe')
+            file_path = download_folder_path + pathToSetup[1:]
+            os.remove(file_path)
+        else:
+            pass
 
     # Удаляет все файлы с окончание или расширением (extension)
     def del_by_extension(self, extension):
-        dir = os.path.join(' ', 'icon8', 'icons8')
-        test = listdir(dir[1:])
-        elements_count = 0
-        for item in test:
-            if item.endswith(extension):
-                elements_count += 1
-                os.remove(os.path.join(dir[1:], item))
-        assert elements_count > 0
+		list_of_all_files = listdir(download_folder_path)
+		elements_count = 0
+		for item in list_of_all_files:
+			if item.endswith(extension):
+				elements_count += 1
+				os.remove(os.path.join(download_folder_path, item))
+		assert elements_count > 0
 
     # Ждёт пока не исщезнит файл .part
     def downloading_file(self, extension):
-        dir = os.path.join(' ', 'icon8', 'icons8')
-        test = listdir(dir[1:])
+        list_of_all_files = listdir(download_folder_path)
         elements_count = 0
-        for item in test:
+        for item in list_of_all_files:
             if item.endswith(extension):
                 time_waited = 0
                 elements_count += 1
                 download_end = False
                 while download_end == False:
-                    path = os.path.exists(os.path.join(dir[1:], item))
-                    if path:
+                    path = os.path.exists(os.path.join(download_folder_path, item))
+                    if path == True:
                         time.sleep(5)
                         time_waited += 5
                     elif time_waited == 240:
                         print ('download is to long')
                         break
-                    elif not path:
+                    elif path == False:
                         print ('Donwload file with "' +
                                extension + '" extension ended')
                         download_end = True

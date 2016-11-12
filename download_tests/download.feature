@@ -4,11 +4,12 @@ Scenario: 1: Download windows app
   Then go to Main page
   Then push link 'Download'
   Then push link 'Download for Windows'
-  Then sleep '15' seconds
+  Then try login
+  Then sleep '5' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
   Then go to Main page
-  
+
 Scenario: Simple download icon
 Scenario: 2: Simple download icon
   Then go to Main page
@@ -165,3 +166,6 @@ Scenario: 11: Download EPS 500 px
   #Then sleep '10' seconds
   #Then check and delete '.pdf' file by extension
   #Then click logo icon8
+
+
+

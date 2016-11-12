@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from settings import settings_test as settings
-from os import getcwd
+from settings import download_folder_path
 # from api_method import delete_data
 from sys import platform
 import time
@@ -88,11 +88,9 @@ def make_driver(context):
     # использовать конкретные бинарники
     print ('Opening browser now!')
     profile = FirefoxProfile()
-    # profile.native_events_enabled = True
     profile.set_preference("browser.download.folderList", 2)
     profile.set_preference("browser.download.manager.showWhenStarting", False)
-    profile.set_preference("browser.download.dir", os.getcwd())
-    print (os.getcwd())
+    profile.set_preference("browser.download.dir", download_folder_path)
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
                            "application/x-msdos-program, application/octet-stream, image/png, application/pdf, application/x-pdf, image/svg+xml, application/postscript, text/plain, application/download")
     context.list_ud = list()
