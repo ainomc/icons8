@@ -94,7 +94,7 @@ class RandomGenerate(object):
         pathToFile = os.path.join('steps', 'logic', 'ideas.txt')
         print (pathToFile + "path to idea file")
         Fileactions = FileActions()
-        Fileactions.write_in_file(pathToFile, idea)  # "steps\logic\ideas.txt"
+        Fileactions.write_in_file(pathToFile, idea)
         return idea
 
     # Генерирует рандомный текст
