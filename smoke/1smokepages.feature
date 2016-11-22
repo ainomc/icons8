@@ -90,7 +90,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Download All Our Icons in a'
   Then locate text 'Download for'
-  Then locate text 'For Mac'
+  Then locate text 'for Mac'
   Then locate text 'Plain ZIP file'
   Then locate text 'Features'
   Then locate text 'How it Works'

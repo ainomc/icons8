@@ -3,7 +3,7 @@ Scenario: Download windows app
 Scenario: 1: Download windows app
   Then go to Main page
   Then push link 'Download'
-  Then push link 'Download for Windows'
+  Then push link 'Download'
   Then try login
   Then sleep '5' seconds
   Then wait downloading end of 'part' file

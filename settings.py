@@ -1,4 +1,4 @@
-﻿# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 import os
 import sys
 from os import listdir
@@ -8,7 +8,7 @@ from os.path import join
 Сервер, логин, пароль.
 '''
 settings_test = {
-'login':'ainomc@gmail.com',
+'login':'ainomc+888@gmail.com',
 'password':'123',
 'server':'https://demo.icons8.com/',
 'stand_number':'demo'

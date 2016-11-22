@@ -99,7 +99,7 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Descargar'
   Then locate text 'Archivo ZIP'
   Then locate text 'Características'
-  Then locate text 'Cómo funciona'
+  Then locate text 'cómo funciona'
   Then locate text 'Todos los iconos que necesitas. '
   Then locate text 'Populares'
   Then locate text 'Ver todo'
