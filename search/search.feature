@@ -201,3 +201,16 @@ Scenario: 17: Search categories
   Then click 'new icons search category' button
   Then check locate 'icons in result' element
   Then click logo icon8
+
+Scenario: Search categories
+Scenario: 17: Search categories
+  Then click logo icon8
+  Then click 'search' field
+  Then add 'positive text' text to 'search' field
+  Then click 'search' button
+  Then check locate 'icons in result' element
+  Then click 'search category' button
+  Then check locate 'icons in result' element
+  Then click 'new icons search category' button
+  Then check locate 'icons in result' element
+  Then click logo icon8

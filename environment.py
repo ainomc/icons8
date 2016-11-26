@@ -6,11 +6,20 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from settings import settings_test as settings
-from settings import download_folder_path
 # from api_method import delete_data
 from sys import platform
 import time
 import os
+
+"""
+Путь к папке загрузок всех файлов
+
+"""
+path_to_download_folder = os.path.join(' ', 'download_tests')
+path_to_test_folder = os.getcwd()
+download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+
+
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
 Тут можно объявить переменные,
@@ -27,6 +36,14 @@ SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
+
+
+"""
+Путь к папке загрузок всех файлов
+"""
+path_to_download_folder = os.path.join(' ', 'download_tests')
+path_to_test_folder = os.getcwd()
+download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 
 
 def sleep_while_show_text(context, text):
@@ -104,7 +121,7 @@ def make_driver(context):
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)
     else:
-        path_to_binary = getcwd() + '/steps/data/firefox/firefox'
+        path_to_binary = os.getcwd() + '/steps/data/firefox/firefox'
         binary = FirefoxBinary(path_to_binary)
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)

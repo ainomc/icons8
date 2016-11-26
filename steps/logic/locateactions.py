@@ -97,7 +97,7 @@ class LocateActions(Page):
     def locateElement(self, elementName):
         Value_generate = ValueGenerate()
         if elementName == 'icons result':
-            xpath = '//*[@class="icons-set"]/*[%s]' % Value_generate.values_in_range(1, 5)
+            xpath = '//*[@class="icons-set"]/descendant::span[%s]' % Value_generate.values_in_range(1, 5)
         elif elementName == 'icons in result':
             xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 3)
         elif elementName == 'created first collection':

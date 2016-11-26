@@ -4,13 +4,14 @@ import time
 import os
 from os import listdir
 from settings import settings_test as settings
-from settings import download_folder_path
+from environment import download_folder_path
 import random
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
 
 SERVER = settings['server']
+
 
 
 # открывает файл, записывает данные.
@@ -68,8 +69,8 @@ class FileActions(object):
                         print ('download is to long')
                         break
                     elif path == False:
-                        print ('Donwload file with "' +
-                               extension + '" extension ended')
+                        print ('Donwload file with ' +
+                               extension + ' extension ended')
                         download_end = True
                 print (str(time_waited) + "sec download")
         assert elements_count > 0

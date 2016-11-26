@@ -3,7 +3,7 @@ Scenario: Download windows app
 Scenario: 1: Download windows app
   Then go to Main page
   Then push link 'Download'
-  Then push link 'Download'
+  Then push link 'Download for Windows'
   Then try login
   Then sleep '5' seconds
   Then wait downloading end of 'part' file
@@ -15,7 +15,7 @@ Scenario: 2: Simple download icon
   Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Download in icon bar' button
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -28,7 +28,7 @@ Scenario: 3: Download PNG 50 px
   Then choose '50 px' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -40,7 +40,7 @@ Scenario: 4: Download PNG 100 px
   Then choose '100 px' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
 
