@@ -43,13 +43,14 @@ class FileActions(object):
 
     # Удаляет все файлы с окончание или расширением (extension)
     def del_by_extension(self, extension):
-		list_of_all_files = listdir(download_folder_path)
-		elements_count = 0
-		for item in list_of_all_files:
+        list_of_all_files = listdir(download_folder_path)
+        print(str(list_of_all_files) + " << all files")
+        elements_count = 0
+        for item in list_of_all_files:
 			if item.endswith(extension):
 				elements_count += 1
 				os.remove(os.path.join(download_folder_path, item))
-		assert elements_count > 0
+        assert elements_count > 0
 
     # Ждёт пока не исщезнит файл .part
     def downloading_file(self, extension):

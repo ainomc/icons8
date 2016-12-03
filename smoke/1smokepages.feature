@@ -65,12 +65,6 @@ Scenario: 5: Open Paid license page and assertion
   Then locate text 'More Information'
   Then locate text 'Extended License in Short'
   Then locate text 'Attribution'
-  Then push 'Students' from tabs
-  Then locate text 'for free'
-  Then locate text 'What Students Get'
-  Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
-  Then push 'Standard' from tabs
-  Then locate text 'Paid License Summary'
   Then click logo icon8
 
 Scenario: Contact us
@@ -90,7 +84,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Download All Our Icons in a'
   Then locate text 'Download for'
-  Then locate text 'for Mac'
+  Then locate text 'For Mac'
   Then locate text 'Plain ZIP file'
   Then locate text 'Features'
   Then locate text 'How it Works'

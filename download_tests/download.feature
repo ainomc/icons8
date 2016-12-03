@@ -5,7 +5,8 @@ Scenario: 1: Download windows app
   Then push link 'Download'
   Then push link 'Download for Windows'
   Then try login
-  Then sleep '5' seconds
+  Then push link 'Download Now'
+  Then sleep '10' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
   Then go to Main page

@@ -64,12 +64,6 @@ Scenario: 5: Open Paid license page (Платные иконки) and assertion
   Then locate text 'Как юзать Api'
   Then locate text 'Расширенная лицензия двух словах'
   Then locate text 'Атрибуция'
-  Then push 'Студенческая' from tabs
-  Then locate text 'Мы раздаем иконки '
-  Then locate text 'Что получают студенты'
-  Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
-  Then push 'Стандартная' from tabs
-  Then locate text 'За деньги или бесплатно'
   Then click logo icon8
 
 Scenario: Contact us
@@ -94,7 +88,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Скачать все иконки в одном приложении'
   Then locate text 'Скачать для'
-  Then locate text 'для Mac'
+  Then locate text 'Для Mac'
   Then locate text 'Обычный ZIP-файл'
   Then locate text 'Boзмoжнocти'
   Then locate text 'Как это работает'

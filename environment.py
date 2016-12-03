@@ -42,8 +42,11 @@ STAND = settings['stand_number']
 Путь к папке загрузок всех файлов
 """
 path_to_download_folder = os.path.join(' ', 'download_tests')
+print (path_to_download_folder + " << path_to_download_folder")
 path_to_test_folder = os.getcwd()
+print (path_to_test_folder + " << path_to_test_folder")
 download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+print (download_folder_path + " << download_folder_path")
 
 
 def sleep_while_show_text(context, text):
