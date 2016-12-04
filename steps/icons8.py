@@ -30,9 +30,9 @@ Random_generate = RandomGenerate()
 @given('we have behave installed')
 def step_impl(context):
     pass
-  
-# Then push link 'link text'
+
 @then("push link '{link}'")
+# Then push link 'link text'
 def step(context, link):
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_link(link)
@@ -247,6 +247,13 @@ def step(context, link):
 def step(context):
     context.clickActions = ClickActions(context)
     context.clickActions.try_gotit()
+
+# Then try push text '{text}'
+@then("try push text '{text}'")
+def step(context, text):
+    context.clickActions = ClickActions(context)
+    context.clickActions.try_click_text(text)
+
 
 
 

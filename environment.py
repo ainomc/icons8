@@ -11,14 +11,17 @@ from sys import platform
 import time
 import os
 
-"""
-Путь к папке загрузок всех файлов
-
-"""
-path_to_download_folder = os.path.join(' ', 'download_tests')
-path_to_test_folder = os.getcwd()
-download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-
+# выбор папки загрузки фалов
+if "win" in platform:
+    path_to_download_folder = os.path.join(' ', 'download_tests')
+    print (path_to_download_folder + " << path_to_download_folder")
+    path_to_test_folder = os.getcwd()
+    print (path_to_test_folder + " << path_to_test_folder")
+    download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+    print (download_folder_path + " << download_folder_path")
+elif "linux" in platform:
+    download_folder_path = "/var/lib/jenkins/workspace/Icons8Selenium/download_tests"
+    print (download_folder_path + " << download_folder_path")
 
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
@@ -36,17 +39,6 @@ SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
-
-
-"""
-Путь к папке загрузок всех файлов
-"""
-path_to_download_folder = os.path.join(' ', 'download_tests')
-print (path_to_download_folder + " << path_to_download_folder")
-path_to_test_folder = os.getcwd()
-print (path_to_test_folder + " << path_to_test_folder")
-download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-print (download_folder_path + " << download_folder_path")
 
 
 def sleep_while_show_text(context, text):
@@ -112,7 +104,9 @@ def make_driver(context):
     profile.set_preference("browser.download.manager.showWhenStarting", False)
     profile.set_preference("browser.download.dir", download_folder_path)
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                           "application/x-msdos-program, application/octet-stream, image/png, application/pdf, application/x-pdf, image/svg+xml, application/postscript, text/plain, application/download")
+                           '''application/x-msdos-program, application/octet-stream,
+                           image/png, application/pdf, application/x-pdf, image/svg+xml,
+                           application/postscript, text/plain, application/download''')
     context.list_ud = list()
     context.stand = STAND
     # выбор профиля

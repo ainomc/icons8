@@ -1,5 +1,4 @@
 Feature: Open pages, login and assertions
-
 Scenario: Choose russian localisation
 Scenario: 1: Choose russian localisation
   Then click logo icon8
@@ -91,7 +90,6 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Для Mac'
   Then locate text 'Обычный ZIP-файл'
   Then locate text 'Boзмoжнocти'
-  Then locate text 'Как это работает'
   Then locate text 'Все иконки, которые потребуются'
   Then locate text 'Самые популярные'
   Then locate text 'Посмотреть все'

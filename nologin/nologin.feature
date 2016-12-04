@@ -42,7 +42,7 @@ Scenario: Buy
 Scenario: 3: login during  free Buy
   Then go to Main page
   Then push link Logout
-  Then click logo icon8
+  Then go to Main page
   Then push link 'Buy'
   Then click buy 'Free' button
   Then locate text 'Register to Continue Downloading'
@@ -59,7 +59,7 @@ Scenario: 3: login during  free Buy
 Scenario: 4: login during  All 32,200 Icons Buy
   Then go to Main page
   Then push link Logout
-  Then click logo icon8
+  Then go to Main page
   Then push link 'Buy'
   Then click buy 'All 33,200 Icons' button
   Then locate text 'Register to Continue Downloading'
@@ -85,7 +85,7 @@ Scenario: 4: login during  All 32,200 Icons Buy
 Scenario: 5: login during Pay per Icon Buy
   Then go to Main page
   Then push link Logout
-  Then click logo icon8
+  Then go to Main page
   Then push link 'Buy'
   Then click buy 'Pay per Icon' button
   Then locate text 'Register to Continue Downloading'

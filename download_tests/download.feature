@@ -16,6 +16,7 @@ Scenario: 2: Simple download icon
   Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
@@ -29,6 +30,7 @@ Scenario: 3: Download PNG 50 px
   Then choose '50 px' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
@@ -41,6 +43,7 @@ Scenario: 4: Download PNG 100 px
   Then choose '100 px' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
@@ -53,6 +56,7 @@ Scenario: 5: Download PNG 500 px
   Then choose '500 px' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
@@ -66,6 +70,7 @@ Scenario: 6: Download SVG 50 px
   Then choose '50 px' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.svg' file by extension
   Then go to Main page
@@ -78,6 +83,7 @@ Scenario: 7: Download SVG 100 px
   Then choose '100 px' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.svg' file by extension
   Then click logo icon8
@@ -90,6 +96,7 @@ Scenario: 8: Download SVG 500 px
   Then choose '500 px' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.svg' file by extension
   Then go to Main page
@@ -103,6 +110,7 @@ Scenario: 9: Download EPS 50 px
   Then choose '50 px' button in download pop-up
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
@@ -115,6 +123,7 @@ Scenario: 10: Download EPS 100 px
   Then choose '100 px' button in download pop-up
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
@@ -127,6 +136,7 @@ Scenario: 11: Download EPS 500 px
   Then choose '500 px' button in download pop-up
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar' button
+  Then try push text 'Free Download'
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
@@ -140,6 +150,7 @@ Scenario: 11: Download EPS 500 px
   #Then choose '50 px' button in download pop-up
   #Then choose 'PDF' download icon type in download pop-up
   #Then click 'Download in icon bar' button
+  #Then try push text 'Free Download'
   #Then sleep '10' seconds
   #Then check and delete '.pdf' file by extension
   #Then click logo icon8
@@ -152,6 +163,7 @@ Scenario: 11: Download EPS 500 px
   #Then choose '100 px' button in download pop-up
   #Then choose 'PDF' download icon type in download pop-up
   #Then click 'Download in icon bar' button
+  #Then try push text 'Free Download'
   #Then sleep '10' seconds
   #Then check and delete '.pdf' file by extension
   #Then click logo icon8
@@ -164,6 +176,7 @@ Scenario: 11: Download EPS 500 px
   #Then choose '500 px' button in download pop-up
   #Then choose 'PDF' download icon type in download pop-up
   #Then click 'Download in icon bar' button
+  #Then try push text 'Free Download'
   #Then sleep '10' seconds
   #Then check and delete '.pdf' file by extension
   #Then click logo icon8

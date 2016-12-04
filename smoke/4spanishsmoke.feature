@@ -66,12 +66,6 @@ Scenario: 5: Open Paid license page and assertion
   Then locate text 'Más información'
   Then locate text 'Resumen de la licencia ampliada'
   Then locate text 'Atribución'
-  Then push 'Estudiantes' from tabs
-  Then locate text 'gratuitamente'
-  Then locate text 'Para los estudiantes'
-  Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png' 
-  Then push 'Estándar' from tabs
-  Then locate text 'Resumen de la licencia de pago'
   Then click logo icon8
 
 Scenario: Contact us
@@ -99,7 +93,6 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Descargar'
   Then locate text 'Archivo ZIP'
   Then locate text 'Características'
-  Then locate text 'cómo funciona'
   Then locate text 'Todos los iconos que necesitas. '
   Then locate text 'Populares'
   Then locate text 'Ver todo'

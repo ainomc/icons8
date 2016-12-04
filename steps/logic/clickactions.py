@@ -267,5 +267,21 @@ class ClickActions(Page):
         except NoSuchElementException:
             pass
 
+    def try_click_text(self, link):
+        try:
+            WebDriverWait(self.browser, TIME_FOR_WAIT).until(
+                EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))
+            )
+            time.sleep(2)
+            while True:
+                try:
+                    self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
+                    break
+                except StaleElementReferenceException:
+                    continue
+        except TimeoutException:
+            pass
+
+
 
 
