@@ -168,10 +168,5 @@ Scenario: 12: Logout and assertion
   Then push link Logout
   Then push link 'Anmelden'
   Then locate text 'Bei Icons8 '
-  Then locate text 'Email'
-  Then locate text 'Passwort'
   Then locate text 'Passwort vergessen?'
   Then push link 'Registrieren'
-  #Then locate text 'Register at Icons8'
-  Then locate text 'Email'
-  Then locate text 'Passwort'

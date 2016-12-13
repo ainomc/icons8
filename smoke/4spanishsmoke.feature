@@ -172,10 +172,5 @@ Scenario: 12: Logout and assertion
   Then push link Logout
   Then push link 'Iniciar sesión'
   Then locate text 'Iniciar sesión en Icons8'
-  Then locate text 'correo electrónico'
-  Then locate text 'contraseña'
   Then locate text '¿Has olvidado la contraseña?'
   Then push link 'Registrarse'
-  #Then locate text 'Register at Icons8'
-  Then locate text 'correo electrónico'
-  Then locate text 'contraseña'
