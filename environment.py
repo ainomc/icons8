@@ -14,11 +14,8 @@ import os
 # выбор папки загрузки фалов
 if "win" in platform:
     path_to_download_folder = os.path.join(' ', 'download_tests')
-    print (path_to_download_folder + " << path_to_download_folder")
     path_to_test_folder = os.getcwd()
-    print (path_to_test_folder + " << path_to_test_folder")
     download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-    print (download_folder_path + " << download_folder_path")
 elif "linux" in platform:
     download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/Icons8Selenium/download_tests"
     print (download_folder_path + " << download_folder_path")

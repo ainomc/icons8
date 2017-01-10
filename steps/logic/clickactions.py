@@ -64,6 +64,19 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
+    # Кликнуть на линк
+    def click_text_with_div(self, link):
+        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link))
+        )
+        time.sleep(2)
+        while True:
+            try:
+                self.browser.find_element_by_xpath('//div[contains(text(), "%s")][1]' % link).click()
+                break
+            except StaleElementReferenceException:
+                continue
+
     # кликнуть на элемент по xpath
     def click_on_xpath(self, xpath):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
@@ -187,11 +200,11 @@ class ClickActions(Page):
         elif buttonName == 'Collections':
             xpath = '//span[contains(., "Collections")]'
         elif buttonName == 'Create collections':
-            xpath = '//*[@ng-click="collsControl.createCollection();"]'
+            xpath = './/*[@ng-click="vm.createCollection();"]'
         elif buttonName == 'confirm name':
             xpath = '//form/*[@ng-click="collsControl.renameCollection()"]'
         elif buttonName == 'delete collection menu':
-            xpath = '//*[@ng-click="toggleCollectionsEdit()"]'
+            xpath = '''.//*[@ng-class="{'m-edit': collectionsEdit}"]'''
         elif buttonName == 'first icon in result':
             xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
         elif buttonName == 'first icon in collection':

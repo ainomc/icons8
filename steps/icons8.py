@@ -43,6 +43,12 @@ def step(context, link):
     context.clickActions = ClickActions(context)
     context.clickActions.clickButtonText(link)
 
+# Then click text 'text' [div]
+@then("click text '{text}' [div]")
+def step(context, text):
+    context.clickActions = ClickActions(context)
+    context.clickActions.click_text_with_div(text)
+
 # Then click logo icon8
 @then("click logo icon8")
 def step(context):
@@ -85,7 +91,7 @@ def step(context):
 # Then push link request icons
 @then("push link Request icons")
 def step(context):
-    xpath = "//a[@class='c-pretty-link']"
+    xpath = './/*[@href="/logout/"]'
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_xpath(xpath)
 

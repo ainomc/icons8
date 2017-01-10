@@ -54,7 +54,7 @@ Scenario: 5: Open Paid license page and assertion
   Then push link 'Buy Full License'
   Then scroll to end of the page
   Then locate text 'Paid or Free, You Are Our Hero'
-  Then locate text 'All 33,200 Icons'
+  Then locate text 'All 33,100 Icons'
   Then locate text 'Paid License Summary'
   Then locate text 'Prohibited Uses for all Licenses'
   Then locate text 'What's Included'

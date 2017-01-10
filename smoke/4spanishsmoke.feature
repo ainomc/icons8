@@ -5,7 +5,7 @@ Scenario: 1: Choose spanish localisation
   Then click logo icon8
   Then click 'selectLanguage' button element
   Then push link 'Spanish'
-  Then locate text ' 33,200 iconos planos gratuitos'
+  Then locate text ' 33,100 iconos planos gratuitos'
   Then click logo icon8
 
 Scenario: Terms and Conditions  
@@ -55,7 +55,7 @@ Scenario: 5: Open Paid license page and assertion
   Then push link 'Iconos de pago'
   Then scroll to end of the page
   Then locate text 'Pagando o de gratis'
-  Then locate text '33,200 iconos'
+  Then locate text '33,100 iconos'
   Then locate text 'Resumen de la licencia de pago'
   Then locate text 'Usos prohibidos para todas las licencias'
   Then locate text 'Se incluye'
@@ -170,7 +170,4 @@ Scenario: 12: Logout and assertion
   Then click logo icon8
   Then locate text 'Mi cuenta'
   Then push link Logout
-  Then push link 'Iniciar sesión'
-  Then locate text 'Iniciar sesión en Icons8'
-  Then locate text '¿Has olvidado la contraseña?'
   Then push link 'Registrarse'
