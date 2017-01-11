@@ -19,7 +19,7 @@ Scenario: 2: Create first collections and add collection
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'Create collections' button
-  Then add 'collection name' text to 'newCollName' field
+  Then add 'collection name' text to 'name field' field
   Then click 'confirm name' button
   Then check locate 'created first collection' element
   Then click 'first icon in result' button
@@ -98,7 +98,7 @@ Scenario: 7: Add second collections
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'Create collections' button
-  Then add 'collection name' text to 'newCollName' field
+  Then add 'collection name' text to 'name field' field
   Then click 'confirm name' button
   Then check locate 'created second collection' element
   Then click 'first icon in result' button

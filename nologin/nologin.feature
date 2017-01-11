@@ -38,23 +38,23 @@ Scenario: 2: login during Register
   Then locate text 'My Account'
   Then go to Main page
 
-Scenario: Buy
-Scenario: 3: login during  free Buy
-  Then go to Main page
-  Then push link Logout
-  Then go to Main page
-  Then push link 'Buy'
-  Then click buy 'Free' button
-  Then locate text 'Register to Continue Downloading'
-  Then find 'RegisterForm_name' element
-  Then find 'RegisterForm_email' element
-  Then find 'RegisterForm_password' element
-  Then locate 'Create Account' element
-  Then click login button in register pop-up
-  Then locate text 'Login to Continue Downloading'
-  Then login
-  Then locate 'Search icons' field
-  Then click logo icon8
+#Scenario: Buy
+#Scenario: 3: login during  free Buy
+  #Then go to Main page
+  #Then push link Logout
+  #Then go to Main page
+  #Then push link 'Buy'
+  #Then click buy 'Free' button
+  #Then locate text 'Register to Continue Downloading'
+  #Then find 'RegisterForm_name' element
+  #Then find 'RegisterForm_email' element
+  #Then find 'RegisterForm_password' element
+  #Then locate 'Create Account' element
+  #Then click login button in register pop-up
+  #Then locate text 'Login to Continue Downloading'
+  #Then login
+  #Then locate 'Search icons' field
+  #Then click logo icon8
 
 #Scenario: 4: login during  All 32,200 Icons Buy
   #Then go to Main page

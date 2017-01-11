@@ -105,7 +105,7 @@ class LocateActions(Page):
         elif elementName == 'created second collection':
             xpath = '//*[@class="b-collections-container"]/div[2]'
         elif elementName == 'first icon in collection':
-            xpath = '//*[@ng-hide="collsControl.collectionCreating"]/*[1]/*[1]'
+            xpath = './/*[@class="icons-set__icon"]'
         elif elementName == 'Get Font pop-up':
             xpath = '//*[@stop-events="click"]'
         elif elementName == 'Public Link':

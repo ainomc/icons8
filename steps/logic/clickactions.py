@@ -202,7 +202,7 @@ class ClickActions(Page):
         elif buttonName == 'Create collections':
             xpath = './/*[@ng-click="vm.createCollection();"]'
         elif buttonName == 'confirm name':
-            xpath = '//form/*[@ng-click="collsControl.renameCollection()"]'
+            xpath = './/*[@ng-if="vm.collectionRenaming"]/*[@ng-click="vm.renameCollection()"]'
         elif buttonName == 'delete collection menu':
             xpath = '''.//*[@ng-class="{'m-edit': collectionsEdit}"]'''
         elif buttonName == 'first icon in result':
