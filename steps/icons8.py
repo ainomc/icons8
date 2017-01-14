@@ -210,7 +210,7 @@ def step(context, type_of_buy):
     if type_of_buy == 'Free':
         move_to = '//div[@callback="goToWebApp()"]'
         button = """//div[@ng-bind-html="'PAGE.BUY.PLANS.FREE.GET' | translate"]"""
-    elif type_of_buy == 'All 33,200 Icons':
+    elif type_of_buy == 'All 33,100 Icons':
         move_to = '//*[@callback="buyHoverBlock(licenses.companies.updates)"]'
         button = """//*[@ng-bind-html="'PAGE.BUY.PLANS.BUY' | translate"][@ng-class="licenses.companies.updates.id"]"""
     elif type_of_buy == 'Pay per Icon':
@@ -225,7 +225,7 @@ def step(context, type_of_buy):
 @then("delete all '{elements}' elements")
 def step(context, elements):
     if elements == 'collections':
-        xpathFirst = '//*[@ ng-repeat="coll in colls.colls"][%s]/*[@ ng-show="collectionsEdit" ]'
+        xpathFirst = '//*[@ng-repeat="coll in vm.colls.colls" ][%s]/*[@ ng-show="collectionsEdit"]'
         xpathSecond = '//*[@class="c-btn modal__action-confirm modal__action"]'
     context.clickActions = ClickActions(context)
     context.clickActions.clickAllAndButtons(xpathFirst, xpathSecond)
@@ -351,7 +351,7 @@ def step(context, placeholder):
     context.locateActions = LocateActions(context)
     context.locateActions.locate_element(xpath)
 
-# Then check locate '{id}' element
+# Then find '{id}' element
 @then("find '{id}' element")
 def step(context, id):
     xpath = "//*[@id='%s']" % id

@@ -269,7 +269,7 @@ class ClickActions(Page):
 
     # Выбрать размер скачиваемой иконки
     def click_download_iconsize(self, icon_size_button):
-        xpath = '''//*[@ng-include="'/template-icon.html'"]/descendant::*[contains(text(), "%s")][1]''' % icon_size_button
+        xpath = '''.//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/*[%s]''' % icon_size_button
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 

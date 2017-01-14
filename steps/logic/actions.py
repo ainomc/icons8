@@ -65,7 +65,7 @@ class MovementActions(Page):
     # Перемещает мышь та элемент
     def move_mouse(self, element_to):
         if element_to == 'right bar':
-            xpath = '''//*[@ng-include="'/template-icon.html'"]/descendant::*[@class="b-collections-container"]'''
+            xpath = '''//*[@i8-scroll-commander="vm.scrollCommander"]'''
         element = self.browser.find_element_by_xpath(xpath)
         action = webdriver.ActionChains(self.browser)
         action.move_to_element(element)
