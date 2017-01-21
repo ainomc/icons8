@@ -202,7 +202,7 @@ class ClickActions(Page):
         elif buttonName == 'Create collections':
             xpath = './/*[@ng-click="vm.createCollection();"]'
         elif buttonName == 'confirm name':
-            xpath = './/*[@ng-if="vm.collectionRenaming"]/*[@ng-click="vm.renameCollection()"]'
+            xpath = './/*[@ng-if="vm.collectionRenaming"]/*[@ng-click="vm.renameCollection()"]/*'
         elif buttonName == 'delete collection menu':
             xpath = '''.//*[@ng-class="{'m-edit': collectionsEdit}"]'''
         elif buttonName == 'first icon in result':
@@ -239,6 +239,8 @@ class ClickActions(Page):
             xpath = '//*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
         elif buttonName == 'Open download icon pop-up':
             xpath = '//*[@icon="selectedIcon.icon"]/div/*[1]'
+        elif buttonName == 'Edit name':
+            xpath = './/div[@i8-simple-tooltip="Edit name"]'
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 

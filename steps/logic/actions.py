@@ -104,7 +104,7 @@ class TextActions(Page):
             xpath = '//*[@placeholder="%s"]' % FieldName
             text = 'kjhgfdsalkjjhggfd'
         elif TextType == 'collection name':
-            xpath = '//input[@ng-model="vm.newCollName"]'
+            xpath = './/input[@ng-init="vm.newCollName = vm.IconsCollsModel.current.name"]'
             text = 'Collection %s' % Random_generate.random_text(6)
         self.textActions = TextActions(self)
         self.textActions.inputText(text, xpath)
