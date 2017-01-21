@@ -190,7 +190,7 @@ class ClickActions(Page):
         elif buttonName == 'search category':
             xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(3, 50)
         elif buttonName == 'new icons search category':
-            xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[1]'
+            xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::*[@class="c-list m-padding b-bar-menus-menu"][2]/a[1]'
         elif buttonName == 'Paypal':
             xpath = '//modals[2]/descendant::*[contains(text(), "Paypal")][1]'
         elif buttonName == 'Credit cards':

@@ -56,16 +56,15 @@ Scenario: 2: Create first collections and add collection
   #Then locate text 'Paid or Free, You Are Our Hero!'
   #Then click logo icon8
 
-#Scenario: Create Public Link
-#Scenario: 5: Create Public Link
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click got it pop-up
-  #Then click 'Collections' button
-  #Then click 'open public link pop-up' button
-  #Then click 'Create Public Link' element
-  #Then check locate 'Public Link' element
-  #Then click logo icon8
+Scenario: Create Public Link
+Scenario: 5: Create Public Link
+  Then click logo icon8
+  Then push link in navigation menu 'Icons'
+  Then click got it pop-up
+  Then click 'Collections' button
+  Then click 'open public link pop-up' button
+  Then locate text 'Share the collection with your'
+  Then click logo icon8
 
 Scenario: Change color (greyscale, color, custom, color palete)
 Scenario: 6: Change color (greyscale, color, custom, color palete)
@@ -83,15 +82,7 @@ Scenario: 6: Change color (greyscale, color, custom, color palete)
   Then locate 'color_palette' element in color pop-up
   Then locate 'canvas' element in color pop-up
   Then click logo icon8
-
-#Scenario: Upload icon
-#Scenario: 6.1: Upload icon
-  #Then push link in navigation menu 'Icons'
-  #Then push link 'Icons'
-  #Then click 'Collections' button
-  #Then upload 'icon' file
-  #Then push link in header 'Icons8'
-
+  
 Scenario: Add second collections
 Scenario: 7: Add second collections
   Then click logo icon8
