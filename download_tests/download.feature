@@ -4,8 +4,6 @@ Scenario: 1: Download windows app
   Then go to Main page
   Then push link 'Download'
   Then push link 'Download Icons8 for Windows'
-  #Then try login
-  #Then push link 'click here'
   Then sleep '10' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
@@ -140,46 +138,5 @@ Scenario: 11: Download EPS 500 px
   Then sleep '10' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
-
-#Scenario: Download PDF 50 px
-#Scenario: 12: Download PDF 50 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then move mouse to 'right bar' element
-  #Then choose '50 px' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '10' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8
-
-#Scenario: Download PDF 100 px
-#Scenario: 13: Download PDF 100 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then choose '100 px' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '10' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8
-
-#Scenario: Download PDF 500 px
-#Scenario: 14: Download PDF 500 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then choose '500 px' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '10' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8
-
 
 

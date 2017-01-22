@@ -32,29 +32,27 @@ Scenario: 2: Create first collections and add collection
   Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
 
-#Scenario: Get Font
-#Scenario: 3: Get Font
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click got it pop-up
-  #Then click 'Collections' button
-  #Then click 'Get Font' button
-  #Then check locate 'Get Font pop-up' element
-  #Then try find and check 'Unlock Font'
-  #Then try find and check 'Color Icons Are Excluded'
-  #Then click logo icon8
+Scenario: Get Font
+Scenario: 3: Get Font
+  Then click logo icon8
+  Then push link in navigation menu 'Icons'
+  Then click got it pop-up
+  Then click 'Collections' button
+  Then click 'Get Font' button
+  Then sleep '30' seconds
+  Then check and delete '.zip' file by extension
+  Then click logo icon8
 
-#Scenario: Get SVG set
-#Scenario: 4: Get SVG set
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click got it pop-up
-  #Then click 'Collections' button
-  #Then click 'Get SVG Set' button
-  #hen locate text 'Unlock SVG'
-  #Then push link 'see pricing'
-  #Then locate text 'Paid or Free, You Are Our Hero!'
-  #Then click logo icon8
+Scenario: Get SVG set
+Scenario: 4: Get SVG set
+  Then click logo icon8
+  Then push link in navigation menu 'Icons'
+  Then click got it pop-up
+  Then click 'Collections' button
+  Then click 'Get SVG Set' button
+  Then sleep '30' seconds
+  Then check and delete '.zip' file by extension
+  Then click logo icon8
 
 Scenario: Create Public Link
 Scenario: 5: Create Public Link
@@ -82,7 +80,7 @@ Scenario: 6: Change color (greyscale, color, custom, color palete)
   Then locate 'color_palette' element in color pop-up
   Then locate 'canvas' element in color pop-up
   Then click logo icon8
-  
+
 Scenario: Add second collections
 Scenario: 7: Add second collections
   Then click logo icon8

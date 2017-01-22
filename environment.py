@@ -103,7 +103,7 @@ def make_driver(context):
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
                            '''application/x-msdos-program, application/octet-stream,
                            image/png, application/pdf, application/x-pdf, image/svg+xml,
-                           application/postscript, text/plain, application/download''')
+                           application/postscript, text/plain, application/download, application/zip''')
     context.list_ud = list()
     context.stand = STAND
     # выбор профиля
@@ -115,7 +115,7 @@ def make_driver(context):
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)
     else:
-        path_to_binary = os.getcwd() + '/steps/data/firefox/firefox'
+        path_to_binary = getcwd() + '/steps/data/firefox/firefox'
         binary = FirefoxBinary(path_to_binary)
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)

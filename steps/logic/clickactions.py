@@ -214,7 +214,7 @@ class ClickActions(Page):
         elif buttonName == 'Get Font':
             xpath = '''//*[@popup-target="'generate-font'"]'''
         elif buttonName == 'Get SVG Set':
-            xpath = '''//*[@ng-class="{'m-load': isDownloadSVGSet}"]'''
+            xpath = '''.//*[@class="b-bar-btns m-collections"]/div[3]'''
         elif buttonName == 'open public link pop-up':
             xpath = '//*[@class="c-tooltip m-no-border m-share-link-tooltip"]'
         elif buttonName == 'color palette':
