@@ -83,8 +83,7 @@ Scenario: 7: Open Application page and assertion
   Then push link 'Download'
   Then scroll to end of the page
   Then locate text 'Download Icons8 for'
-  Then locate text 'For Mac'
-  Then locate text 'Plain ZIP file'
+  Then locate text 'Other Versions'
   Then locate text 'Features'
   Then locate text 'How it Works'
   Then locate text 'All the Icons You Need'

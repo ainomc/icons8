@@ -87,8 +87,7 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Скачать все иконки в одном приложении'
   Then locate text 'Скачать для'
-  Then locate text 'Для Mac'
-  Then locate text 'Обычный ZIP-файл'
+  Then locate text 'Другие варианты загрузки'
   Then locate text 'Boзмoжнocти'
   Then locate text 'Все иконки, которые потребуются'
   Then locate text 'Самые популярные'

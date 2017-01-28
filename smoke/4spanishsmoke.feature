@@ -90,8 +90,7 @@ Scenario: 7: Open Application page and assertion
   Then push link 'Descargar'
   Then scroll to end of the page
   Then locate text 'Descarga todos nuestros iconos'
-  Then locate text 'Descargar'
-  Then locate text 'Archivo ZIP'
+  Then locate text 'Otras opciones de descarga'
   Then locate text 'Características'
   Then locate text 'Todos los iconos que necesitas. '
   Then locate text 'Populares'

@@ -45,6 +45,20 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
+
+    # Кликнуть на линк
+    def try_click_on_link(self, link):
+        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))
+        )
+        time.sleep(2)
+        while True:
+            try:
+                self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
+                break
+            except StaleElementReferenceException:
+                continue
+
     # Наимает на кнопку в главном иеню в хедере. Типы вводных 'Icons', 'Download', 'Request', 'Buy', 'Resources'
     def clickHeaderNavMenu(self, buttonName):
         Xpath = '//*[@class="b-menu"]/descendant::span[contains(text(), "%s")]' % buttonName
@@ -185,7 +199,7 @@ class ClickActions(Page):
         if buttonName == 'search':
             xpath = '//*[@class="b-search-btn"]'
         elif buttonName == 'search platform filter':
-            xpath = '//*[@ng-click="leftSideBar.platformClick(platform, $event)"][%s]' \
+            xpath = './/*[@class="b-bar-menus m-fix-c-list"]/*[1]/*[%s]' \
                     % Value_generate.values_in_range(2, 8)
         elif buttonName == 'search category':
             xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(3, 50)
@@ -236,9 +250,11 @@ class ClickActions(Page):
         elif buttonName == 'Download for Windows':
             xpath = "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a"  # test xpath
         elif buttonName == 'Download in icon bar':
-            xpath = '//*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
+            xpath = './/*[@class="b-bar-btns m-icon"]/*[1]'
+        elif buttonName == 'Download in icon bar esp':
+            xpath = './/*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
         elif buttonName == 'Open download icon pop-up':
-            xpath = '//*[@icon="selectedIcon.icon"]/div/*[1]'
+            xpath = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]'''
         elif buttonName == 'Edit name':
             xpath = './/div[@i8-simple-tooltip="Edit name"]'
         self.clickActions = ClickActions(self)
@@ -265,7 +281,7 @@ class ClickActions(Page):
             number = 5
         elif icon_type == 'SVG set':
             number = 6
-        xpath = '//div[@icon="selectedIcon.icon"]/descendant::li[%s]' % number
+        xpath = './/*[@class="c-list m-nooverflow b-format"]/*[%s]' % number
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
@@ -294,7 +310,7 @@ class ClickActions(Page):
                     break
                 except StaleElementReferenceException:
                     continue
-        except TimeoutException:
+        except:
             pass
 
 

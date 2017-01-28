@@ -37,6 +37,12 @@ def step(context, link):
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_link(link)
 
+@then("try push link '{link}'")
+# Then push link 'link text'
+def step(context, link):
+    context.clickActions = ClickActions(context)
+    context.clickActions.try_click_on_link(link)
+
 # Then button with text 'link text'
 @then("button with text '{link}'")
 def step(context, link):

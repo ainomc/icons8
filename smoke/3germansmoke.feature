@@ -89,7 +89,6 @@ Scenario: 7: Open Application page and assertion
   Then scroll to end of the page
   Then locate text 'Lade alle Icons mit unserer '
   Then locate text 'Download für'
-  Then locate text 'Für Mac'
   Then locate text 'Alle Icons, die du brauchst'
   Then locate text 'Am beliebtesten'
   Then locate text 'Alle anzeigen'
