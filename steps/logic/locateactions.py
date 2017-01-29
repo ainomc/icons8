@@ -93,7 +93,7 @@ class LocateActions(Page):
         except NoSuchElementException:
             pass
 
-    # Наqти элемент по уникальному xpath
+    # Найти элемент по уникальному xpath
     def locateElement(self, elementName):
         Value_generate = ValueGenerate()
         if elementName == 'icons result':
@@ -123,7 +123,14 @@ class LocateActions(Page):
         elif elementName == 'icon download format':
             xpath = '//*[@class="c-list m-nooverflow b-format"]/*[%s]' % Value_generate.values_in_range(1, 6)
         elif elementName == 'Category Title':
-            xpath = '//*[@ng-bind-html="category.title"]'
+            xpath = '//*[@ng-bind-html="vm.category.title"]'
+        elif elementName == 'simple list':
+            xpath = './/*[@class="c-icon-list"]'
+        elif elementName == 'list with names':
+            xpath = './/*[@class="c-icon-list m-with-name"]'
+        elif elementName == 'table list':
+            xpath = '''.//*[@ng-if="vm.gridState.state == 'table'"]'''
         self.locateActions = LocateActions(self)
         self.locateActions.locate_element(xpath)
+
 

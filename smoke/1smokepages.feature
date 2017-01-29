@@ -7,7 +7,7 @@ Scenario: 1: Open Main page and scroll down
   Then locate text 'The Community Loves Icons8'
   Then click logo icon8
 
-Scenario: Terms and Conditions  
+Scenario: Terms and Conditions
 Scenario: 2: Open Terms and Conditions page and assert text
   Then click logo icon8
   Then push link 'Terms and Conditions'
@@ -32,7 +32,7 @@ Scenario: 3: Open Privacy Policy page and assertion
   Then locate text 'Buy Full License'
   Then locate text 'Desktop version'
   Then click logo icon8
-  
+
 Scenario: Free license
 Scenario: 4: Open Free license page and assertion
   Then click logo icon8
@@ -156,9 +156,26 @@ Scenario: 11: Open Web app page and assertion
   Then locate text 'Icon'
   Then click logo icon8
 
+Scenario: Account/Profile
+Scenario: 12: Account/Profile
+  Then click logo icon8
+  Then push link 'My Account'
+  Then locate concrete text 'Account'
+  Then locate concrete text 'Your current plan'
+  Then locate text 'Invoice from'
+  Then push link 'Downloads'
+  Then locate text 'ZIP Files'
+  Then locate text 'Icons8 App'
+  Then click 'API' button
+  Then locate text 'API endpoint'
+  Then locate text 'API Auth Token'
+  Then click 'Profile' button
+  Then locate text 'change email or password'
+
 Scenario: Logout feature
-Scenario: 12: Logout and assertion
+Scenario: 13: Logout and assertion
   Then click logo icon8
   Then push link Logout
   Then locate text 'Login'
-  Then locate text 'Register' 
+  Then locate text 'Register'
+

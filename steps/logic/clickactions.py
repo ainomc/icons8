@@ -257,9 +257,25 @@ class ClickActions(Page):
             xpath = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]'''
         elif buttonName == 'Edit name':
             xpath = './/div[@i8-simple-tooltip="Edit name"]'
+        elif buttonName == 'Got it':
+            xpath = './/div[@class="c-btn b-message-button"]'
+        elif buttonName == 'Profile':
+            xpath = '//a[contains(text(), "Profile")][1]'
+        elif buttonName == 'API':
+            xpath = '//a[contains(text(), "API")][1]'
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
+    # Уликнуть на элемент по уникальному xpath
+    def try_click_button(self, buttonName):
+        Value_generate = ValueGenerate()
+        if buttonName == 'got it':
+            xpath = '''.//*[@ng-repeat="(title, action) in message.actions"]'''
+        try:
+            self.clickActions = ClickActions(self)
+            self.clickActions.click_on_xpath(xpath)
+        except:
+            pass
 
     # Кликает на элемент с ng-if
     def clickFindByNg_if(self, ng_if_locator):

@@ -204,11 +204,24 @@ def step(context):
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_xpath(xpath)
 
+# Then click on filter '{number of filter}'
+@then("click on filter '{num_of_filter}'")
+def step(context, num_of_filter):
+    xpath = './/*[@class="c-grid-btns"]/*[%s]' % num_of_filter
+    context.clickActions = ClickActions(context)
+    context.clickActions.click_on_xpath(xpath)
+
 # Then click '{button}' button
 @then("click '{button}' button")
 def step(context, button):
     context.clickActions = ClickActions(context)
     context.clickActions.clickButton(button)
+
+# Then try click '{button}' button
+@then("try click '{button}' button")
+def step(context, button):
+    context.clickActions = ClickActions(context)
+    context.clickActions.try_click_button(button)
 
 # Then click buy '{type_of_buy}' button
 @then("click buy '{type_of_buy}' button")
@@ -260,7 +273,7 @@ def step(context):
     context.clickActions = ClickActions(context)
     context.clickActions.try_gotit()
 
-# Then try push text '{text}'
+# Then try push text '{text}'e
 @then("try push text '{text}'")
 def step(context, text):
     context.clickActions = ClickActions(context)

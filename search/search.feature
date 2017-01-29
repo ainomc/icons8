@@ -179,7 +179,7 @@ Scenario: 15: Positive search test on Office Icon Pack
 
 Scenario: Search on platform icons pack page
 Scenario: 16: Negative search test on Office Icon Pack
-  TThen click logo icon8
+  Then click logo icon8
   Then choose 'Office Icon Pack' element
   Then click 'search' field
   Then add 'negative text' text to 'search' field
@@ -200,5 +200,19 @@ Scenario: 17: Search categories
   Then check locate 'icons in result' element
   Then click 'new icons search category' button
   Then check locate 'icons in result' element
-  Then click logo icon8
 
+Scenario: Search filters
+Scenario: 18: Search filters
+  Then click logo icon8
+  Then click 'search' field
+  Then add 'positive text' text to 'search' field
+  Then click 'search' button
+  Then check locate 'icons result' element
+  Then click on filter '1'
+  Then check locate 'simple list' element
+  Then click on filter '2'
+  Then check locate 'list with names' element
+  Then try click 'got it' button
+  Then click on filter '3'
+  Then check locate 'table list' element
+  Then click logo icon8

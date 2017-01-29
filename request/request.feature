@@ -25,7 +25,6 @@ Scenario: 2: Check created idea
   Then check ideas list in filter
   Then click 'Latest ideas' filter of already created ideas
   Then check ideas list in filter
-  Then check last created idea
   Then click logo icon8
 
 Scenario: Check list of created icons ideas (short lst)

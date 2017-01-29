@@ -4,7 +4,7 @@ Scenario: 1: Presents collections screen
   Then click logo icon8
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
-  Then try push text 'Got it'
+  Then try click 'got it' button
   Then click 'Collections' button
   Then locate text 'What can you do with collections?'
   Then locate text 'Edit and download'
