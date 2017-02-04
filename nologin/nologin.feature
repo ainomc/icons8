@@ -55,7 +55,7 @@ Scenario: 3: login during  free Buy
   Then locate 'Search icons' field
   Then click logo icon8
 
-Scenario: 4: login during  All 32,200 Icons Buy
+Scenario: 4: login during  All 32,100 Icons Buy
   Then go to Main page
   Then push link Logout
   Then go to Main page
@@ -76,6 +76,7 @@ Scenario: 4: login during  All 32,200 Icons Buy
   Then go to Main page
   Then click logo icon8
   Then push link 'Buy'
+  Then sleep '5' seconds
   Then click buy 'All 33,100 Icons' button
   Then click 'Paypal' button
   Then locate text '1999-2017'

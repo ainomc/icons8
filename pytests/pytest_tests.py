@@ -12,7 +12,6 @@ from steps.logic.generators import *
 
 
 
-
 # Main Test class
 class Tests(MainTestClassSettings):
 

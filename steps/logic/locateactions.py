@@ -113,7 +113,7 @@ class LocateActions(Page):
         elif elementName == 'icon category':
             xpath = '//*[@class="c-breadcrumbs"]/*[%s]' % Value_generate.values_in_range(1, 3)
         elif elementName == 'icon text':
-            xpath = '//*[@ng-bind-html="mainSubtitleText"]'
+            xpath = './/*[@ng-bind-html="vm.mainSubtitleText"]'
         elif elementName == 'Icon':
             xpath = '//*[@class="col-md-4 m-full-width b-main-icon m-main-icon"]/*'
         elif elementName == 'Download button':

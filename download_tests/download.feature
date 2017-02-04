@@ -4,7 +4,7 @@ Scenario: 1: Download windows app
   Then go to Main page
   Then push link 'Download'
   Then push link 'Download Icons8 for Windows'
-  Then sleep '30' seconds
+  Then sleep '5' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
   Then go to Main page

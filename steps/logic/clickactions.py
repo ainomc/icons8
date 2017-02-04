@@ -17,6 +17,7 @@ from actions import *
 from locateactions import *
 
 
+
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
@@ -103,14 +104,24 @@ class ClickActions(Page):
 
     # Передвигает курсор и кликает
     def moveAndClick(self, move_to, button):
-        time.sleep(4)
-        moveTo = self.browser.find_element_by_xpath(move_to)
-        click_button = self.browser.find_element_by_xpath(button)
-        action = webdriver.ActionChains(self.browser)
-        action.move_to_element(moveTo)
-        action.perform()
-        time.sleep(4)
-        click_button.click()
+        try:
+            time.sleep(4)
+            moveTo = self.browser.find_element_by_xpath(move_to)
+            click_button = self.browser.find_element_by_xpath(button)
+            action = webdriver.ActionChains(self.browser)
+            action.move_to_element(moveTo)
+            action.perform()
+            time.sleep(7)
+            click_button.click()
+        except:
+            time.sleep(4)
+            moveTo = self.browser.find_element_by_xpath(move_to)
+            click_button = self.browser.find_element_by_xpath(button)
+            action = webdriver.ActionChains(self.browser)
+            action.move_to_element(moveTo)
+            action.perform()
+            time.sleep(7)
+            click_button.click()
 
     # Кликнуть на кнопку
     def click_on_button(self, button):
