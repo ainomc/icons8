@@ -4,7 +4,6 @@ Scenario: 1: Choose russian localisation
   Then click logo icon8
   Then click 'selectLanguage' button element
   Then click text 'Russian' [div]
-  Then locate text ' 33,100 бесплатных иконок'
 
 Scenario: Terms and Conditions
 Scenario: 2: Open Terms and Conditions page (Пользовательское соглашение) and assert text
@@ -52,7 +51,6 @@ Scenario: 5: Open Paid license page (Платные иконки) and assertion
   Then push link 'Платные иконки'
   Then scroll to end of the page
   Then locate text 'За деньги или бесплатно'
-  Then locate text 'Все 33,100 иконок'
   Then locate text 'Платная лицензия вкратце'
   Then locate text 'Запрещено для всех лицензий'
   Then locate text 'Что включено'

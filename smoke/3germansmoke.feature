@@ -5,7 +5,6 @@ Scenario: 1: Choose german localisation
   Then click logo icon8
   Then click 'selectLanguage' button element
   Then push link 'German'
-  Then locate text ' 33,100 kostenlose Flat-Icons'
 
 Scenario: Terms and Conditions
 Scenario: 2: Open Terms and Conditions page and assert text
@@ -54,7 +53,6 @@ Scenario: 5: Open Paid license page and assertion
   Then push link 'Bezahlte Symbole'
   Then scroll to end of the page
   Then locate text 'Bezahlt oder gratis, du bist unser Held'
-  Then locate text 'Alle 33,100'
   Then locate text 'Zusammenfassung der kostenpflichtigen Lizenz'
   Then locate text 'Untersagte Verwendungszwecke für alle Lizenzen'
   Then locate text 'Was ist enthalten'

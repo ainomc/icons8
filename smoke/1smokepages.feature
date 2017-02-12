@@ -54,7 +54,6 @@ Scenario: 5: Open Paid license page and assertion
   Then push link 'Buy Full License'
   Then scroll to end of the page
   Then locate text 'Paid or Free, You Are Our Hero'
-  Then locate text 'All 33,100 Icons'
   Then locate text 'Paid License Summary'
   Then locate text 'Prohibited Uses for all Licenses'
   Then locate text 'What's Included'
@@ -162,7 +161,6 @@ Scenario: 12: Account/Profile
   Then push link 'My Account'
   Then locate concrete text 'Account'
   Then locate concrete text 'Your current plan'
-  Then locate text 'Invoice from'
   Then push link 'Downloads'
   Then locate text 'ZIP Files'
   Then locate text 'Icons8 App'

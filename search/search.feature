@@ -189,20 +189,8 @@ Scenario: 16: Negative search test on Office Icon Pack
   Then locate text 'Request icons'
   Then click logo icon8
 
-Scenario: Search categories
-Scenario: 17: Search categories
-  Then click logo icon8
-  Then click 'search' field
-  Then add 'positive text' text to 'search' field
-  Then click 'search' button
-  Then check locate 'icons in result' element
-  Then click 'search category' button
-  Then check locate 'icons in result' element
-  Then click 'new icons search category' button
-  Then check locate 'icons in result' element
-
 Scenario: Search filters
-Scenario: 18: Search filters
+Scenario: 17: Search filters
   Then click logo icon8
   Then click 'search' field
   Then add 'positive text' text to 'search' field
