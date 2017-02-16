@@ -217,9 +217,9 @@ class ClickActions(Page):
         elif buttonName == 'new icons search category':
             xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::*[@class="c-list m-padding b-bar-menus-menu"][2]/a[1]'
         elif buttonName == 'Paypal':
-            xpath = '//modals[2]/descendant::*[contains(text(), "Paypal")][1]'
+            xpath = '''.//*[@id='page-app']/modals/descendant::*[@class="b-payment-description"]'''
         elif buttonName == 'Credit cards':
-            xpath = '//modals[2]/descendant::*[contains(text(), "Credit cards")][1]'
+            xpath = '''.//*[@id='page-app']/modals/descendant::*[@class="b-payment-svg xxxx"]'''
         elif buttonName == 'Download for Windows':
             xpath = '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]'
         elif buttonName == 'Collections':
@@ -274,6 +274,19 @@ class ClickActions(Page):
             xpath = '//a[contains(text(), "Profile")][1]'
         elif buttonName == 'API':
             xpath = '//a[contains(text(), "API")][1]'
+        elif buttonName == 'delete icon':
+            xpath = '//div[@class="c-btn modal__action-confirm modal__action"]'
+        elif buttonName == 'Unlimited Plan buy':
+            xpath = './/*[@class="b-license m-order-0"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]'
+        elif buttonName == 'Free buy':
+            xpath = './/*[@class="b-license m-order-1"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]'
+        elif buttonName == 'Service Integration buy':
+            xpath = './/*[@class="b-license m-order-2"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]'
+        elif buttonName == 'icon8 app in download pop-up':
+            xpath = './/*[@class="c-big-menu c-big-menu-narrow active"]/descendant::*[@href="/app"]'
+        elif buttonName == 'Download menu':
+            xpath = './/*[@for="big-menu-download"]'
+
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 

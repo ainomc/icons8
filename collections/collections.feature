@@ -28,7 +28,7 @@ Scenario: 2: Create first collections and add collection
   Then check locate 'first icon in collection' element
   Then click 'first icon in collection' button
   Then click 'delete icon in collection' button
-  Then push link 'Delete'
+  Then click 'delete icon' button
   Then locate text 'Edit and download'
   Then click 'first icon in result' button
   Then check locate 'first icon in collection' element
@@ -97,7 +97,7 @@ Scenario: 7: Add second collections
   Then check locate 'first icon in collection' element
   Then click 'first icon in collection' button
   Then click 'delete icon in collection' button
-  Then push link 'Delete'
+  Then click 'delete icon' button
   Then locate text 'Edit and download'
   Then click 'first icon in result' button
   Then check locate 'first icon in collection' element

@@ -1,4 +1,5 @@
 Feature: User without login
+
 Scenario: Request new icon without login
 Scenario: 1: Request new icon without login
   Then click logo icon8
@@ -13,13 +14,13 @@ Scenario: 1: Request new icon without login
   Then locate text 'Style'
   Then choose style of request icon
   Then push button what named 'Submit'
-  Then locate text 'Register to Continue Downloading'
+  Then locate text 'Register to Getting Notified'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
   Then find 'RegisterForm_password' element
   Then locate 'Create Account' element
   Then click login button in register pop-up
-  Then locate text 'Login to Continue Downloading'
+  Then locate text 'Login to Getting Notified'
   Then login
   Then locate text 'Need it Fast? Promote it'
   Then locate text 'Skip'
@@ -43,7 +44,7 @@ Scenario: 3: login during  free Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click buy 'Free' button
+  Then click 'Free buy' button
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -60,7 +61,7 @@ Scenario: 4: login during  All 32,100 Icons Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click buy 'All 33,100 Icons' button
+  Then click 'Unlimited Plan buy' button
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -70,14 +71,13 @@ Scenario: 4: login during  All 32,100 Icons Buy
   Then locate text 'Login to Continue Downloading'
   Then login
   Then locate text 'Paypal'
-  Then locate text 'Credit cards'
   Then click 'Credit cards' button
   Then locate text 'Pay'
   Then go to Main page
   Then click logo icon8
   Then push link 'Buy'
   Then sleep '5' seconds
-  Then click buy 'All 33,100 Icons' button
+  Then click 'Unlimited Plan buy' button
   Then click 'Paypal' button
   Then locate text '1999-2017'
   Then go to Main page
@@ -87,7 +87,7 @@ Scenario: 5: login during Pay per Icon Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click buy 'Pay per Icon' button
+  Then click 'Service Integration buy' button
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -96,8 +96,16 @@ Scenario: 5: login during Pay per Icon Buy
   Then click login button in register pop-up
   Then locate text 'Login to Continue Downloading'
   Then login
-  Then locate text 'Credit cards'
-  Then locate text 'Paypal'
+  #Then locate text 'Paypal'
+  #Then click 'Credit cards' button
+  #Then locate text 'Pay'
+  #hen go to Main page
+  #Then click logo icon8
+  #Then push link 'Buy'
+  #Then sleep '5' seconds
+  #Then click 'Unlimited Plan buy' button
+  #Then click 'Paypal' button
+  #Then locate text '1999-2017'
   Then go to Main page
 
 #Scenario: 6: Login during downloading
@@ -105,7 +113,7 @@ Scenario: 5: login during Pay per Icon Buy
   #Then click logo icon8
   #Then push link 'Download'
   #Then click 'Download for Windows' button
-  #Then locate text 'Register to Continue Downloading'
+  #Then locate text 'Register to Getting Notified'
   #Then find 'RegisterForm_name' element
   #Then find 'RegisterForm_email' element
   #Then find 'RegisterForm_password' element

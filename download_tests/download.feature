@@ -2,7 +2,8 @@ Feature: Download tests
 Scenario: Download windows app
 Scenario: 1: Download windows app
   Then go to Main page
-  Then push link 'Download'
+  Then click 'Download menu' button
+  Then click 'icon8 app in download pop-up' button
   Then push link 'Download Icons8 for Windows'
   Then sleep '5' seconds
   Then wait downloading end of 'part' file
