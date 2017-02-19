@@ -60,10 +60,6 @@ Scenario: 5: Open Paid license page and assertion
   Then locate text 'Built-in Editing Tools'
   Then locate text 'Icons8 App for Mac and Windows'
   Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
-  Then push 'Extended With API' from tabs
-  Then locate text 'More Information'
-  Then locate text 'Extended License in Short'
-  Then locate text 'Attribution'
   Then click logo icon8
 
 Scenario: Contact us
@@ -73,13 +69,14 @@ Scenario: 6: Open Contact us page and assertion
   Then scroll to end of the page
   Then locate text 'Contact Icons8'
   Then locate text 'Talk to a Human'
-  Then locate text 'Our support team responds'
+  Then locate text 'Our support team consists'
   Then click logo icon8
 
 Scenario: Apps Win / Mac
 Scenario: 7: Open Application page and assertion
   Then click logo icon8
-  Then push link 'Download'
+  Then click 'Download menu' button
+  Then click 'icon8 app in download pop-up' button
   Then scroll to end of the page
   Then locate text 'Download Icons8 for'
   Then locate text 'Other Versions'
@@ -124,8 +121,8 @@ Scenario: 8: Open Request icons page and assertion
 Scenario: Cosmic Pedro
 Scenario: 9: Open Cosmic Pedro page and assertion
   Then click logo icon8
-  Then push link 'Resources'
-  Then button with text 'Free'
+  Then button with text 'Labs'
+  Then push link 'Cosmic Pedro'
   Then locate text 'Cosmic Pedro'
   Then locate text 'Search for icon. Add text. Share!'
   Then go to Main page
@@ -133,8 +130,8 @@ Scenario: 9: Open Cosmic Pedro page and assertion
 Scenario: We love SVG
 Scenario: 10: Open We love SVG page and assertion
   Then go to Main page
-  Then push link 'Resources'
-  Then button with text 'Open Source'
+  Then button with text 'Labs'
+  Then push link 'We Love SVG'
   Then scroll to end of the page
   Then locate text 'Flat Color'
   Then push link 'Hello World!'

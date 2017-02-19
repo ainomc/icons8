@@ -1,5 +1,4 @@
 Feature: Open pages, login and assertions
-
 Scenario: Choose german localisation
 Scenario: 1: Choose german localisation
   Then click logo icon8
@@ -59,10 +58,6 @@ Scenario: 5: Open Paid license page and assertion
   Then locate text 'Integrierte Bearbeitungswerkzeuge'
   Then locate text 'Icons8 App für Mac und Windows'
   Then locate image '//cdnd.icons8.com/download/images/features_video_27.02.png'
-  Then push 'Mit API erweitern' from tabs
-  Then locate text 'Mehr Informationen'
-  Then locate text 'Zusammenfassung der erweiterten Lizenz'
-  Then locate text 'Attribution'
   Then click logo icon8
 
 Scenario: Contact us
@@ -70,20 +65,16 @@ Scenario: 6: Open Contact us page and assertion
   Then click logo icon8
   Then push link 'Kontaktiere uns'
   Then scroll to end of the page
-  #Then locate text 'Contact Icons8'
-  #Then locate text 'Talk to a Human'
-  #Then locate text 'Our support team responds'
-  #Then locate text 'Check'
-  #Then locate text 'Can I use'
-  #Then locate text 'Where do I'
-  #Then locate text 'Which license'
-  #Then locate text 'Other Questions'
+  Then locate text 'Contact Icons8'
+  Then locate text 'Talk to a Human'
+  Then locate text 'Our support team consists'
   Then click logo icon8
 
 Scenario: Apps Win / Mac
 Scenario: 7: Open Application page and assertion
   Then click logo icon8
-  Then push link 'Download'
+  Then click 'Download menu' button
+  Then click 'icon8 app in download pop-up' button
   Then scroll to end of the page
   Then locate text 'Lade alle Icons mit unserer '
   Then locate text 'Download für'
@@ -123,32 +114,37 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Zuletzt erstellte'
   Then click logo icon8
 
-#Scenario: Cosmic Pedro
-#Scenario: 9: Open Cosmic Pedro page and assertion
-  #Then button with text 'Icons8'
-  #Then push link 'Resources'
-  #Then button with text 'Free'
-  #Then locate text 'Cosmic Pedro'
-  #Then locate text 'Search for icon. Add text. Share!'
-  #Then button with text 'Icons8'
+Scenario: Cosmic Pedro
+Scenario: 9: Open Cosmic Pedro page and assertion
+  Then click logo icon8
+  Then button with text 'Labs'
+  Then push link 'Cosmic Pedro'
+  Then locate text 'Cosmic Pedro'
+  Then locate text 'Search for icon. Add text. Share!'
+  Then go to Main page
 
 Scenario: We love SVG
 Scenario: 10: Open We love SVG page and assertion
   Then click logo icon8
-  Then push link 'Werke'
-  Then locate text 'Kostenlos'
-  Then button with text 'Open Source'
+  Then button with text 'Labs'
+  Then push link 'We Love SVG'
   Then scroll to end of the page
-  #Then locate text 'Flat Color'
-  #Then push link 'Hello World!'
-  #Then locate text 'Simple jQuery Example'
-  #Then locate text '!DOCTYPE html'
-  #Then close popup
+  Then locate text 'Flat Color'
+  Then push link 'Hello World!'
+  Then locate text 'Simple jQuery Example'
+  Then locate text '!DOCTYPE html'
+  Then close popup
   Then back to previous page
   Then click logo icon8
 
 Scenario: Web app
 Scenario: 11: Open Web app page and assertion
+  Then click logo icon8
+  Then click 'selectLanguage' button element
+  Then push link 'German'
+  Then click logo icon8
+  Then click 'selectLanguage' button element
+  Then push link 'German'
   Then click logo icon8
   Then push link in navigation menu 'Icons'
   Then scroll to end of the page
