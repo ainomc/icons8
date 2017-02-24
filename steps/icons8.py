@@ -26,6 +26,7 @@ Random_generate = RandomGenerate()
 
 """   ClickActions class___   """
 
+
 # Then we have behave installed
 @given('we have behave installed')
 def step_impl(context):
@@ -169,10 +170,10 @@ def step(context, filter):
 def step(context, menu):
     if menu == 'Slow for Free':
         xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][1]'
-    elif menu == 'Fast for $199/year':
-        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][2]'
+    #elif menu == 'Fast for $199/year':
+        #xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][2]'
     elif menu == 'Fastest for $50/icon':
-        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][3]'
+        xpath = '//a[@ng-repeat="page in reqIcon.requestPages"][2]'
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_xpath(xpath)
 

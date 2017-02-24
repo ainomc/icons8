@@ -10,8 +10,6 @@ Scenario: 2: Open Terms and Conditions page and assert text
   Then click logo icon8
   Then push link 'Geschäftsbedinungen'
   Then scroll to end of the page
-  #Then locate text 'Disclaimer'
-  #Then locate text 'General Terms'
   Then locate text 'Unser Geschäftsmodell'
   Then locate text 'Kostenlose Lizenz'
   Then locate text 'Volle Lizenz kaufen'
@@ -23,8 +21,6 @@ Scenario: 3: Open Privacy Policy page and assertion
   Then click logo icon8
   Then push link 'Datenschutzrichtlinien'
   Then scroll to end of the page
-  #Then locate text 'Information We Collect'
-  #Then locate text 'Opt-Out'
   Then locate text 'Unser Geschäftsmodell'
   Then locate text 'Kostenlose Lizenz'
   Then locate text 'Volle Lizenz kaufen'
@@ -100,11 +96,6 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Populäre Ideen'
   Then locate text 'Alle Icon Ideen'
   Then locate text 'Zuletzt erstellte'
-  Then push 'Schnell für $199' from tabs
-  Then locate text 'Wie schnell ist es?'
-  Then locate text 'Einschränkungen'
-  Then locate text 'Gut für den Schnellkauf'
-  Then locate text 'Schlecht für den Schnellkauf'
   Then push 'Ganz schnell für $ 50' from tabs
   Then locate text 'Wie schnell ist es?'
   Then locate text 'Wie viel kostet das?'

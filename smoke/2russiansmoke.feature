@@ -10,8 +10,6 @@ Scenario: 2: Open Terms and Conditions page (Пользовательское с
   Then click logo icon8
   Then push link 'Пользовательское'
   Then scroll to end of the page
-  #Then locate text 'Disclaimer'
-  #Then locate text 'General Terms'
   Then locate text 'Наша бизнес-модель'
   Then locate text 'Бесплатная лицензия'
   Then locate text 'Купить полную лицензию'
@@ -23,8 +21,6 @@ Scenario: 3: Open Privacy Policy (Конфиденциальность) page and
   Then click logo icon8
   Then push link 'Конфиденциальность'
   Then scroll to end of the page
-  #Then locate text 'Information We Collect'
-  #Then locate text 'Opt-Out'
   Then locate text 'Наша бизнес-модель'
   Then locate text 'Бесплатная лицензия'
   Then locate text 'Купить полную лицензию'
@@ -101,11 +97,6 @@ Scenario: 8: Open Request icons (Попросить) page and assertion
   Then locate text 'Популярные идеи'
   Then locate text 'Посмотреть все идеи для иконок'
   Then locate text 'Недавно созданные иконки'
-  Then push 'Быстро за 199$' from tabs
-  Then locate text 'Как быстро?'
-  Then locate text 'Ограничения'
-  Then locate text 'Подходит для заказа'
-  Then locate text 'Не подходит для заказа'
   Then push 'Молниеносно по 50$' from tabs
   Then locate text 'Как быстро?'
   Then locate text 'Сколько это стоит?'

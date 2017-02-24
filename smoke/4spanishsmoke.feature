@@ -12,8 +12,6 @@ Scenario: 2: Open Terms and Conditions page and assert text
   Then click logo icon8
   Then push link 'Términos y condiciones'
   Then scroll to end of the page
-  #Then locate text 'Disclaimer'
-  #Then locate text 'General Terms'
   Then locate text 'Nuestro modelo de negocio'
   Then locate text 'Licencia gratuita'
   Then locate text 'Comprar la licencia completa'
@@ -25,8 +23,6 @@ Scenario: 3: Open Privacy Policy page and assertion
   Then click logo icon8
   Then push link 'Política de privacidad'
   Then scroll to end of the page
-  #Then locate text 'Information We Collect'
-  #Then locate text 'Opt-Out'
   Then locate text 'Nuestro modelo de negocio'
   Then locate text 'Licencia gratuita'
   Then locate text 'Comprar la licencia completa'
@@ -103,11 +99,6 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Ideas populares'
   Then locate text 'Mira todas las ideas de iconos'
   Then locate text 'Iconos creados'
-  Then push 'Rápido ($199' from tabs
-  Then locate text '¿Es rápido? ¿Pero cuánto?'
-  Then locate text 'Restricciones'
-  Then locate text 'Compatible con Fast Track'
-  Then locate text 'Incompatible con Fast Track'
   Then push 'Ultra rápido ($50' from tabs
   Then locate text '¿Es rápido? ¿Pero cuánto?'
   Then locate text '¿Cuánto cuesta?'
@@ -150,9 +141,6 @@ Scenario: 11: Open Web app page and assertion
   Then push link in navigation menu 'Iconos'
   Then scroll to end of the page
   Then locate text 'Nuevos iconos'
-  #Then locate text 'Download'
-  #Then locate text 'Generate HTML'
-  #Then locate text 'Icon'
   Then click logo icon8
 
 Scenario: Logout feature
