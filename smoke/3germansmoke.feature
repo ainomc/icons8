@@ -96,7 +96,7 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Populäre Ideen'
   Then locate text 'Alle Icon Ideen'
   Then locate text 'Zuletzt erstellte'
-  Then push 'Ganz schnell für $ 50' from tabs
+  Then push 'Fast for $50/icon' from tabs
   Then locate text 'Wie schnell ist es?'
   Then locate text 'Wie viel kostet das?'
   Then locate text 'Wo soll ich anfangen?'

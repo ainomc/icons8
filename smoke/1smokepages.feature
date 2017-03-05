@@ -103,7 +103,7 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Popular Ideas'
   Then locate text 'View all icon ideas'
   Then locate text 'Recently'
-  Then push 'Fastest for $50/icon' from tabs
+  Then push 'Fast for $50/icon' from tabs
   Then locate text 'How Fast Is It?'
   Then locate text 'How Much Is It?'
   Then locate text 'Where Do I Start?'

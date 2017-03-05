@@ -97,7 +97,7 @@ Scenario: 8: Open Request icons (Попросить) page and assertion
   Then locate text 'Популярные идеи'
   Then locate text 'Посмотреть все идеи для иконок'
   Then locate text 'Недавно созданные иконки'
-  Then push 'Молниеносно по 50$' from tabs
+  Then push 'Быстро по 50$ за иконку' from tabs
   Then locate text 'Как быстро?'
   Then locate text 'Сколько это стоит?'
   Then locate text 'С чего начать?'
