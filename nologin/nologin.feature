@@ -4,6 +4,7 @@ Scenario: Request new icon without login
 Scenario: 1: Request new icon without login
   Then click logo icon8
   Then push link Logout
+  Then go to Main page
   Then push link in navigation menu 'Request'
   Then push button what named 'Request Icon'
   Then locate text 'Merchant account'
@@ -44,7 +45,7 @@ Scenario: 3: login during  free Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click 'Free buy' button
+  Then push link 'Try for Free'
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -61,7 +62,7 @@ Scenario: 4: login during  All 32,100 Icons Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click 'Unlimited Plan buy' button
+  Then push link 'Buy for $19.90/user/month'
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -77,7 +78,7 @@ Scenario: 4: login during  All 32,100 Icons Buy
   Then click logo icon8
   Then push link 'Buy'
   Then sleep '5' seconds
-  Then click 'Unlimited Plan buy' button
+  Then push link 'Buy for $19.90/user/month'
   Then click 'Paypal' button
   Then locate text '1999-2017'
   Then go to Main page
@@ -87,7 +88,7 @@ Scenario: 5: login during Pay per Icon Buy
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then click 'Service Integration buy' button
+  Then push link 'Starting from $100/month'
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -96,33 +97,4 @@ Scenario: 5: login during Pay per Icon Buy
   Then click login button in register pop-up
   Then locate text 'Login to Continue Downloading'
   Then login
-  #Then locate text 'Paypal'
-  #Then click 'Credit cards' button
-  #Then locate text 'Pay'
-  #hen go to Main page
-  #Then click logo icon8
-  #Then push link 'Buy'
-  #Then sleep '5' seconds
-  #Then click 'Unlimited Plan buy' button
-  #Then click 'Paypal' button
-  #Then locate text '1999-2017'
   Then go to Main page
-
-#Scenario: 6: Login during downloading
-  #Then push link Logout
-  #Then click logo icon8
-  #Then push link 'Download'
-  #Then click 'Download for Windows' button
-  #Then locate text 'Register to Getting Notified'
-  #Then find 'RegisterForm_name' element
-  #Then find 'RegisterForm_email' element
-  #Then find 'RegisterForm_password' element
-  #Then locate 'Create Account' element
-  #Then click login button in register pop-up
-  #Then locate text 'Login to Continue Downloading'
-  #Then login
-  #Then locate text 'How likely you would'
-  #Then click 'recommend' button
-  #Then locate text 'Download is Starting Now'
-  #Then locate text 'click here'
-  #Then click logo icon8

@@ -92,6 +92,7 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
+    """
     # кликнуть на элемент по xpath
     def click_on_xpath(self, xpath):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
@@ -101,6 +102,19 @@ class ClickActions(Page):
         self.movementActions = MovementActions(self)
         self.movementActions.scroll_element_into_view(element)
         element.click()
+    """
+
+    # Кликнуть на линк
+    def click_on_xpath(self, xpath):
+        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
+            EC.element_to_be_clickable((By.XPATH, xpath))
+        )
+        while True:
+            try:
+                self.browser.find_element_by_xpath(xpath).click()
+                break
+            except StaleElementReferenceException:
+                continue
 
     # Передвигает курсор и кликает
     def moveAndClick(self, move_to, button):
