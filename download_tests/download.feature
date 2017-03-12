@@ -5,7 +5,6 @@ Scenario: 1: Download windows app
   Then click 'Download menu' button
   Then click 'icon8 app in download pop-up' button
   Then push link 'Download Icons8 for Windows'
-  Then sleep '4' seconds
   Then wait downloading end of 'part' file
   Then check and delete '.exe' file by extension
   Then go to Main page
@@ -56,7 +55,7 @@ Scenario: 5: Download PNG 500 px
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -70,7 +69,7 @@ Scenario: 6: Download SVG 50 px
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.svg' file by extension
   Then go to Main page
 
@@ -83,7 +82,7 @@ Scenario: 7: Download SVG 100 px
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.svg' file by extension
   Then click logo icon8
 
@@ -96,7 +95,7 @@ Scenario: 8: Download SVG 500 px
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.svg' file by extension
   Then go to Main page
 
@@ -110,7 +109,7 @@ Scenario: 9: Download EPS 50 px
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar esp' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
 
@@ -123,7 +122,7 @@ Scenario: 10: Download EPS 100 px
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar esp' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
 
@@ -136,7 +135,7 @@ Scenario: 11: Download EPS 500 px
   Then choose 'EPS' download icon type in download pop-up
   Then click 'Download in icon bar esp' button
   Then try push text 'Free Download'
-  Then sleep '10' seconds
+  Then sleep '30' seconds
   Then check and delete '.eps' file by extension
   Then go to Main page
 

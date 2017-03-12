@@ -47,16 +47,16 @@ class FileActions(object):
         print(str(list_of_all_files) + " << all files")
         elements_count = 0
         for item in list_of_all_files:
-			if item.endswith(extension):
-				elements_count += 1
-				os.remove(os.path.join(download_folder_path, item))
+            if item.endswith(extension):
+                elements_count += 1
+                os.remove(os.path.join(download_folder_path, item))
         assert elements_count > 0
 
     # Ждёт пока не исщезнит файл .part
     def downloading_file(self, extension):
-        list_of_all_files = listdir(download_folder_path)
+        time.sleep(4)
         elements_count = 0
-        for item in list_of_all_files:
+        for item in listdir(download_folder_path):
             if item.endswith(extension):
                 time_waited = 0
                 elements_count += 1
