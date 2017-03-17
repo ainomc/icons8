@@ -52,7 +52,16 @@ class FileActions(object):
                 os.remove(os.path.join(download_folder_path, item))
         assert elements_count > 0
 
-    # Ждёт пока не исщезнит файл .part
+    # Ждёт пока не появиться файл
+    def wait_presents_file(self, extension):
+        loop = True
+        while loop == True:
+            for item in listdir(download_folder_path):
+                if item.endswith(extension):
+                    loop = False
+                    break
+
+    # Ждёт пока не исщезнит файл
     def downloading_file(self, extension):
         time.sleep(4)
         elements_count = 0

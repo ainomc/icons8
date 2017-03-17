@@ -578,3 +578,9 @@ def step(context, extension):
     x = context
     File_actions.downloading_file(extension)
 
+# Then wait start download of '{extension}' file
+@then("wait start download of '{extension}' file")
+def step(context, extension):
+    x = context
+    File_actions.wait_presents_file(extension)
+
