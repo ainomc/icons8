@@ -36,8 +36,7 @@ class ClickActions(Page):
     # Кликнуть на линк
     def click_on_link(self, link):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
         time.sleep(2)
         while True:
             try:
@@ -46,12 +45,10 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
-
     # Кликнуть на линк
     def try_click_on_link(self, link):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))
-        )
+        WebDriverWait(self.browser, 5).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
         time.sleep(2)
         while True:
             try:
@@ -69,8 +66,7 @@ class ClickActions(Page):
     # Кликнуть на линк
     def clickButtonText(self, link):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link)))
         time.sleep(2)
         while True:
             try:
@@ -82,8 +78,7 @@ class ClickActions(Page):
     # Кликнуть на линк
     def click_text_with_div(self, link):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link)))
         time.sleep(2)
         while True:
             try:
@@ -92,23 +87,10 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
-    """
-    # кликнуть на элемент по xpath
-    def click_on_xpath(self, xpath):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, xpath))
-        )
-        element = self.browser.find_element_by_xpath(xpath)
-        self.movementActions = MovementActions(self)
-        self.movementActions.scroll_element_into_view(element)
-        element.click()
-    """
-
     # Кликнуть на линк
     def click_on_xpath(self, xpath):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, xpath))
-        )
+            EC.element_to_be_clickable((By.XPATH, xpath)))
         while True:
             try:
                 self.browser.find_element_by_xpath(xpath).click()
@@ -143,8 +125,7 @@ class ClickActions(Page):
         :rtype: object
         """
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button)))
         time.sleep(2)
         while True:
             try:
@@ -156,8 +137,7 @@ class ClickActions(Page):
     # Кликнуть на кнопку, найденой с помощью названия кнопки
     def click_on_button_findByName(self, name):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name)))
         time.sleep(2)
         while True:
             try:
@@ -169,8 +149,7 @@ class ClickActions(Page):
     # Кликнуть на вкладку
     def click_on_unactive_tab(self, tab):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab)))
         time.sleep(2)
         while True:
             try:
@@ -182,8 +161,7 @@ class ClickActions(Page):
     # Кликнуть на кнопку Создать коллекцию
     def click_on_create(self, create):
         WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create))
-        )
+            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create)))
         time.sleep(2)
         while True:
             try:
@@ -360,8 +338,7 @@ class ClickActions(Page):
     def try_click_text(self, link):
         try:
             WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-                EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))
-            )
+                EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
             time.sleep(2)
             while True:
                 try:
