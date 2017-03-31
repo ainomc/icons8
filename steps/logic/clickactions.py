@@ -337,7 +337,7 @@ class ClickActions(Page):
 
     def try_click_text(self, link):
         try:
-            WebDriverWait(self.browser, TIME_FOR_WAIT).until(
+            WebDriverWait(self.browser, 5).until(
                 EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
             time.sleep(2)
             while True:

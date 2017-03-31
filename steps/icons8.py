@@ -274,7 +274,7 @@ def step(context):
     context.clickActions = ClickActions(context)
     context.clickActions.try_gotit()
 
-# Then try push text '{text}'e
+# Then try push text '{text}'
 @then("try push text '{text}'")
 def step(context, text):
     context.clickActions = ClickActions(context)

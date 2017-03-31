@@ -34,23 +34,20 @@ class LocateActions(Page):
     # Найти видимиый текст что содержит в себе
     def locate_text(self, text, time_for_search=TIME_FOR_WAIT):
         WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text))
-        )
+            EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text)))
         assert self.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
 
     # Найти видимиый текст
     def locate_concrete_text(self, text, time_for_search=TIME_FOR_WAIT):
         WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, '//*[text()="%s"]' % text))
-        )
+            EC.presence_of_element_located((By.XPATH, '//*[text()="%s"]' % text)))
         assert self.browser.find_element_by_xpath('//*[text()="%s"]' % text)
 
 
     # Найти видимиый элемент по xpath
     def locate_element(self, xpath, time_for_search=TIME_FOR_WAIT):
         WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, xpath))
-        )
+            EC.presence_of_element_located((By.XPATH, xpath)))
         element = self.browser.find_element_by_xpath(xpath)
         self.movementActions = MovementActions(self)
         self.movementActions.scroll_element_into_view(element)

@@ -101,9 +101,9 @@ def make_driver(context):
     profile.set_preference("browser.download.manager.showWhenStarting", False)
     profile.set_preference("browser.download.dir", download_folder_path)
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                           '''application/x-msdos-program, application/octet-stream,
-                           image/png, image/svg+xml, application/postscript, text/plain,
-                           application/download, application/zip''')
+                           '''application/x-msdos-program, application/octet-stream, image/png,
+                           image/svg+xml, application/postscript, application/eps, application/x-eps,
+                           image/eps, image/x-eps, text/plain, application/download, application/zip''')
     context.list_ud = list()
     context.stand = STAND
     # выбор профиля

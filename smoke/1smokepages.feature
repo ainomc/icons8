@@ -112,7 +112,6 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Recently '
   Then click logo icon8
 
-
 Scenario: Cosmic Pedro
 Scenario: 9: Open Cosmic Pedro page and assertion
   Then click logo icon8
