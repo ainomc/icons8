@@ -4,10 +4,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, StaleElementReferenceException
+from selenium.common.exceptions import NoSuchElementException, TimeoutException, \
+    StaleElementReferenceException, ElementNotVisibleException
 from datetime import datetime, timedelta
-import selenium.webdriver.common.action_chains as AC
 import time
 import os
 from settings import settings_test as settings
@@ -17,17 +16,13 @@ from actions import *
 from locateactions import *
 
 
-
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
-
 SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
-
-
 
 
 # Различные нклики
@@ -35,21 +30,15 @@ class ClickActions(Page):
 
     # Кликнуть на линк
     def click_on_link(self, link):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))).click()
+        except:
+            self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
+
 
     # Кликнуть на линк
     def try_click_on_link(self, link):
-        WebDriverWait(self.browser, 5).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
-        time.sleep(2)
         while True:
             try:
                 self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
@@ -65,110 +54,78 @@ class ClickActions(Page):
 
     # Кликнуть на линк
     def clickButtonText(self, link):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//*[text()="%s"]' % link).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link))).click()
+        except:
+            self.browser.find_element_by_xpath('//*[text()="%s"]' % link).click()
 
     # Кликнуть на линк
     def click_text_with_div(self, link):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//div[contains(text(), "%s")][1]' % link).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link))).click()
+        except:
+            self.browser.find_element_by_xpath('//div[contains(text(), "%s")][1]' % link).click()
+
 
     # Кликнуть на линк
     def click_on_xpath(self, xpath):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, xpath)))
-        while True:
-            try:
-                self.browser.find_element_by_xpath(xpath).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, xpath))).click()
+        except:
+            self.browser.find_element_by_xpath(xpath).click()
 
     # Передвигает курсор и кликает
     def moveAndClick(self, move_to, button):
+        def logic():
+            time.sleep(4)
+            moveTo = self.browser.find_element_by_xpath(move_to)
+            click_button = self.browser.find_element_by_xpath(button)
+            action = webdriver.ActionChains(self.browser)
+            action.move_to_element(moveTo)
+            action.perform()
+            time.sleep(7)
+            click_button.click()
         try:
-            time.sleep(4)
-            moveTo = self.browser.find_element_by_xpath(move_to)
-            click_button = self.browser.find_element_by_xpath(button)
-            action = webdriver.ActionChains(self.browser)
-            action.move_to_element(moveTo)
-            action.perform()
-            time.sleep(7)
-            click_button.click()
+            logic()
         except:
-            time.sleep(4)
-            moveTo = self.browser.find_element_by_xpath(move_to)
-            click_button = self.browser.find_element_by_xpath(button)
-            action = webdriver.ActionChains(self.browser)
-            action.move_to_element(moveTo)
-            action.perform()
-            time.sleep(7)
-            click_button.click()
+            logic()
 
     # Кликнуть на кнопку
     def click_on_button(self, button):
-        """
-        :rtype: object
-        """
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//button[.="%s"]' % button).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        #self.browser.find_element_by_xpath('//button[.="%s"]' % button).click()
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button))).click()
+        except:
+            self.browser.find_element_by_xpath('//button[.="%s"]' % button).click()
+
 
     # Кликнуть на кнопку, найденой с помощью названия кнопки
     def click_on_button_findByName(self, name):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//button[contains(., "%s")]' % name).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name))).click()
+        except:
+            self.browser.find_element_by_xpath('//button[contains(., "%s")]' % name).click()
 
     # Кликнуть на вкладку
     def click_on_unactive_tab(self, tab):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//*[@class="%s"]' % tab).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab))).click()
+        except:
+            self.browser.find_element_by_xpath('//*[@class="%s"]' % tab).click()
 
     # Кликнуть на кнопку Создать коллекцию
     def click_on_create(self, create):
-        WebDriverWait(self.browser, TIME_FOR_WAIT).until(
-            EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create)))
-        time.sleep(2)
-        while True:
-            try:
-                self.browser.find_element_by_xpath('//*[@class="%s"]' % create).click()
-                break
-            except StaleElementReferenceException:
-                continue
+        try:
+            WebDriverWait(self.browser, 1).until \
+                (EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create))).click()
+        except:
+            self.browser.find_element_by_xpath('//*[@class="%s"]' % create).click()
 
     # Кликает на все найденные элементы
     def clickAll(self, xpath):
@@ -186,7 +143,6 @@ class ClickActions(Page):
         while count > 0:
             print (str(count))
             self.browser.find_element_by_xpath(xpathFirst % count).click()
-            time.sleep(3)
             self.browser.find_element_by_xpath(xpathSecond).click()
             count -= 1
 
@@ -204,6 +160,8 @@ class ClickActions(Page):
         elif buttonName == 'search platform filter':
             xpath = './/*[@class="b-bar-menus m-fix-c-list"]/*[1]/*[%s]' \
                     % Value_generate.values_in_range(2, 8)
+        elif buttonName == 'first icon in result':
+            xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
         elif buttonName == 'search category':
             xpath = './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]' % Value_generate.values_in_range(3, 50)
         elif buttonName == 'new icons search category':
@@ -222,10 +180,8 @@ class ClickActions(Page):
             xpath = './/*[@ng-if="vm.collectionRenaming"]/*[@ng-click="vm.renameCollection()"]/*'
         elif buttonName == 'delete collection menu':
             xpath = '''.//*[@ng-class="{'m-edit': collectionsEdit}"]'''
-        elif buttonName == 'first icon in result':
-            xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]'
         elif buttonName == 'first icon in collection':
-            xpath = '//*[@class="icons-set__icon"][1]'
+            xpath = './/*[@class="icons-set m-firefox"]/div[@draggable-type="fromLightBox"][1]'
         elif buttonName == 'delete icon in collection':
             xpath = '//span[@class="c-btn m-transparent"]'
         elif buttonName == 'Get Font':
@@ -257,7 +213,7 @@ class ClickActions(Page):
         elif buttonName == 'Download in icon bar esp':
             xpath = './/*[@class="b-bar-btns m-icon m-single-btn"]/*[1]'
         elif buttonName == 'Open download icon pop-up':
-            xpath = '''.//*[@ng-class="{'m-single-page': pageType === 'single', 'm-icon-state':iconState == 'icon'}"]/*[1]'''
+            xpath = './/*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]'
         elif buttonName == 'Edit name':
             xpath = './/div[@i8-simple-tooltip="Edit name"]'
         elif buttonName == 'Got it':
@@ -282,7 +238,7 @@ class ClickActions(Page):
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
-    # Уликнуть на элемент по уникальному xpath
+    # Кликнуть на элемент по уникальному xpath
     def try_click_button(self, buttonName):
         Value_generate = ValueGenerate()
         if buttonName == 'got it':
@@ -313,18 +269,14 @@ class ClickActions(Page):
             number = 5
         elif icon_type == 'SVG set':
             number = 6
+        time.sleep(5)
         xpath = './/*[@class="c-list m-nooverflow b-format"]/*[%s]' % number
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
     # Выбрать размер скачиваемой иконки
     def click_download_iconsize(self, icon_size_button):
-        if int(icon_size_button) == 1:
-            xpath = '''.//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/*[1]'''
-        elif int(icon_size_button) == 2:
-            xpath = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][1]'''
-        elif int(icon_size_button) == 3:
-            xpath = '''//*[@ng-show="!selectBlockFormat && !selectBlockAdvancedOption"]/li[@class="b-option-item"][2]'''
+        xpath = './/*[@class="b-bar-content m-icon-preview"]/descendant::*[@class="c-list m-nooverflow"]/*[%s]' % icon_size_button
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
@@ -332,14 +284,12 @@ class ClickActions(Page):
         try:
             self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]')
             self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]').click()
+            time.sleep(1)
         except NoSuchElementException:
             pass
 
     def try_click_text(self, link):
         try:
-            WebDriverWait(self.browser, 5).until(
-                EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link)))
-            time.sleep(2)
             while True:
                 try:
                     self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()

@@ -1,5 +1,4 @@
 Feature: User without login
-
 Scenario: Request new icon without login
 Scenario: 1: Request new icon without login
   Then click logo icon8
@@ -31,6 +30,7 @@ Scenario: Register
 Scenario: 2: login during Register
   Then go to Main page
   Then push link Logout
+  Then go to Main page
   Then push link 'Register'
   Then locate text 'Register at Icons8'
   Then add 'email' text to 'RegisterForm_email' field
@@ -57,12 +57,28 @@ Scenario: 3: login during  free Buy
   Then locate 'Search icons' field
   Then click logo icon8
 
-Scenario: 4: login during  All 32,100 Icons Buy
+Scenario: 4: login during Pay per Icon Buy
   Then go to Main page
   Then push link Logout
   Then go to Main page
   Then push link 'Buy'
-  Then push link 'Buy for $19.90/user/month'
+  Then push link 'Starting from $100/month'
+  Then locate text 'Register to Continue Downloading'
+  Then find 'RegisterForm_name' element
+  Then find 'RegisterForm_email' element
+  Then find 'RegisterForm_password' element
+  Then locate 'Create Account' element
+  Then click login button in register pop-up
+  Then locate text 'Login to Continue Downloading'
+  Then login
+  Then go to Main page
+
+Scenario: 5: login during  All 32,100 Icons Buy
+  Then go to Main page
+  Then push link Logout
+  Then go to Main page
+  Then push link 'Buy'
+  Then push link 'Buy for $19.90/month'
   Then locate text 'Register to Continue Downloading'
   Then find 'RegisterForm_name' element
   Then find 'RegisterForm_email' element
@@ -77,24 +93,8 @@ Scenario: 4: login during  All 32,100 Icons Buy
   Then go to Main page
   Then click logo icon8
   Then push link 'Buy'
-  Then sleep '5' seconds
-  Then push link 'Buy for $19.90/user/month'
+  Then push link 'Buy for $19.90/month'
   Then click 'Paypal' button
+  Then sleep '3' seconds
   Then locate text '1999-2017'
-  Then go to Main page
-
-Scenario: 5: login during Pay per Icon Buy
-  Then go to Main page
-  Then push link Logout
-  Then go to Main page
-  Then push link 'Buy'
-  Then push link 'Starting from $100/month'
-  Then locate text 'Register to Continue Downloading'
-  Then find 'RegisterForm_name' element
-  Then find 'RegisterForm_email' element
-  Then find 'RegisterForm_password' element
-  Then locate 'Create Account' element
-  Then click login button in register pop-up
-  Then locate text 'Login to Continue Downloading'
-  Then login
   Then go to Main page

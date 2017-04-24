@@ -9,16 +9,12 @@ import random
 now = datetime.today()
 
 TIME_FOR_WAIT = 30
-
 SERVER = settings['server']
 
 
-
-# открывает файл, записывает данные.
-# Значение file должно быть в скобках  "some.txt"
 class FileActions(object):
-    # открывает файл, записывает данные.
-    # Значение file должно быть в скобках  "some.txt"
+
+    # открывает файл, записывает данные. Значение file должно быть в скобках  "some.txt"
     def write_in_file(self, file, save_text):
         my_file = open(file, "r+")
         my_file.write(save_text + "\n")
@@ -27,7 +23,6 @@ class FileActions(object):
     def read_file(self, file):
         my_file = open(file, "r+")
         fileText = my_file.readline()
-        print ("%s" + " idea created!!!") % fileText
         my_file.close()
         return fileText
 
@@ -55,20 +50,23 @@ class FileActions(object):
     # Ждёт пока не появиться файл
     def wait_presents_file(self, extension):
         loop = True
+        time_count = 0
         while loop == True:
+            assert time_count != 30, 'no download file'
             for item in listdir(download_folder_path):
                 if item.endswith(extension):
                     loop = False
                     break
+                else:
+                    pass
+            time.sleep(1)
+            time_count += 1
 
     # Ждёт пока не исщезнит файл
     def downloading_file(self, extension):
-        time.sleep(4)
-        elements_count = 0
         for item in listdir(download_folder_path):
             if item.endswith(extension):
                 time_waited = 0
-                elements_count += 1
                 download_end = False
                 while download_end == False:
                     path = os.path.exists(os.path.join(download_folder_path, item))
@@ -83,10 +81,10 @@ class FileActions(object):
                                extension + ' extension ended')
                         download_end = True
                 print (str(time_waited) + "sec download")
-        assert elements_count > 0
 
 
 class RandomGenerate(object):
+
     def random_betweenValue(self, first_value, last_value):
         return random.randint(first_value, last_value)
 
@@ -127,8 +125,8 @@ class RandomGenerate(object):
 
 
 class ValueGenerate(object):
-    # Генерирует значения промежуточные значения
-    # между first_value и second_value
+
+    # Генерирует значения промежуточные значения между first_value и second_value
     def values_in_range(self, first_value, second_value):
         for values in range(first_value, second_value):
             return values

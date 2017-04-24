@@ -14,7 +14,6 @@ Scenario: 1: Add new request
   Then push button what named 'Submit'
   Then locate text 'Need it Fast? Promote it'
   Then push link 'Skip'
-  Then locate text 'Upvote'
   Then click logo icon8
 
 Scenario: Check created idea
@@ -57,29 +56,8 @@ Scenario: 4: Check list of All Icon Request
   Then check ideas list
   Then click logo icon8
 
-#Scenario: Buy fast track page
-#Scenario: 5: Buy fast track page
-  #Then click logo icon8
-  #Then push link in navigation menu 'Request'
-  #Then click 'Fast for $199/year' request icon menu
-  #Then locate text 'How Fast'
-  #Then locate image '/static/images/request/fast-track.jpg'
-  #Then locate text 'Limitations'
-  #Then locate text 'You can only order one icon every two days'
-  #Then locate text 'Icons should be generic'
-  #Then locate text 'Good For Fast Track'
-  #Then locate text 'Bad For Fast Track'
-  #Then locate image '/static/images/request/fast-track-good.jpg'
-  #Then locate image '/static/images/request/fast-track-bad.jpg'
-  #Then locate text '2Checkout.com Inc'
-  #Then locate text 'If you need a specific icon'
-  #Then push link 'Buy Fast Track'
-  #Then locate text 'Fast Track'
-  #Then locate text 'Unit Price'
-  #Then go to Main page
-
 Scenario: Fastest for $50 page
-Scenario: 6: Fastest for $50 page
+Scenario: 5: Fastest for $50 page
   Then click logo icon8
   Then push link in navigation menu 'Request'
   Then click 'Fastest for $50/icon' request icon menu

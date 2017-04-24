@@ -14,9 +14,10 @@ Scenario: Simple download icon
 Scenario: 2: Simple download icon
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.png' file
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -24,13 +25,14 @@ Scenario: Download PNG 50 px
 Scenario: 3: Download PNG 50 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then move mouse to 'right bar' element
   Then choose '1' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.png' file
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -38,12 +40,13 @@ Scenario: Download PNG 100 px
 Scenario: 4: Download PNG 100 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then choose '2' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.png' file
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -51,12 +54,13 @@ Scenario: Download PNG 500 px
 Scenario: 5: Download PNG 500 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then choose '3' button in download pop-up
   Then choose 'PNG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.png' file
   Then check and delete '.png' file by extension
   Then go to Main page
 
@@ -64,13 +68,14 @@ Scenario: Download SVG 50 px
 Scenario: 6: Download SVG 50 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then move mouse to 'right bar' element
   Then choose '1' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.svg' file
   Then check and delete '.svg' file by extension
   Then go to Main page
 
@@ -78,12 +83,13 @@ Scenario: Download SVG 100 px
 Scenario: 7: Download SVG 100 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then choose '2' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.svg' file
   Then check and delete '.svg' file by extension
   Then click logo icon8
 
@@ -91,12 +97,13 @@ Scenario: Download SVG 500 px
 Scenario: 8: Download SVG 500 px
   Then go to Main page
   Then push link in navigation menu 'Icons'
+  Then click 'first icon in result' button
   Then click 'Open download icon pop-up' button
   Then choose '3' button in download pop-up
   Then choose 'SVG' download icon type in download pop-up
   Then click 'Download in icon bar' button
   Then try push text 'Free Download'
-  Then sleep '30' seconds
+  Then wait '.svg' file
   Then check and delete '.svg' file by extension
   Then go to Main page
 
@@ -139,43 +146,3 @@ Scenario: 8: Download SVG 500 px
   #Then sleep '30' seconds
   #Then check and delete '.eps' file by extension
   #Then go to Main page
-
-#Scenario: Download PDF 50 px
-#Scenario: 12: Download PDF 50 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then move mouse to 'right bar' element
-  #Then choose '1' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '30' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8
-
-#Scenario: Download PDF 100 px
-#Scenario: 13: Download PDF 100 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then choose '2' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '30' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8
-
-#Scenario: Download PDF 500 px
-#Scenario: 14: Download PDF 500 px
-  #Then click logo icon8
-  #Then push link in navigation menu 'Icons'
-  #Then click 'Open download icon pop-up' button
-  #Then choose '3' button in download pop-up
-  #Then choose 'PDF' download icon type in download pop-up
-  #Then click 'Download in icon bar' button
-  #Then try push text 'Free Download'
-  #Then sleep '30' seconds
-  #Then check and delete '.pdf' file by extension
-  #Then click logo icon8

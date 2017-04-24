@@ -150,6 +150,7 @@ Scenario: 12: Logout and assertion
   Then click logo icon8
   Then locate text 'Mein Konto'
   Then push link Logout
+  Then click logo icon8
   Then push link 'Anmelden'
   Then locate text 'Bei Icons8 anmelden'
   Then locate text 'Passwort vergessen?'

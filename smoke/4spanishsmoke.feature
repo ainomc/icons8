@@ -147,5 +147,6 @@ Scenario: Logout feature
 Scenario: 12: Logout and assertion
   Then click logo icon8
   Then locate text 'Mi cuenta'
+  Then click logo icon8
   Then push link Logout
   Then push link 'Registrarse'

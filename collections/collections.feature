@@ -40,7 +40,7 @@ Scenario: 3: Get Font
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'Get Font' button
-  Then sleep '30' seconds
+  Then wait '.zip' file
   Then check and delete '.zip' file by extension
   Then click logo icon8
 
@@ -51,7 +51,7 @@ Scenario: 4: Get SVG set
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'Get SVG Set' button
-  Then sleep '30' seconds
+  Then wait '.zip' file
   Then check and delete '.zip' file by extension
   Then click logo icon8
 
@@ -78,9 +78,6 @@ Scenario: 6: Change color (greyscale, color, custom, color palete)
   Then locate 'gray colors' element in color pop-up
   Then locate 'not gray colors' element in color pop-up
   Then click 'color palette' button
-  Then locate 'color_palette' element in color pop-up
-  Then locate 'canvas' element in color pop-up
-  Then click logo icon8
 
 Scenario: Add second collections
 Scenario: 7: Add second collections
@@ -111,4 +108,3 @@ Scenario: 8: Delete collections
   Then click 'delete collection menu' button
   Then delete all 'collections' elements
   Then click logo icon8
-

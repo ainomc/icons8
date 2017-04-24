@@ -165,6 +165,7 @@ Scenario: Logout feature
 Scenario: 13: Logout and assertion
   Then click logo icon8
   Then push link Logout
+  Then click logo icon8
   Then locate text 'Login'
   Then locate text 'Register'
 

@@ -6,19 +6,14 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from settings import settings_test as settings
-# from api_method import delete_data
 from sys import platform
 import time
 import os
 
 # выбор папки загрузки фалов
-if "win" in platform:
-    path_to_download_folder = os.path.join(' ', 'download_tests')
-    path_to_test_folder = os.getcwd()
-    download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-elif "linux" in platform:
-    download_folder_path = "$WORKSPACE/var/lib/jenkins/workspace/Icons8Selenium/download_tests"
-    print (download_folder_path + " << download_folder_path")
+path_to_download_folder = os.path.join(' ', 'download_tests')
+path_to_test_folder = os.getcwd()
+download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
@@ -59,15 +54,12 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     Функция для логина в аккаунте.
     Ввести логин и пароль, нажать "Login"
     '''
-    # неявные ожидания
-    # context.browser.implicitly_wait(120)
     print ('I try to login into account...')
 
     context.browser.get(server)
     context.browser.find_element_by_link_text("Login").click()
     WebDriverWait(context.browser, 1000).until(
-        EC.presence_of_element_located((By.ID, 'RegisterForm_email'))
-    )
+        EC.presence_of_element_located((By.ID, 'RegisterForm_email')))
     context.browser.find_element_by_id("RegisterForm_email").clear()
     context.browser.find_element_by_id("RegisterForm_email").send_keys(login)
     context.browser.find_element_by_id("RegisterForm_password").clear()
@@ -79,8 +71,7 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     text = text.decode('utf-8')
     WebDriverWait(context.browser, 1000).until(
         EC.presence_of_element_located(
-            (By.XPATH, "//*[@id='home-app']/div[2]/div/h2"))
-    )
+            (By.XPATH, "//*[@id='home-app']/div[2]/div/h2")))
 
     time.sleep(2)
 
@@ -103,7 +94,8 @@ def make_driver(context):
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
                            '''application/x-msdos-program, application/octet-stream, image/png,
                            image/svg+xml, application/postscript, application/eps, application/x-eps,
-                           image/eps, image/x-eps, text/plain, application/download, application/zip''')
+                           image/eps, image/x-eps, text/plain, application/download, application/zip,
+                           application/unknown, text/html''')
     context.list_ud = list()
     context.stand = STAND
     # выбор профиля
@@ -119,6 +111,7 @@ def make_driver(context):
         binary = FirefoxBinary(path_to_binary)
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)
+    context.browser.implicitly_wait(20)
     context.browser.maximize_window()
     # вызываем логин-фичу
     try:
@@ -133,13 +126,7 @@ def before_step(context, step):
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
     '''
-    time.sleep(0.5)
-    # текст, который показан, когда на странице есть блок загрузки.
-    load_page_text = 'Загрузка'
-    sleep_while_show_text(context, load_page_text)
-    # текст, который показан, когда на странице есть блок сохранения.
-    load_page_text = 'Сохранение'
-    sleep_while_show_text(context, load_page_text)
+    time.sleep(0.1)
 
 
 def before_all(context):
@@ -172,8 +159,7 @@ def after_feature(context, feature):
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
     '''
-    # Вызвать функцию для подготовки данных,
-    # которая вызовет api-metod для удаление УД.
+    # Вызвать функцию для подготовки данных, которая вызовет api-metod для удаление УД.
     # delete_saved_document(context)
     try:
         context.browser.quit()

@@ -147,6 +147,8 @@ Scenario: 12: Logout and assertion
   Then click logo icon8
   Then locate text 'Личный кабинет'
   Then push link Logout
+  Then click logo icon8
+  Then locate text 'Вход'
   Then push link 'Вход'
   Then locate text 'Вход в Icons8'
   Then locate text 'Забыли пароль?'

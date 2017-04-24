@@ -18,44 +18,28 @@ from actions import *
 
 now = datetime.today()
 
-TIME_FOR_WAIT = 30
-
 SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
 
-
-
-
 # Проверки на присутствия
 class LocateActions(Page):
 
     # Найти видимиый текст что содержит в себе
-    def locate_text(self, text, time_for_search=TIME_FOR_WAIT):
-        WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, '//*[contains(text(), "%s")]' % text)))
-        assert self.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
+    def locate_text(self, text):
+        self.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
 
     # Найти видимиый текст
-    def locate_concrete_text(self, text, time_for_search=TIME_FOR_WAIT):
-        WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, '//*[text()="%s"]' % text)))
-        assert self.browser.find_element_by_xpath('//*[text()="%s"]' % text)
-
+    def locate_concrete_text(self, text):
+        self.browser.find_element_by_xpath('//*[text()="%s"]' % text)
 
     # Найти видимиый элемент по xpath
-    def locate_element(self, xpath, time_for_search=TIME_FOR_WAIT):
-        WebDriverWait(self.browser, time_for_search).until(
-            EC.presence_of_element_located((By.XPATH, xpath)))
-        element = self.browser.find_element_by_xpath(xpath)
-        self.movementActions = MovementActions(self)
-        self.movementActions.scroll_element_into_view(element)
-        assert self.browser.find_element_by_xpath(xpath)
+    def locate_element(self, xpath):
+        self.browser.find_element_by_xpath(xpath)
 
     # проверяет, что элемент отсутствует.
     def absent_element(self, xpath):
-        time.sleep(4)
         try:
             self.browser.find_element_by_xpath(xpath)
         except NoSuchElementException:
@@ -94,15 +78,15 @@ class LocateActions(Page):
     def locateElement(self, elementName):
         Value_generate = ValueGenerate()
         if elementName == 'icons result':
-            xpath = '//*[@class="icons-set"]/descendant::span[%s]' % Value_generate.values_in_range(1, 5)
+            xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 5)
         elif elementName == 'icons in result':
             xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 3)
+        elif elementName == 'first icon in collection':
+            xpath = './/*[@class="icons-set m-firefox"]/div[@draggable-type="fromLightBox"][1]'
         elif elementName == 'created first collection':
             xpath = '//*[@class="b-collections-container"]/div[1]'
         elif elementName == 'created second collection':
             xpath = '//*[@class="b-collections-container"]/div[2]'
-        elif elementName == 'first icon in collection':
-            xpath = './/*[@class="icons-set__icon"]'
         elif elementName == 'Get Font pop-up':
             xpath = '//*[@stop-events="click"]'
         elif elementName == 'Public Link':

@@ -45,13 +45,11 @@ class MovementActions(Page):
         self.browser.execute_script('window.scrollTo(0, {0})'.format(y))
 
     # Прокрутить вниз страницы
-    # Then scroll to end of the page
     def scroll_down(self):
         ##    context.browser.execute_script("window.scrollTo(0,250)", "")
-        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")  ## - old version
+        self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
     # Прокрутить в вверх страницы
-    # Then scroll to begin of the page
     def scroll_up(self):
         self.browser.execute_script("window.scrollTo(0,window.screen.availHeight);")
 
@@ -75,9 +73,9 @@ class MovementActions(Page):
 
 
 
-
 # Манипуляции с текстом
 class TextActions(Page):
+
     # Найти поле и ввести в него текст
     def input_text(self, text, field):
         self.browser.find_element_by_xpath('//*[@id="%s"]' % field).click()

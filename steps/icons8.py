@@ -94,6 +94,7 @@ def step(context):
     xpath = "//*[@href='/logout/']"
     context.clickActions = ClickActions(context)
     context.clickActions.click_on_xpath(xpath)
+    time.sleep(3)
 
 # Then push link request icons
 @then("push link Request icons")
@@ -580,6 +581,12 @@ def step(context, extension):
 
 # Then wait start download of '{extension}' file
 @then("wait start download of '{extension}' file")
+def step(context, extension):
+    x = context
+    File_actions.wait_presents_file(extension)
+
+# Then wait '{extension}' file
+@then("wait '{extension}' file")
 def step(context, extension):
     x = context
     File_actions.wait_presents_file(extension)
