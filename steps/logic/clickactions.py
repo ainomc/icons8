@@ -1,44 +1,31 @@
 # -*- coding: utf-8 -*-
-from behave import *
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, \
-    StaleElementReferenceException, ElementNotVisibleException
-from datetime import datetime, timedelta
+from selenium.common.exceptions import StaleElementReferenceException, NoSuchElementException
 import time
 import os
 from settings import settings_test as settings
 from selenium.webdriver.common.action_chains import ActionChains
-from generators import *
-from actions import *
-from locateactions import *
+from locateactions import Page, LocateActions
+from generators import ValueGenerate
 
 
-now = datetime.today()
-
-TIME_FOR_WAIT = 30
-SERVER = settings['server']
-LOGIN = settings['login']
-PASSWORD = settings['password']
-STAND = settings['stand_number']
-
-
-# Различные нклики
 class ClickActions(Page):
+    """Различные клики"""
 
-    # Кликнуть на линк
     def click_on_link(self, link):
+        """Click contains text"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//*[contains(text(), "%s")][1]' % link))).click()
         except:
             self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
 
-
-    # Кликнуть на линк
     def try_click_on_link(self, link):
+        """Try contains text"""
         while True:
             try:
                 self.browser.find_element_by_xpath('//*[contains(text(), "%s")][1]' % link).click()
@@ -46,39 +33,40 @@ class ClickActions(Page):
             except StaleElementReferenceException:
                 continue
 
-    # Наимает на кнопку в главном иеню в хедере. Типы вводных 'Icons', 'Download', 'Request', 'Buy', 'Resources'
     def clickHeaderNavMenu(self, buttonName):
+        """Наимает на кнопку в главном иеню в хедере.
+        Типы вводных 'Icons', 'Download', 'Request', 'Buy', 'Resources'
+        """
         Xpath = '//*[@class="b-menu"]/descendant::span[contains(text(), "%s")]' % buttonName
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(Xpath)
 
-    # Кликнуть на линк
     def clickButtonText(self, link):
+        """Click text"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//*[text()="%s"]' % link))).click()
         except:
             self.browser.find_element_by_xpath('//*[text()="%s"]' % link).click()
 
-    # Кликнуть на линк
     def click_text_with_div(self, link):
+        """Click text with div"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//div[contains(text(), "%s")][1]' % link))).click()
         except:
             self.browser.find_element_by_xpath('//div[contains(text(), "%s")][1]' % link).click()
 
-
-    # Кликнуть на линк
     def click_on_xpath(self, xpath):
+        """Click xpath"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, xpath))).click()
         except:
             self.browser.find_element_by_xpath(xpath).click()
 
-    # Передвигает курсор и кликает
     def moveAndClick(self, move_to, button):
+        """Передвигает курсор и кликает"""
         def logic():
             time.sleep(4)
             moveTo = self.browser.find_element_by_xpath(move_to)
@@ -93,9 +81,8 @@ class ClickActions(Page):
         except:
             logic()
 
-    # Кликнуть на кнопку
     def click_on_button(self, button):
-        #self.browser.find_element_by_xpath('//button[.="%s"]' % button).click()
+        """Кликнуть на кнопку"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//button[.="%s"]' % button))).click()
@@ -103,32 +90,32 @@ class ClickActions(Page):
             self.browser.find_element_by_xpath('//button[.="%s"]' % button).click()
 
 
-    # Кликнуть на кнопку, найденой с помощью названия кнопки
     def click_on_button_findByName(self, name):
+        """Кликнуть на кнопку, найденой с помощью названия кнопки"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//button[contains(., "%s")]' % name))).click()
         except:
             self.browser.find_element_by_xpath('//button[contains(., "%s")]' % name).click()
 
-    # Кликнуть на вкладку
     def click_on_unactive_tab(self, tab):
+        """Кликнуть на вкладку"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % tab))).click()
         except:
             self.browser.find_element_by_xpath('//*[@class="%s"]' % tab).click()
 
-    # Кликнуть на кнопку Создать коллекцию
     def click_on_create(self, create):
+        """Кликнуть на кнопку Создать коллекцию"""
         try:
             WebDriverWait(self.browser, 1).until \
                 (EC.element_to_be_clickable((By.XPATH, '//*[@class="%s"]' % create))).click()
         except:
             self.browser.find_element_by_xpath('//*[@class="%s"]' % create).click()
 
-    # Кликает на все найденные элементы
     def clickAll(self, xpath):
+        """Кликает на все найденные элементы"""
         self.locateActions = LocateActions(self)
         count = self.locateActions.countOfElements(xpath)
         while count > 0:
@@ -136,8 +123,8 @@ class ClickActions(Page):
             self.browser.find_element_by_xpath(xpath % count).click()
             count -= 1
 
-    # Кликает на все найденные элементы и потом еще кликает на кнопку
     def clickAllAndButtons(self, xpathFirst, xpathSecond):
+        """Кликает на все найденные элементы и потом еще кликает на кнопку"""
         self.locateActions = LocateActions(self)
         count = self.locateActions.countOfElements(xpathFirst)
         while count > 0:
@@ -146,14 +133,14 @@ class ClickActions(Page):
             self.browser.find_element_by_xpath(xpathSecond).click()
             count -= 1
 
-    # Наимает на кнопку в хедере.
     def clickLogo(self):
+        """Наимает на кнопку в хедере."""
         xpath = "//*[@class='b-logo']"
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
-    # Уликнуть на элемент по уникальному xpath
     def clickButton(self, buttonName):
+        """Уликнуть на элемент по уникальному xpath"""
         Value_generate = ValueGenerate()
         if buttonName == 'search':
             xpath = '//*[@class="b-search-btn"]'
@@ -238,9 +225,8 @@ class ClickActions(Page):
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
-    # Кликнуть на элемент по уникальному xpath
     def try_click_button(self, buttonName):
-        Value_generate = ValueGenerate()
+        """Кликнуть на элемент по уникальному xpath"""
         if buttonName == 'got it':
             xpath = '''.//*[@ng-repeat="(title, action) in message.actions"]'''
         try:
@@ -249,38 +235,30 @@ class ClickActions(Page):
         except:
             pass
 
-    # Кликает на элемент с ng-if
     def clickFindByNg_if(self, ng_if_locator):
+        """Кликает на элемент с ng-if"""
         xpath = '//*[@ng-if="%s"]' % ng_if_locator
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
-    # Выбрать тип/формат скачиваемой иконки
     def click_download_icontype(self, icon_type):
-        if icon_type == 'PNG':
-            number = 1
-        elif icon_type == 'SVG':
-            number = 2
-        elif icon_type == 'EPS':
-            number = 3
-        elif icon_type == 'PDF':
-            number = 4
-        elif icon_type == 'Font':
-            number = 5
-        elif icon_type == 'SVG set':
-            number = 6
+        """Выбрать тип/формат скачиваемой иконки"""
+        dict = {'PNG': 1, 'SVG': 2, 'EPS': 3,
+                'PDF': 4, 'Font': 5, 'SVG set': 6}
         time.sleep(5)
-        xpath = './/*[@class="c-list m-nooverflow b-format"]/*[%s]' % number
+        xpath = './/*[@class="c-list m-nooverflow b-format"]/*[%s]' % dict.get(icon_type)
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
-    # Выбрать размер скачиваемой иконки
     def click_download_iconsize(self, icon_size_button):
+        """Выбрать размер скачиваемой иконки"""
         xpath = './/*[@class="b-bar-content m-icon-preview"]/descendant::*[@class="c-list m-nooverflow"]/*[%s]' % icon_size_button
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
     def try_gotit(self):
+        """try 'got it'  c;ick"""
+
         try:
             self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]')
             self.browser.find_element_by_xpath('//*[@ng-click="action(message, icons8Messages.service, this)"]').click()
@@ -289,6 +267,7 @@ class ClickActions(Page):
             pass
 
     def try_click_text(self, link):
+        """try click text"""
         try:
             while True:
                 try:

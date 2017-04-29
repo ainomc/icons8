@@ -1,20 +1,4 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
-from settings import settings_test as settings
-from sys import platform
-import time
-import os
-
-# выбор папки загрузки фалов
-path_to_download_folder = os.path.join(' ', 'download_tests')
-path_to_test_folder = os.getcwd()
-download_folder_path = path_to_test_folder + path_to_download_folder[1:]
-
 '''
 Файл environment.py устанавливает верхний слой окружения для behave.
 Тут можно объявить переменные,
@@ -26,27 +10,27 @@ download_folder_path = path_to_test_folder + path_to_download_folder[1:]
 Узнай больше на http://pythonhosted.org/behave/.
 '''
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from settings import settings_test as settings
+from sys import platform
+import time
+import os
+
+# Choose download folder
+path_to_download_folder = os.path.join(' ', 'download_tests')
+path_to_test_folder = os.getcwd()
+download_folder_path = path_to_test_folder + path_to_download_folder[1:]
+
 # Обозначить переменные выполнения (сервер, логин и пароль)
 SERVER = settings['server']
 LOGIN = settings['login']
 PASSWORD = settings['password']
 STAND = settings['stand_number']
-
-
-def sleep_while_show_text(context, text):
-    '''
-    Функция ставит выполнение на паузу, пока на экране есть указанный текст.
-    Объвлена тут для использование в before_step(), after_step().
-    Подробнее смотри в before_step().
-    '''
-    while True:
-        try:
-            context.browser.find_element_by_xpath(
-                '//*[contains(text(), "%s")]')
-        except:
-            # print ('Блок загрузки не найден!')
-            return 1
-        time.sleep(1)
 
 
 def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
@@ -56,7 +40,10 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     '''
     print ('I try to login into account...')
 
+    # Open home page url
     context.browser.get(server)
+
+    # Login
     context.browser.find_element_by_link_text("Login").click()
     WebDriverWait(context.browser, 1000).until(
         EC.presence_of_element_located((By.ID, 'RegisterForm_email')))
@@ -66,13 +53,9 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
     context.browser.find_element_by_id(
         "RegisterForm_password").send_keys(password)
     context.browser.find_element_by_name("yt0").click()
-
-    text = 'All the Icons You Need. Guaranteed.'
-    text = text.decode('utf-8')
     WebDriverWait(context.browser, 1000).until(
         EC.presence_of_element_located(
             (By.XPATH, "//*[@id='home-app']/div[2]/div/h2")))
-
     time.sleep(2)
 
     print ('DONE!')
@@ -87,6 +70,8 @@ def make_driver(context):
     '''
     # использовать конкретные бинарники
     print ('Opening browser now!')
+
+    # Driver profile
     profile = FirefoxProfile()
     profile.set_preference("browser.download.folderList", 2)
     profile.set_preference("browser.download.manager.showWhenStarting", False)
@@ -98,7 +83,8 @@ def make_driver(context):
                            application/unknown, text/html''')
     context.list_ud = list()
     context.stand = STAND
-    # выбор профиля
+
+    # Choose profile
     if "win" in platform:
         context.browser = webdriver.Firefox(firefox_profile=profile)
     elif "linux" in platform:
@@ -107,13 +93,14 @@ def make_driver(context):
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)
     else:
-        path_to_binary = getcwd() + '/steps/data/firefox/firefox'
+        path_to_binary = os.getcwd() + '/steps/data/firefox/firefox'
         binary = FirefoxBinary(path_to_binary)
         context.browser = webdriver.Firefox(
             firefox_profile=profile, firefox_binary=binary)
     context.browser.implicitly_wait(20)
     context.browser.maximize_window()
-    # вызываем логин-фичу
+
+    # Login
     try:
         login(context)
     except:
@@ -175,4 +162,3 @@ def after_all(context):
     Подробнее на http://pythonhosted.org/behave/.
     '''
     pass
-    # context.browser.quit()

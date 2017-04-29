@@ -1,53 +1,35 @@
 # -*- coding: utf-8 -*-
-from behave import *
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import NoSuchElementException, TimeoutException, StaleElementReferenceException
-from datetime import datetime, timedelta
-import selenium.webdriver.common.action_chains as AC
-import time
-import os
-from settings import settings_test as settings
-from selenium.webdriver.common.action_chains import ActionChains
-from generators import *
-from actions import *
+
+from selenium.common.exceptions import NoSuchElementException
+from actions import Page
+from generators import ValueGenerate
 
 
-now = datetime.today()
-
-SERVER = settings['server']
-LOGIN = settings['login']
-PASSWORD = settings['password']
-STAND = settings['stand_number']
-
-# Проверки на присутствия
 class LocateActions(Page):
+    """Проверки на присутствия"""
 
-    # Найти видимиый текст что содержит в себе
     def locate_text(self, text):
+        """Найти видимиый текст что содержит в себе"""
         self.browser.find_element_by_xpath('//*[contains(text(), "%s")]' % text)
 
-    # Найти видимиый текст
     def locate_concrete_text(self, text):
+        """Найти видимиый текст"""
         self.browser.find_element_by_xpath('//*[text()="%s"]' % text)
 
-    # Найти видимиый элемент по xpath
     def locate_element(self, xpath):
+        """Найти видимиый элемент по xpath"""
         self.browser.find_element_by_xpath(xpath)
 
-    # проверяет, что элемент отсутствует.
     def absent_element(self, xpath):
+        """Проверяет, что элемент отсутствует."""
         try:
             self.browser.find_element_by_xpath(xpath)
         except NoSuchElementException:
             return True
         return False
 
-    # Возвращае колличество єлементов
     def countOfElements(self, xpath):
+        """Возвращае колличество єлементов"""
         count = 0
         elementNumber = 1
         while True:
@@ -61,9 +43,8 @@ class LocateActions(Page):
                 break
         return count
 
-    # Try click xpath > then click xpath > then find another xpath
     def tryFindClickFind(self, try_find, click, find_second):
-        # Тут импорт, чтобы не было циклического импорта с clickactions.py
+        """Try click xpath > then click xpath > then find another xpath"""
         from clickactions import ClickActions
         try:
             self.browser.find_element_by_xpath(try_find)
@@ -74,8 +55,8 @@ class LocateActions(Page):
         except NoSuchElementException:
             pass
 
-    # Найти элемент по уникальному xpath
     def locateElement(self, elementName):
+        """Найти элемент по уникальному xpath"""
         Value_generate = ValueGenerate()
         if elementName == 'icons result':
             xpath = '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]' % Value_generate.values_in_range(1, 5)
@@ -113,5 +94,4 @@ class LocateActions(Page):
             xpath = '''.//*[@ng-if="vm.gridState.state == 'table'"]'''
         self.locateActions = LocateActions(self)
         self.locateActions.locate_element(xpath)
-
 
