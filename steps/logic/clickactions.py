@@ -74,7 +74,7 @@ class ClickActions(Page):
             action = webdriver.ActionChains(self.browser)
             action.move_to_element(moveTo)
             action.perform()
-            time.sleep(7)
+            time.sleep(4)
             click_button.click()
         try:
             logic()
