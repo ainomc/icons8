@@ -28,22 +28,22 @@ class LocateActions(Page):
             return True
         return False
 
-    def countOfElements(self, xpath):
+    def element_count(self, xpath):
         """Возвращае колличество єлементов"""
         count = 0
-        elementNumber = 1
+        element_number = 1
         while True:
             try:
                 print (str(count))
-                self.browser.find_element_by_xpath(xpath % elementNumber)
+                self.browser.find_element_by_xpath(xpath % element_number)
                 count += 1
-                elementNumber += 1
+                element_number += 1
             except NoSuchElementException:
                 print (str(count) + ' - number of elements')
                 break
         return count
 
-    def tryFindClickFind(self, try_find, click, find_second):
+    def try_find_click_find(self, try_find, click, find_second):
         """Try click xpath > then click xpath > then find another xpath"""
         from clickactions import ClickActions
         try:
@@ -55,8 +55,7 @@ class LocateActions(Page):
         except NoSuchElementException:
             pass
 
-
-    def locateElement(self, elementName):
+    def locate_locator(self, locator_name):
         """Найти элемент по уникальному xpath"""
         self.locateActions = LocateActions(self)
-        self.locateActions.locate_element(locators_dict.get(elementName))
+        self.locateActions.locate_element(locators_dict.get(locator_name))

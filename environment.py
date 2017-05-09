@@ -68,6 +68,7 @@ def make_driver(context):
     в отдельном браузере.
     P.S. в таком случае, не забыть в after_feature закрывать браузер.
     '''
+
     # использовать конкретные бинарники
     print ('Opening browser now!')
 
@@ -77,9 +78,12 @@ def make_driver(context):
     profile.set_preference("browser.download.manager.showWhenStarting", False)
     profile.set_preference("browser.download.dir", download_folder_path)
     profile.set_preference("browser.helperApps.neverAsk.saveToDisk",
-                           '''application/x-msdos-program, application/octet-stream, image/png,
-                           image/svg+xml, application/postscript, application/eps, application/x-eps,
-                           image/eps, image/x-eps, text/plain, application/download, application/zip,
+                           '''application/x-msdos-program, 
+                           application/octet-stream, image/png, 
+                           image/svg+xml, application/postscript, 
+                           application/eps, application/x-eps, 
+                           image/eps, image/x-eps, text/plain, 
+                           application/download, application/zip, 
                            application/unknown, text/html''')
     context.list_ud = list()
     context.stand = STAND
@@ -134,7 +138,8 @@ def before_feature(context, feature):
 
 
 def after_scenario(context, scenario):
-    # getcwd()+'/screenshot_failed/'+time.strftime('Date and time: %d/%m/%y %H:%M') + scenario.name +'.png'
+    # getcwd()+'/screenshot_failed/'
+    # +time.strftime('Date and time: %d/%m/%y %H:%M') + scenario.name +'.png'
     name_screenshot = 'error in scenario: ' + scenario.name + '.png'
     name_screenshot = name_screenshot.replace(" ", "_")
     if scenario.status != 'passed':
@@ -146,8 +151,7 @@ def after_feature(context, feature):
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
     '''
-    # Вызвать функцию для подготовки данных, которая вызовет api-metod для удаление УД.
-    # delete_saved_document(context)
+
     try:
         context.browser.quit()
     except:

@@ -9,7 +9,8 @@ locators_dict = {
                             % Value_generate.values_in_range(1, 5),
 'icons in result': '//div[@class="b-subcategory-wrapper"][1]/descendant::a[%s]'
                    % Value_generate.values_in_range(1, 3),
-'first icon in collection': './/*[@class="icons-set m-firefox"]/div[@draggable-type="fromLightBox"][1]',
+'first icon in collection': './/*[@class="icons-set m-firefox"]/'
+                            'div[@draggable-type="fromLightBox"][1]',
 'created first collection': '//*[@class="b-collections-container"]/div[1]',
 'created second collection': '//*[@class="b-collections-container"]/div[2]',
 'Get Font pop-up': '//*[@stop-events="click"]',
