@@ -26,18 +26,19 @@ Scenario: 1: Request new icon without login
   Then locate text 'Skip'
   Then click logo icon8
 
-Scenario: Register
-Scenario: 2: login during Register
-  Then go to Main page
-  Then push link Logout
-  Then go to Main page
-  Then push link 'Register'
-  Then locate text 'Register at Icons8'
-  Then add 'email' text to 'RegisterForm_email' field
-  Then add 'password' text to 'RegisterForm_password' field
-  Then click 'Register' element
-  Then locate text 'My Account'
-  Then go to Main page
+#Scenario: Register
+#Scenario: 2: login during Register
+  #Then go to Main page
+  #Then push link Logout
+  #Then go to Main page
+  #Then push link 'Register'
+  #Then locate text 'Register at Icons8'
+  #Then add 'email' text to 'RegisterForm_email' field
+  #Then add 'password' text to 'RegisterForm_password' field
+  #Then click 'Register' element
+  #Then sleep '10' seconds
+  #Then locate text 'My Account'
+  #Then go to Main page
 
 Scenario: Buy
 Scenario: 3: login during  free Buy

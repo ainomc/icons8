@@ -80,7 +80,6 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Todos los iconos que necesitas. '
   Then locate text 'Populares'
   Then locate text 'Ver todo'
-  Then locate text 'Funciones para diseñadores de interfaces'
   Then locate text 'Un mismo estilo'
   Then locate text 'Vectores editables'
   Then locate text 'Cambia el color'

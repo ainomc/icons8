@@ -77,7 +77,6 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Alle Icons, die du brauchst'
   Then locate text 'Am beliebtesten'
   Then locate text 'Alle anzeigen'
-  Then locate text 'Features für UI Designer'
   Then locate text 'Konsistente Stilrichtung'
   Then locate text 'Editierbare Vektorengrafiken '
   Then locate text 'Icons umfärben'

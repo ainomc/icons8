@@ -30,7 +30,7 @@ Scenario: 3: Open Privacy Policy (Конфиденциальность) page and
 Scenario: Free license
 Scenario: 4: Open Free license page (Бесплатные иконки) and assertion
   Then click logo icon8
-  Then push link 'Бесплатные иконки'
+  Then click 'Бесплатные иконки' button
   Then scroll to end of the page
   Then locate text 'Иконки — бесплатно'
   Then locate text 'Зачем ставить ссылку?'
@@ -78,7 +78,6 @@ Scenario: 7: Open Application page and assertion
   Then locate text 'Все иконки, которые потребуются'
   Then locate text 'Самые популярные'
   Then locate text 'Посмотреть все'
-  Then locate text 'Возможности для дизайнеров'
   Then locate text 'В одном стиле'
   Then locate text 'Редактируемые'
   Then locate text 'Перекрашивание иконки'

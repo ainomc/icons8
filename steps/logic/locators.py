@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 """Locators for tests"""
 
 from generators import ValueGenerate
@@ -69,5 +70,6 @@ locators_dict = {
 'Free buy': './/*[@class="b-license m-order-1"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]',
 'Service Integration buy': './/*[@class="b-license m-order-2"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]',
 'icon8 app in download pop-up': './/*[@class="c-big-menu c-big-menu-narrow active"]/descendant::*[@href="/app"]',
-'Download menu': './/*[@for="big-menu-download"]'
+'Download menu': './/*[@for="big-menu-download"]',
+u'Бесплатные иконки': u'.//span[contains(text(), "Бесплатные иконки")][1]'
 }

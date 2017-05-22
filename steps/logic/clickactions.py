@@ -209,4 +209,3 @@ class ClickActions(Page):
                     continue
         except:
             pass
-
