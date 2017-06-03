@@ -39,9 +39,7 @@ Scenario: 3: Get Font
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
-  Then click 'Get Font' button
-  Then wait '.zip' file
-  Then check and delete '.zip' file by extension
+  Then check locate 'Get Font' element
   Then click logo icon8
 
 Scenario: Get SVG set
