@@ -14,7 +14,7 @@ Scenario: Search on platform icons pack page
 Scenario: 2: Positive search test on iOS9 Icon Pack page
   Then click logo icon8
   Then choose 'iOS9 Icon Pack' element
-  Then locate text 'All the iOS 10 Icons You Need.'
+  Then locate text 'All the iOS 11 Icons You Need.'
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button
