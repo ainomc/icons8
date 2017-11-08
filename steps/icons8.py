@@ -47,6 +47,7 @@ def step(context, link):
 def step(context, text):
     """Then click text 'text' [div]"""
     context.clickActions = ClickActions(context)
+    time.sleep(5)
     context.clickActions.click_text_with_div(text)
 
 

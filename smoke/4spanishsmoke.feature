@@ -2,7 +2,7 @@ Feature: Open pages, login and assertions
 
 Scenario: Choose spanish localisation
 Scenario: 1: Choose spanish localisation
-  Then click logo icon8
+  Then go to Main page
   Then click 'selectLanguage' button element
   Then push link 'Spanish'
   Then click logo icon8

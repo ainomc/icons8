@@ -1,7 +1,7 @@
 Feature: Open pages, login and assertions
 Scenario: Choose russian localisation
 Scenario: 1: Choose russian localisation
-  Then click logo icon8
+  Then go to Main page
   Then click 'selectLanguage' button element
   Then click text 'Russian' [div]
 
@@ -32,7 +32,6 @@ Scenario: 4: Open Free license page (Бесплатные иконки) and asse
   Then click logo icon8
   Then click 'Бесплатные иконки' button
   Then scroll to end of the page
-  Then locate text 'Иконки — бесплатно'
   Then locate text 'Зачем ставить ссылку?'
   Then locate text 'Где ставить ссылку?'
   Then locate text 'Веб-сайты'

@@ -1,7 +1,7 @@
 Feature: Collections
 Scenario: Presents collections screen
 Scenario: 1: Presents collections screen
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then try click 'got it' button
@@ -11,11 +11,10 @@ Scenario: 1: Presents collections screen
   Then locate text 'Store collections'
   Then locate text 'Drag’n drop icons'
   Then locate text 'Upload SVG'
-  Then click logo icon8
 
 Scenario: Create first collections and add collection
 Scenario: 2: Create first collections and add collection
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
@@ -35,37 +34,34 @@ Scenario: 2: Create first collections and add collection
 
 Scenario: Get Font
 Scenario: 3: Get Font
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
   Then check locate 'Get Font' element
-  Then click logo icon8
 
 Scenario: Get SVG set
 Scenario: 4: Get SVG set
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'Get SVG Set' button
   Then wait '.zip' file
   Then check and delete '.zip' file by extension
-  Then click logo icon8
 
 Scenario: Create Public Link
 Scenario: 5: Create Public Link
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'open public link pop-up' button
   Then locate text 'Share the collection with your'
-  Then click logo icon8
 
 Scenario: Change color (greyscale, color, custom, color palete)
 Scenario: 6: Change color (greyscale, color, custom, color palete)
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
@@ -79,7 +75,7 @@ Scenario: 6: Change color (greyscale, color, custom, color palete)
 
 Scenario: Add second collections
 Scenario: 7: Add second collections
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
@@ -99,10 +95,9 @@ Scenario: 7: Add second collections
 
 Scenario: Delete collections
 Scenario: 8: Delete collections
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then click got it pop-up
   Then click 'Collections' button
   Then click 'delete collection menu' button
   Then delete all 'collections' elements
-  Then click logo icon8

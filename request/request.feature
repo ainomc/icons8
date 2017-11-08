@@ -1,7 +1,7 @@
 Feature: Request
 Scenario: Add request
 Scenario: 1: Add new request
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Request'
   Then push button what named 'Request Icon'
   Then locate text 'Merchant account'

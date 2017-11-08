@@ -34,7 +34,7 @@ locators_dict = {
 'search': '//*[@class="b-search-btn"]',
 'search platform filter': './/*[@class="b-bar-menus m-fix-c-list"]/*[1]/*[%s]'
                               % Value_generate.values_in_range(2, 8),
-'first icon in result': '//div[@class="b-subcategory-wrapper"][1]/descendant::a[1]',
+'first icon in result': './/*[@class="b-subcategory-wrapper"][1]/descendant::span[1]',
 'search category': './/*[@class="b-bar-menus-menu m-scrollable"]/descendant::a[%s]'
                        % Value_generate.values_in_range(3, 50),
 'new icons search category':
@@ -42,7 +42,8 @@ locators_dict = {
 'Paypal': '''.//*[@id='page-app']/modals/descendant::*[@class="b-payment-description"]''',
 'Credit cards': '''.//*[@id='page-app']/modals/descendant::*[@class="b-payment-svg xxxx"]''',
 'Download for Windows': '//*[@click-need-register="//icons8.com/downloader/?pack=appWin"]',
-'Collections': '//span[contains(., "Collections")]',
+#'Collections': '//span[contains(., "Collections")]',
+'Collections': './/div[@class="b-tabs"]/span[2]',
 'Create collections': './/*[@ng-click="vm.createCollection();"]',
 'confirm name': './/*[@ng-if="vm.collectionRenaming"]/*[@ng-click="vm.renameCollection()"]/*',
 'delete collection menu': '''.//*[@ng-class="{'m-edit': collectionsEdit}"]''',
@@ -58,9 +59,9 @@ locators_dict = {
 'icon in tag page': '//span[@class="icons-set_element"][1]',
 'choose size of PNG': '//*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]',
 'Download for Windows': "//*[@id='home-app']/div[1]/div[2]/div/div/div[1]/div/a",
-'Download in icon bar': './/*[@class="b-bar-btns m-icon"]/*[1]',
+'Download in icon bar': './/*[@class="c-btn m-download"]',
 'Download in icon bar esp': './/*[@class="b-bar-btns m-icon m-single-btn"]/*[1]',
-'Open download icon pop-up': './/*[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]',
+'Open download icon pop-up': './/div[@class="icon-format-item icon-format-dropdown off-click-dropdownsize m-center"]',
 'Edit name': './/div[@i8-simple-tooltip="Edit name"]',
 'Got it': './/div[@class="c-btn b-message-button"]',
 'Profile': '//a[contains(text(), "Profile")][1]',
@@ -71,5 +72,6 @@ locators_dict = {
 'Service Integration buy': './/*[@class="b-license m-order-2"]/descendant::*[@class="c-btn m-pricing ng-binding ng-isolate-scope"]',
 'icon8 app in download pop-up': './/*[@class="c-big-menu c-big-menu-narrow active"]/descendant::*[@href="/app"]',
 'Download menu': './/*[@for="big-menu-download"]',
+'Kostenlose Icons': '//span[text()="Kostenlose Icons"]',
 u'Бесплатные иконки': u'.//span[contains(text(), "Бесплатные иконки")][1]'
 }

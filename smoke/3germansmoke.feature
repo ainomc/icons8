@@ -1,7 +1,7 @@
 Feature: Open pages, login and assertions
 Scenario: Choose german localisation
 Scenario: 1: Choose german localisation
-  Then click logo icon8
+  Then go to Main page
   Then click 'selectLanguage' button element
   Then push link 'German'
 
@@ -30,8 +30,7 @@ Scenario: 3: Open Privacy Policy page and assertion
 Scenario: Free license
 Scenario: 4: Open Free license page and assertion
   Then click logo icon8
-  Then push link 'Kostenlose Icons'
-  Then scroll to end of the page
+  Then click 'Kostenlose Icons' button
   Then locate text 'Verwende die Icons'
   Then locate text 'Warum verlinken?'
   Then locate text 'Wohin soll der Link?'
@@ -40,7 +39,6 @@ Scenario: 4: Open Free license page and assertion
   Then locate text 'Apps für Mobile Geräte'
   Then locate text 'Open Source'
   Then click logo icon8
-
 
 Scenario: Paid license
 Scenario: 5: Open Paid license page and assertion
@@ -95,7 +93,7 @@ Scenario: 8: Open Request icons page and assertion
   Then locate text 'Populäre Ideen'
   Then locate text 'Alle Icon Ideen'
   Then locate text 'Zuletzt erstellte'
-  Then push 'Fast for $50/icon' from tabs
+  Then push 'Schnell für $50/Icon' from tabs
   Then locate text 'Wie schnell ist es?'
   Then locate text 'Wie viel kostet das?'
   Then locate text 'Wo soll ich anfangen?'
@@ -132,11 +130,9 @@ Scenario: 11: Open Web app page and assertion
   Then click logo icon8
   Then click 'selectLanguage' button element
   Then push link 'German'
+
   Then click logo icon8
-  Then click 'selectLanguage' button element
-  Then push link 'German'
-  Then click logo icon8
-  Then push link in navigation menu 'Icons'
+  Then push link in navigation menu 'Symbole'
   Then scroll to end of the page
   Then locate text 'New Icons'
   Then locate text 'Download'

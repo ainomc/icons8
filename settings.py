@@ -1,9 +1,8 @@
-# -*- coding: utf-8 -*-
-
-'''
+# _*_ coding:utf-8 _*_
+"""
 Настройки стенда.
 Сервер, логин, пароль.
-'''
+"""
 
 settings_test = {
     'login': 'ainomc+1@gmail.com',

@@ -1,7 +1,7 @@
 Feature: Search
 Scenario: Search test on main page
 Scenario: 1: Positive search test on main page
-  Then click logo icon8
+  Then go to Main page
   Then click 'search' field
   Then add 'positive text' text to 'search' field
   Then click 'search' button

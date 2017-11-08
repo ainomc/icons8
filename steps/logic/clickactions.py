@@ -53,7 +53,7 @@ class ClickActions(Page):
     def click_text_with_div(self, link):
         """Click text with div"""
         try:
-            WebDriverWait(self.browser, 1).until(EC.element_to_be_clickable(
+            WebDriverWait(self.browser, 3).until(EC.element_to_be_clickable(
                 (By.XPATH, '//div[contains(text(), "%s")][1]' % link))).click()
         except:
             self.browser.find_element_by_xpath(
@@ -140,7 +140,7 @@ class ClickActions(Page):
 
     def click_logo(self):
         """Наимает на кнопку в хедере."""
-        xpath = "//*[@class='b-logo']"
+        xpath = './/a[@class="b-logo"]/span[contains(text(), "Icons8")]'
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 
@@ -178,8 +178,7 @@ class ClickActions(Page):
 
     def click_download_iconsize(self, icon_size_button):
         """Выбрать размер скачиваемой иконки"""
-        xpath = './/*[@class="b-bar-content m-icon-preview"]/descendant::' \
-                '*[@class="c-list m-nooverflow"]/*[%s]' % icon_size_button
+        xpath = './/*[@class="b-size"]/ul/li[%s]' % icon_size_button
         self.clickActions = ClickActions(self)
         self.clickActions.click_on_xpath(xpath)
 

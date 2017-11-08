@@ -1,7 +1,7 @@
 Feature: Open pages, login and assertions
 Scenario: Open main page
 Scenario: 1: Open Main page and scroll down
-  Then click logo icon8
+  Then go to Main page
   Then scroll to end of the page
   Then locate text 'Free Apps for the Web, Mac, and Windows'
   Then locate text 'The Community Loves Icons8'
@@ -38,7 +38,7 @@ Scenario: 4: Open Free license page and assertion
   Then click logo icon8
   Then button with text 'Free License'
   Then scroll to end of the page
-  Then locate text 'Use Icons for Free'
+  Then locate text 'Use for Free'
   Then locate text 'Why to Link?'
   Then locate text 'Where to Put the Link?'
   Then locate text 'Websites'
@@ -137,18 +137,18 @@ Scenario: 10: Open We love SVG page and assertion
 
 Scenario: Web app
 Scenario: 11: Open Web app page and assertion
-  Then click logo icon8
+  Then go to Main page
   Then push link in navigation menu 'Icons'
   Then scroll to end of the page
   Then locate text 'New Icons'
   Then locate text 'Download'
   Then locate text 'Generate HTML'
   Then locate text 'Icon'
-  Then click logo icon8
+  Then go to Main page
 
 Scenario: Account/Profile
 Scenario: 12: Account/Profile
-  Then click logo icon8
+  Then go to Main page
   Then push link 'My Account'
   Then locate concrete text 'Account'
   Then locate concrete text 'Your current plan'

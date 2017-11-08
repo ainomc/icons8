@@ -51,7 +51,7 @@ class MovementActions(Page):
     def move_mouse(self, element_to):
         """Перемещает мышь та элемент"""
         if element_to == 'right bar':
-            xpath = '''//*[@i8-scroll-commander="vm.scrollCommander"]'''
+            xpath = './/*[@class="c-collections c-side-icons m-no-margin"]'
         element = self.browser.find_element_by_xpath(xpath)
         action = webdriver.ActionChains(self.browser)
         action.move_to_element(element)

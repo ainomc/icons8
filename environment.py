@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-'''
+
+"""
 Файл environment.py устанавливает верхний слой окружения для behave.
 Тут можно объявить переменные,
 которые можно будет использовать на всех уровнях,
@@ -8,8 +9,11 @@
 которые будут выполняться после шагов,
 сценариев, тэгов или фич.
 Узнай больше на http://pythonhosted.org/behave/.
-'''
+"""
 
+import os
+import time
+from sys import platform
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -17,9 +21,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from settings import settings_test as settings
-from sys import platform
-import time
-import os
 
 # Choose download folder
 path_to_download_folder = os.path.join(' ', 'download_tests')
@@ -34,14 +35,14 @@ STAND = settings['stand_number']
 
 
 def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
-    '''
+    """
     Функция для логина в аккаунте.
     Ввести логин и пароль, нажать "Login"
-    '''
+    """
     print ('I try to login into account...')
 
     # Open home page url
-    context.browser.get(server)
+    context.browser.get(server + 'logout')
 
     # Login
     context.browser.find_element_by_link_text("Login").click()
@@ -62,12 +63,12 @@ def login(context, server=SERVER, login=LOGIN, password=PASSWORD):
 
 
 def make_driver(context):
-    '''
+    """
     Создать объект-драйвер для взаимодействия с браузером.
     Можно вызывать в before_feature, если мы хотим каждый тест проводить,
     в отдельном браузере.
     P.S. в таком случае, не забыть в after_feature закрывать браузер.
-    '''
+    """
 
     # использовать конкретные бинарники
     print ('Opening browser now!')
@@ -113,26 +114,26 @@ def make_driver(context):
 
 
 def before_step(context, step):
-    '''
+    """
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
-    '''
+    """
     time.sleep(0.1)
 
 
 def before_all(context):
-    '''
+    """
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
-    '''
+    """
     pass
 
 
 def before_feature(context, feature):
-    '''
+    """
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
-    '''
+    """
     # запустить браузер для теста
     make_driver(context)
 
@@ -147,10 +148,10 @@ def after_scenario(context, scenario):
 
 
 def after_feature(context, feature):
-    '''
+    """
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
-    '''
+    """
 
     try:
         context.browser.quit()
@@ -161,8 +162,8 @@ def after_feature(context, feature):
 
 
 def after_all(context):
-    '''
+    """
     Служебная функция behave с говорящим названием.
     Подробнее на http://pythonhosted.org/behave/.
-    '''
+    """
     pass
