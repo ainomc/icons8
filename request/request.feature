@@ -12,8 +12,6 @@ Scenario: 1: Add new request
   Then locate text 'Style'
   Then choose style of request icon
   Then push button what named 'Submit'
-  Then locate text 'Need it Fast? Promote it'
-  Then push link 'Skip'
   Then click logo icon8
 
 Scenario: Check created idea

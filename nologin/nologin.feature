@@ -22,8 +22,6 @@ Scenario: 1: Request new icon without login
   Then click login button in register pop-up
   Then locate text 'Login to Getting Notified'
   Then login
-  Then locate text 'Need it Fast? Promote it'
-  Then locate text 'Skip'
   Then click logo icon8
 
 #Scenario: Register
